@@ -24,14 +24,14 @@ class Objectif
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=300)
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Enjeux", cascade={"persist"})
      */
     private $description;
     
         /**
      * @var int
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Enjeux", cascade={"persist"})
+     * @ORM\Column(name="enjeux", type="integer")
      */
     private $enjeux;
 
