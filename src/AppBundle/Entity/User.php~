@@ -218,3 +218,4 @@ class User
         return $this->roleUser;
     }
 }
+

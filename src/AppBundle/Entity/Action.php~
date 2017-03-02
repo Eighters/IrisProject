@@ -333,12 +333,12 @@ class Action
     }
 
     /**
-     * Get partiePrenanteId
+     * Get partiePrenante
      *
-     * @return int
+     * @return \AppBundle\Entity\PartiePrenante
      */
-    public function getPartiePrenanteId()
+    public function getPartiePrenante()
     {
-        return $this->partiePrenanteId;
+        return $this->partiePrenante;
     }
 }
