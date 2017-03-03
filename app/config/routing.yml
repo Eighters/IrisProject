@@ -1,3 +1,11 @@
+iris_user:
+    resource: "@IrisUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+iris_company:
+    resource: "@IrisCompanyBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
