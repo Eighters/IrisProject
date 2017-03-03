@@ -22,7 +22,7 @@ class UserController extends Controller
         // Création de l'entité User
 
         $company = new Company($repository->find(13));
-       
+        
         
         $role = new RoleUser;
         
