@@ -1,3 +1,7 @@
+iris_company:
+    resource: "@IrisCompanyBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

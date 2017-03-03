@@ -1,0 +1,7 @@
+iris_company_homepage:
+    path:     /
+    defaults: { _controller: IrisCompanyBundle:Default:index }
+
+company:
+    path:     /company
+    defaults: { _controller: IrisCompanyBundle:Company:Add }
