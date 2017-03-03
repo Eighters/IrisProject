@@ -14,10 +14,18 @@ class UserController extends Controller
     
     public function addAction(Request $request)
     {
+        $repository = $this
+        ->getDoctrine()
+        ->getManager()
+        ->getRepository('AppBundle:Company')
+        ;
         // Création de l'entité User
 
-        $company = new Company;
+        $company = new Company($repository->find(13));
+       
+        
         $role = new RoleUser;
+        
         
         $user = new User();
         $user->setCompany('CInovIt');
@@ -26,7 +34,7 @@ class UserController extends Controller
         $user->setPrenom('Yaniv');
         $user->setRoleUser($role->getId(1));
         $user->setUsername('vinayk');
-        $user->setCompany($company->getId(13));
+        $user->setCompany($company->getId($repository));
 
         // On récupère l'EntityManager
         $em = $this->getDoctrine()->getManager();
