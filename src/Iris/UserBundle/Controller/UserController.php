@@ -20,7 +20,7 @@ class UserController extends Controller
         ->getRepository('AppBundle:Company')
         ;
         // Création de l'entité User
-
+ 
         $company = new Company($repository->find(13));
         
         
