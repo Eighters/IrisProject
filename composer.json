@@ -2,7 +2,7 @@
     "name": "Iris Project",
     "license": "proprietary",
     "type": "project",
-    "description": "A free and open source, project manager tool for IT consultants."
+    "description": "A free and open source, project manager tool for IT consultants.",
     "autoload": {
         "psr-4": {
             "": "src/"
