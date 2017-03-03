@@ -29,9 +29,6 @@ class CompanyController extends Controller
         // Étape 2 : On déclenche l'enregistrement
         $em->flush();
 
-        //return $company->getRaisonSocial() . $company->getSiret() . $company->getTelephone();
-        //return $company->getSiret();
-        //return $company->getTelephone();
         return $this->render('IrisCompanyBundle:Default:index.html.twig');
         
     }

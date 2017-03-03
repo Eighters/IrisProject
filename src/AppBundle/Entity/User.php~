@@ -50,16 +50,16 @@ class User
     private $prenom;
 
     /**
-     * @var int
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Company", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Company")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $company;
 
     /**
-     * @var int
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\RoleUser", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\RoleUser")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $roleUser;
 
@@ -218,4 +218,3 @@ class User
         return $this->roleUser;
     }
 }
-
