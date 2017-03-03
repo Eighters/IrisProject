@@ -8,7 +8,7 @@ class DefaultControllerTest extends WebTestCase
 {
     public function testIndex()
     {
-        $client = static::createClient(
+        $this->$client = static::createClient(
                 array(),
                 array(
                     'HTTP_HOST' => '127.0.0.1',
