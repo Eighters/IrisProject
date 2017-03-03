@@ -7,6 +7,10 @@ php:
     - 7.0.7
     - 7.1.0
 
+before_script:
+    # Set config files
+    - cp phpunit.xml.dist phpunit.xml
+
 notifications:
     email:
         - rechad.sanehy.test@gmail.com
