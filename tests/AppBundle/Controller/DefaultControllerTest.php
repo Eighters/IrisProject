@@ -13,6 +13,7 @@ class DefaultControllerTest extends WebTestCase
                 array(
                     'HTTP_HOST' => '127.0.0.1',
                 ));
+        $this->client->followRedirects(true);
 
         $crawler = $client->request('GET', '/');
 
