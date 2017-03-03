@@ -10,11 +10,16 @@ php:
 before_script:
     # Set config files
     #- cp app/config/parameters.yml.travis app/config/parameters.yml
+    - cp app/phpunit.xml.dist app/phpunit.xml
+
+    # Install Php dependencies
+    - composer self-update
+    - composer install --prefer-dist --no-interaction
 
     # DataBase config
-    #- php app/console doctrine:database:create --env=test
-    #- php app/console doctrine:schema:create --env=test
-    #- php app/console doctrine:fixtures:load -n --env=test
+    - php app/console doctrine:database:create --env=test
+    - php app/console doctrine:schema:create --env=test
+    - php app/console doctrine:fixtures:load -n --env=test
 
 
 notifications:
