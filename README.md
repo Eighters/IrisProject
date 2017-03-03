@@ -20,8 +20,8 @@ This project is currently a school project and closed to external contributors. 
 
 Quality is fundamental for us. We constantly use tools to check the quality of the project. All results are freely available and searchable below.
 
-[![Build Status](https://travis-ci.org/Eighters/GyverProject.svg)](https://travis-ci.org/Eighters/GyverProject)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/3ea9af65-9fcb-40c1-94b8-c90ed9b26220/mini.png)](https://insight.sensiolabs.com/projects/3ea9af65-9fcb-40c1-94b8-c90ed9b26220)
+[![Build Status](https://travis-ci.org/Eighters/IrisProject.svg)](https://travis-ci.org/Eighters/IrisProject)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/a079a4e6-f3fb-43eb-b67d-8455dd5adbe9/mini.png)](https://insight.sensiolabs.com/projects/a079a4e6-f3fb-43eb-b67d-8455dd5adbe9)
 
 
 
