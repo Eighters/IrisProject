@@ -4,8 +4,8 @@ os: windows
 
 php:
     - 5.5.9
-    - 7.0.0
     - 7.1.0
+    - 7.1.2
 
 before_script:
     # Set config files
