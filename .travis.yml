@@ -1,0 +1,20 @@
+language: php
+
+os: windows
+
+php:
+    - 5.5.9
+    - '7.1'
+
+before_script:
+    # Set config files
+    - cp phpunit.xml.dist phpunit.xml
+
+    # Install Php dependencies
+    - composer self-update
+    - composer install --prefer-dist --no-interaction
+
+
+notifications:
+    email:
+        - rechad.sanehy.test@gmail.com
