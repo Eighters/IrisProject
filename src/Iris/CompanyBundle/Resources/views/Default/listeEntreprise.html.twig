@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Fiche entreprise{% endblock %}</title>
+        <title>{% block title %}Liste entreprise{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -53,11 +53,14 @@
                 <! dÃ©but fiche entreprise-->
                 <div class="container-fiche">
                     <table>
+                        {% for comp in company %}
                         <tr>
-                            <td> Nom entreprise : {{ company.raisonSocial }}</td>
-                            <td> Siret de l'entreprise : {{ company.siret }}</td>
-                            <td> Téléphone de l'entreprise : {{ company.telephone }}</td>     
+                            <td> Nom entreprise : {{ comp.raisonSocial }}</td>
+                            <td> Siret de l'entreprise : {{ comp.siret }}</td>
+                            <td> Téléphone de l'entreprise : {{ comp.telephone }}</td>     
                         </tr>
+                        {% endfor %}
+                    </table>
                     </table>
                 </div>
                 <! fin fiche entreprise-->
@@ -67,3 +70,4 @@
         {% block javascripts %}{% endblock %}
     </body>
 </html>
+

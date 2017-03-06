@@ -32,4 +32,34 @@ class CompanyController extends Controller
         return $this->render('IrisCompanyBundle:Default:index.html.twig');
         
     }
+    
+    public function showAction($id){
+        $company = $this
+        ->getDoctrine()
+        ->getRepository('AppBundle:Company')
+        ->find($id)
+        ;
+        
+        if (!$company){
+            throw $this->createNotFoundException('Aucune entreprise ne correspond a cette id');
+        }
+        
+        return $this->render('IrisCompanyBundle:Default:index.html.twig', 
+                array('company'  => $company ));
+    }
+    
+    public function showAllAction(){
+        $company = $this
+        ->getDoctrine()
+        ->getRepository('AppBundle:Company')
+        ->findAll()
+        ;
+        
+        if (!$company){
+            throw $this->createNotFoundException('Aucune entreprise n\'existe');
+        }
+        
+        return $this->render('IrisCompanyBundle:Default:listeEntreprise.html.twig', 
+                array('company'  => $company ));
+    }
 }
