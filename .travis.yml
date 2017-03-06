@@ -3,7 +3,6 @@ language: php
 os: windows
 
 php:
-    - 5.5.9
     - '7.1'
 
 before_script:
