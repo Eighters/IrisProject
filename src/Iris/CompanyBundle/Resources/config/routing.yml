@@ -5,3 +5,11 @@ iris_company_homepage:
 company:
     path:     /company
     defaults: { _controller: IrisCompanyBundle:Company:Add }
+
+iris_company_fiche:
+    path:     /fiche/{id}
+    defaults: { _controller: IrisCompanyBundle:Company:Show }
+
+iris_company_liste_fiche:
+    path:     liste/fiche
+    defaults: { _controller: IrisCompanyBundle:Company:ShowAll }

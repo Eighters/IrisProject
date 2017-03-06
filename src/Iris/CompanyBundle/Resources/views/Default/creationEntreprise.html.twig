@@ -1,0 +1,16 @@
+{# empty Twig template #}
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Fiche entreprise{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <h3>Formulaire d'entreprise</h3>
+
+        <div class="well">
+          {{ form(form) }}
+        </div>
+    </body>
+</html>
