@@ -55,18 +55,13 @@
   border-bottom: 0 solid transparent;
   border-right: 1px solid #eee;
 }
-.skin-iris .main-header > .logo:hover {
-  background-color: #fcfcfc;
-}
+
 @media (max-width: 767px) {
   .skin-iris .main-header > .logo {
     background-color: #222222;
     color: #ffffff;
     border-bottom: 0 solid transparent;
     border-right: none;
-  }
-  .skin-iris .main-header > .logo:hover {
-    background-color: #1f1f1f;
   }
 }
 .skin-iris .main-header li.user-header {
@@ -108,10 +103,14 @@
   border-left: 3px solid transparent;
   font-weight: 600;
 }
+
+.skin-iris .sidebar-menu > li > a img{
+  margin-right: 10px;
+}
 .skin-iris .sidebar-menu > li:hover > a,
 .skin-iris .sidebar-menu > li.active > a {
-  color: #000000;
-  background: #f4f4f5;
+  color: #ffffff;
+  background: #e3a639;
 }
 .skin-iris .sidebar-menu > li.active {
   border-left-color: #ffffff;
