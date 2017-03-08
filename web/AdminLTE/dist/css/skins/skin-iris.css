@@ -77,9 +77,15 @@
   box-shadow: none;
 }
 .skin-iris .wrapper,
-.skin-iris .main-sidebar,
 .skin-iris .left-side {
   background-color: #f9fafc;
+}
+
+.skin-iris .main-sidebar{
+  background-image: url('../../../../img/mountain_wallpapers.jpg');
+  background-size: cover;
+  background-repeat: none;
+  color: #fff;
 }
 .skin-iris .content-wrapper,
 .skin-iris .main-footer {
@@ -117,7 +123,7 @@
   background: #f4f4f5;
 }
 .skin-iris .sidebar a {
-  color: #444444;
+  color: #fff;
 }
 .skin-iris .sidebar a:hover {
   text-decoration: none;
