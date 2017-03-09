@@ -38,6 +38,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+       base_url: "http://127.0.0.1:8000"
 
 # Doctrine Configuration
 doctrine:
