@@ -79,3 +79,6 @@ fos_user:
     from_email:
         address: yanivkoubbi@gmail.com
         sender_name: YanivKoubbi
+    registration:
+        form:
+            type: AppBundle\Form\RegistrationType
