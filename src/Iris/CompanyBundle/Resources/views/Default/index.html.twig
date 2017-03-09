@@ -1,69 +1,17 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Fiche entreprise{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}
-            <header>
-                <! Debut du Logo-->
-                    <div id="logo">
-                    <img src="img/Logo.png">
-                    </div>
-                <! Fin du Logo-->
-
-                <! Debut du barre-recherche-->
-                    <div id="searchbar">
-
-                    <h1>What would you like to search?</h1>
-                    <form action="" class="formulaire">
-                    <input class="champ" type="text" value="Search...)"/>
-                    <input class="bouton" type="button" value=" " />
-                     
-                    </form>
-                    </div>
-                <! Fin du barre-recherche-->
-                </header>
-                <div class="container">
-                <! DÃ©but du menu-->
-                <div class="Vertical-Menu">
-                <ul id="menu-vertical">
-                    <li><a href="#">Lien menu 1</a>
-                        <ul>
-                            <li><a href="#">lien sous menu 1</a></li>
-                            <li><a href="#">lien sous menu 1</a></li>
-                            <li><a href="#">lien sous menu 1</a></li>
-                            <li><a href="#">lien sous menu 1</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Lien menu 2</a>
-                        <ul>
-                            <li><a href="#">Lien sous menu 2</a></li>
-                            <li><a href="#">Lien sous menu 2</a></li>
-                            <li><a href="#">Lien sous menu 2</a></li>
-                            <li><a href="#">Lien sous menu 2</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                </div>
-                <! fin du menu-->
-                <! dÃ©but fiche entreprise-->
-                <div class="container-fiche">
-                    <table>
-                        <tr>
-                            <td> Nom entreprise : {{ company.raisonSocial }}</td>
-                            <td> Siret de l'entreprise : {{ company.siret }}</td>
-                            <td> Téléphone de l'entreprise : {{ company.telephone }}</td>     
-                        </tr>
-                    </table>
-                </div>
-                <! fin fiche entreprise-->
-            </div>
-            
-        {% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+{% extends "::base.html.twig" %}
+{% block body %}
+    
+<! début fiche entreprise-->
+<div class="container-fiche">
+    <table>
+        <tr>
+            <td> Nom entreprise : {{ company.raisonSocial }}</td>
+            <td> Siret de l'entreprise : {{ company.siret }}</td>
+            <td> Téléphone de l'entreprise : {{ company.telephone }}</td>     
+        </tr>
+    </table>
+</div>
+<! fin fiche entreprise-->
+    
+{% endblock %}
+        

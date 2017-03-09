@@ -3,13 +3,13 @@ iris_company_homepage:
     defaults: { _controller: IrisCompanyBundle:Default:index }
 
 company:
-    path:     /company
+    path:     /entreprises/add
     defaults: { _controller: IrisCompanyBundle:Company:Add }
 
 iris_company_fiche:
-    path:     /fiche/{id}
+    path:     /entreprises/{id}
     defaults: { _controller: IrisCompanyBundle:Company:Show }
 
 iris_company_liste_fiche:
-    path:     liste/fiche
+    path:     /entreprises
     defaults: { _controller: IrisCompanyBundle:Company:ShowAll }

@@ -86,7 +86,9 @@ class CompanyController extends Controller
         ;
         
         if (!$company){
-            throw $this->createNotFoundException('Aucune entreprise n\'existe');
+            return $this->render('IrisCompanyBundle:Default:listeEntreprise.html.twig', 
+                array('company'  => $company ));
+            //throw $this->createNotFoundException('Aucune entreprise n\'existe');
         }
         
         return $this->render('IrisCompanyBundle:Default:listeEntreprise.html.twig', 
