@@ -99,7 +99,11 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="{{ base_url }}/AdminLTE/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Nom d'utilisateur</span>
+              <span class="hidden-xs">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    {{ app.user.username }}
+                
+              |</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -107,16 +111,19 @@ desired effect
                 <img src="{{ base_url }}AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Nom d'utilisateur - Poste
+                  
+                    {{ app.user.username }}
+                  
                 </p>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profil</a>
+                  <a href="{{ path('fos_user_profile_show') }}" class="btn btn-default btn-flat">Profil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Déconnexion</a>
+                  <a href="{{ path('fos_user_security_logout') }}" class="btn btn-default btn-flat">Déconnexion</a>
+                  {% endif %}
                 </div>
               </li>
             </ul>
