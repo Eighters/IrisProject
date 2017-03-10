@@ -53,7 +53,6 @@ class CompanyController extends Controller
 
         
         // À partir du formBuilder, on génère le formulaire
-        //$form = $formBuilder->getForm();
         
         // On passe la méthode createView() du formulaire à la vue
         // afin qu'elle puisse afficher le formulaire toute seule
@@ -86,9 +85,7 @@ class CompanyController extends Controller
         ;
         
         if (!$company){
-            return $this->render('IrisCompanyBundle:Default:listeEntreprise.html.twig', 
-                array('company'  => $company ));
-            //throw $this->createNotFoundException('Aucune entreprise n\'existe');
+            throw $this->createNotFoundException('Aucune entreprise n\'existe');
         }
         
         return $this->render('IrisCompanyBundle:Default:listeEntreprise.html.twig', 
