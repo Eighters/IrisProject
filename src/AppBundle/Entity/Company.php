@@ -38,9 +38,37 @@ class Company
     /**
      * @var string
      *
+     * @ORM\Column(name="description", type="string", length=600)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=200)
+     */
+    private $address;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mail", type="string", length=120)
+     */
+    private $mail;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="telephone", type="string", length=60)
      */
     private $telephone;
+
+    /**
+     * @var int
+     *
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\CompanySecteur", cascade={"persist"})
+     */
+    private $secteurCompany;
 
 
     /**
@@ -102,6 +130,54 @@ class Company
     }
 
     /**
+     * Set address
+     *
+     * @param string $address
+     *
+     * @return Company
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set mail
+     *
+     * @param string $mail
+     *
+     * @return Company
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    /**
+     * Get mail
+     *
+     * @return string
+     */
+    public function getMail()
+    {
+        return $this->mail;
+    }
+
+    /**
      * Set telephone
      *
      * @param string $telephone
@@ -123,5 +199,53 @@ class Company
     public function getTelephone()
     {
         return $this->telephone;
+    }
+
+    /**
+     * Set secteurCompany
+     *
+     * @param integer $secteurCompany
+     *
+     * @return CompanySecteur
+     */
+    public function setSecteurCompany($secteurCompany)
+    {
+        $this->secteurCompany = $secteurCompany;
+
+        return $this;
+    }
+
+    /**
+     * Get secteurCompany
+     *
+     * @return int
+     */
+    public function getSecteurCompany()
+    {
+        return $this->secteurCompany;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Company
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

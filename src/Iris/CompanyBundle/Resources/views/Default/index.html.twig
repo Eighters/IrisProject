@@ -1,15 +1,42 @@
 {% extends "::base.html.twig" %}
 {% block body %}
     
-<! début fiche entreprise-->
-<div class="container-fiche">
-    <table>
-        <tr>
-            <td> Nom entreprise : {{ company.raisonSocial }}</td>
-            <td> Siret de l'entreprise : {{ company.siret }}</td>
-            <td> Téléphone de l'entreprise : {{ company.telephone }}</td>     
-        </tr>
-    </table>
+<!-- début fiche entreprise-->
+<div class="container">
+	<div class="row">
+		<a href="#"><img src="#"></a>
+		<a href="#"><img src="#"></a>
+		<a href="#"><img src="#"></a>
+	</div>
+    <div class="row">
+        <div class="col-md-12">
+        	<div class="banner">
+        		<div class="img-entreprise">
+        			<img src="#" alt="" title="">
+        		</div>
+        	</div>
+  			<div class="col-md-7">
+  				<h1>{{ company.raisonSocial }}</h1>
+  				<h2>Description</h2>
+  				<p>{{company.description}}</p>
+  			</div>  
+  			<div class="col-md-5">
+  				<h2>Informations</h2> 
+  				<p><img src="#">{{company.secteurCompany}}</p>
+  				<p><img src="#">{{company.address}}</p>
+  				<p><img src="#">{{company.mail}}</p>
+  				<p><img src="#">{{company.telephone}}</p>
+  			</div>  
+        </div>
+    </div>
+    <div class="row">
+    	<div class="col-md-6">
+
+    	</div>
+    	<div class="col-md-6">
+    		<h2>Parties Prenantes</h2>
+    	</div>
+    </div>
 </div>
 <! fin fiche entreprise-->
     
