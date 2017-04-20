@@ -1,0 +1,17 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    
+<! debut fiche user-->
+<div class="container-fiche">
+    <table>
+        {% for use in user %}
+        <tr>
+            <td> Username : {{ use.username }}</td>
+            <td>Mail : {{ use.email }}</td>
+            <td>Nom  : {{ use.nom }}</td>     
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<! fin fiche entreprise-->
+{% endblock %}
