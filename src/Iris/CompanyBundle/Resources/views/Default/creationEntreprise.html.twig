@@ -1,8 +1,22 @@
 {% extends "::base.html.twig" %}
+<link rel="stylesheet" href="{{ asset('css/creationentreprise.css') }}" />
 {% block body %}
     <h3>Formulaire d'entreprise</h3>
 
     <div class="well">
-      {{ form(form) }}
+      {{ form_row(form.raisonSocial) }}
     </div>
+    <div class="well">
+      {{ form_row(form.siret) }}
+    </div>
+    </div>
+    <div class="well">
+      {{ form_row(form.telephone) }}
+    </div>
+    
+
+
+
+
+
 {% endblock %}
