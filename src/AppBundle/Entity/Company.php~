@@ -38,9 +38,30 @@ class Company
     /**
      * @var string
      *
+     * @ORM\Column(name="description", type="string", length=60)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=60)
+     */
+    private $address;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="telephone", type="string", length=60)
      */
     private $telephone;
+
+    /**
+     * @var int
+     *
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\CompanySecteur", cascade={"persist"})
+     */
+    private $secteurCompany;
 
 
     /**
@@ -102,6 +123,30 @@ class Company
     }
 
     /**
+     * Set address
+     *
+     * @param string $address
+     *
+     * @return Company
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
      * Set telephone
      *
      * @param string $telephone
@@ -124,5 +169,28 @@ class Company
     {
         return $this->telephone;
     }
-}
 
+    /**
+     * Set secteurCompany
+     *
+     * @param integer $secteurCompany
+     *
+     * @return CompanySecteur
+     */
+    public function setSecteurCompany($secteurCompany)
+    {
+        $this->secteurCompany = $secteurCompany;
+
+        return $this;
+    }
+
+    /**
+     * Get secteurCompany
+     *
+     * @return int
+     */
+    public function getSecteurCompany()
+    {
+        return $this->secteurCompany;
+    }
+}
