@@ -26,6 +26,9 @@ class CompanyController extends Controller
             ->add('raisonSocial',      TextType::class)
             ->add('siret',     TextType::class)
             ->add('telephone',   TextType::class)
+            ->add('address',   TextType::class)
+            ->add('mail',   TextType::class)
+            ->add('Description',   TextType::class)
             ->add('Enregistrer',      SubmitType::class)
             ->getForm()
         ;
