@@ -45,3 +45,7 @@ and open the template in the editor.
 .icone{
     float: right;
 }
+
+.bordure{
+    border: 2px solid #000;
+}
