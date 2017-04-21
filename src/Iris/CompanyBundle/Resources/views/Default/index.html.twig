@@ -8,9 +8,9 @@
 <!-- début fiche entreprise-->
 <div class="container">
 	<div class="row align-right">
-		<a href="#"><img src="#" alt="Editer" title="Editer"></a>
-    <a href="#"><img src="#" alt="Archiver" title="Archiver"></a>
-    <a href="#"><img src="#" alt="Retour" title="Retour"></a>
+		<a href="#"><img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer"></a>
+    <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver" title="Archiver"></a>
+    <a href="#"><img src="{{ asset('img/close.svg') }}" class="picto" alt="Retour" title="Retour"></a>
 	</div>
     <div class="row">
         <div class="col-md-12 nopadding entrepriseheader whitebckgd">
@@ -26,10 +26,9 @@
   			</div>  
   			<div class="col-md-5">
   				<h2>Informations</h2> 
-  				<p><img src="#">{{company.secteurCompany}}</p>
-  				<p><img src="#">{{company.address}}</p>
-  				<p><img src="#">{{company.mail}}</p>
-  				<p><img src="#">{{company.telephone}}</p>
+  				<p><img src="{{ asset('img/location.svg') }}" class="picto-little" >{{company.address}}</p>
+  				<p><img src="{{ asset('img/mail.svg') }}" class="picto-little" >{{company.mail}}</p>
+  				<p><img src="{{ asset('img/telephone.svg') }}" class="picto-little" >{{company.telephone}}</p>
   			</div>  
         </div>
     </div>
@@ -45,8 +44,8 @@
               <p>Date de fin prévue: 01/01/2017</p>
             </div>
             <div class="col-md-3">
-              <a href="#"><img src="#" alt="Voir" title="Voir le projet"></a>
-              <a href="#"><img src="#" alt="Archiver" title="Archiver le projet"></a>
+              <a href="#"><img src="{{ asset('img/voir.svg') }}" class="picto" alt="Voir le projet" title="Voir le projet"></a>
+              <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver le projet" title="Archiver le projet"></a>
             </div>
           </div>
 
@@ -59,8 +58,8 @@
               <p>Date de fin prévue: 01/01/2017</p>
             </div>
             <div class="col-md-3">
-              <a href="#"><img src="#" alt="Voir" title="Voir le projet"></a>
-              <a href="#"><img src="#" alt="Archiver" title="Archiver le projet"></a>
+              <a href="#"><img src="{{ asset('img/voir.svg') }}" class="picto" alt="Voir le projet" title="Voir le projet"></a>
+              <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver le projet" title="Archiver le projet"></a>
             </div>
           </div>
 
@@ -73,14 +72,14 @@
               <p>Date de fin prévue: 01/01/2017</p>
             </div>
             <div class="col-md-3">
-              <a href="#"><img src="#" alt="Voir" title="Voir le projet"></a>
-              <a href="#"><img src="#" alt="Archiver" title="Archiver le projet"></a>
+              <a href="#"><img src="{{ asset('img/voir.svg') }}" class="picto" alt="Voir le projet" title="Voir le projet"></a>
+              <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver le projet" title="Archiver le projet"></a>
             </div>
           </div>    
         </div>
     	</div>
     	<div class="second-column whitebckgd">
-    		<h2>Parties Prenantes</h2>
+    		<h2>Utilisateurs</h2>
     	</div>
     </div>
 </div>
