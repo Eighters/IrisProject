@@ -45,8 +45,9 @@ echo ''
 echo '---------------------------------------'
 echo ''
 
+echo "Copy Nginx config"
 #Copy and replace the default config file for Nginx
-/bin/bash -l -c "cp /var/www/IrisProject/nginx_config /etc/nginx/sites-available/default"
+/bin/bash -l -c "cp /var/www/IrisProject/bin/system/nginx_config /etc/nginx/sites-available/default"
 
 echo ''
 echo '---------------------------------------'
@@ -91,6 +92,12 @@ echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sou
 /bin/bash -l -c "apt-get update"
 
 /bin/bash -l -c "apt install --no-install-recommends php7.1 php7.1-fpm php7.1-mysql php7.1-curl php7.1-json php7.1-gd php7.1-mcrypt php7.1-msgpack php7.1-memcached php7.1-intl php7.1-sqlite3 php7.1-gmp php7.1-geoip php7.1-mbstring php7.1-redis php7.1-xml php7.1-zip -y"
+
+echo ''
+echo '---------------------------------------'
+echo ''
+
+chown -R iris:iris /var/www/IrisProject/
 
 echo ''
 echo '---------------------------------------'
