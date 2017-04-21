@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Company
@@ -70,6 +71,17 @@ class Company
      */
     private $secteurCompany;
 
+    /**
+     * @var ArrayCollection
+     * One Company has Many Users.
+     * @ORM\OneToMany(targetEntity="User", mappedBy="company")
+     */
+    private $users;
+    
+
+    public function __construct() {
+        $this->users = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -247,5 +259,40 @@ class Company
     public function getDescription()
     {
         return $this->description;
+    }
+    
+
+    /**
+     * Add user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Company
+     */
+    public function addUser(\AppBundle\Entity\User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \AppBundle\Entity\User $user
+     */
+    public function removeUser(\AppBundle\Entity\User $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

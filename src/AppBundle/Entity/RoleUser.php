@@ -125,4 +125,3 @@ class RoleUser
         return $this->description;
     }
 }
-

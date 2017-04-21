@@ -63,4 +63,3 @@ class ProjectCategory
         return $this->nom;
     }
 }
-

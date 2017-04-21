@@ -249,4 +249,3 @@ class Project
         return $this->benefices;
     }
 }
-
