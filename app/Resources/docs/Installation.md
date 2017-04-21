@@ -15,7 +15,7 @@ deb-src http://security.debian.org/ jessie/updates main
 ```
 Update sources
 ```sh
-apt-get update`
+apt-get update
 ```
 
 Clone th Git Repository
