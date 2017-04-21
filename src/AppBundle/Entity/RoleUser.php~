@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * RoleProject
+ * RoleUser
  *
- * @ORM\Table(name="role_project")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\RoleProjectRepository")
+ * @ORM\Table(name="role_user")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\RoleUserRepository")
  */
-class RoleProject
+class RoleUser
 {
     /**
      * @var int
@@ -31,14 +31,14 @@ class RoleProject
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=60)
+     * @ORM\Column(name="nom", type="string", length=50)
      */
     private $nom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=300)
+     * @ORM\Column(name="description", type="string", length=50)
      */
     private $description;
 
@@ -58,7 +58,7 @@ class RoleProject
      *
      * @param string $type
      *
-     * @return RoleProject
+     * @return RoleUser
      */
     public function setType($type)
     {
@@ -82,7 +82,7 @@ class RoleProject
      *
      * @param string $nom
      *
-     * @return RoleProject
+     * @return RoleUser
      */
     public function setNom($nom)
     {
@@ -106,7 +106,7 @@ class RoleProject
      *
      * @param string $description
      *
-     * @return RoleProject
+     * @return RoleUser
      */
     public function setDescription($description)
     {
@@ -125,3 +125,4 @@ class RoleProject
         return $this->description;
     }
 }
+

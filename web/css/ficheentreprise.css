@@ -1,3 +1,11 @@
+.actions-link{
+	padding: 15px 0;
+}
+
+.actions-link img{
+	margin-left: 10px;
+}
+
 .align-right{
 	text-align: right;
 }
@@ -23,6 +31,29 @@
 	margin-bottom: 20px;
 }
 
+.entrepriseheader .banner{
+	min-height: 165px;
+	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
+
+.entrepriseheader .img-entreprise{
+	width: 230px;
+    height: 230px;
+    margin: auto;
+    background: #fff;
+    margin-top: -25px;
+    box-shadow: 1px 1px 5px #888888;
+}
+
+.entrepriseheader .img-entreprise img{
+	width: 65%;
+    margin-top: 45px;
+}
+
+.entreprise-info .picto-little{
+	margin-right: 15px;
+}
+
 .first-column {
   width: 49%;
   min-height: 50px;
@@ -35,6 +66,14 @@
 
 .first-column .col-md-12 .row{
 	margin: 0;
+}
+
+.project-row{
+	padding: 20px 0;
+}
+
+.project-row .project-action{
+	text-align: center;
 }
 
 .project-good{
@@ -55,3 +94,6 @@
   float: right;
 }
 
+h1, h2, h3{
+	color: #5ec3d7;
+}

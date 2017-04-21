@@ -125,4 +125,3 @@ class Invitation
         return $this->user;
     }
 }
-

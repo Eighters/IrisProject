@@ -39,7 +39,8 @@ class User extends BaseUser
     /**
      * @var int
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Company", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Company", cascade={"persist"}, inversedBy="users")
+     * @ORM\JoinColumn(name="company_id", referencedColumnName="id")
      */
     private $company;
 

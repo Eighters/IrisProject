@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ProjectCategory
+ * Valeur
  *
- * @ORM\Table(name="project_category")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ProjectCategoryRepository")
+ * @ORM\Table(name="valeur")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ValeurRepository")
  */
-class ProjectCategory
+class Valeur
 {
     /**
      * @var int
@@ -28,6 +28,13 @@ class ProjectCategory
      */
     private $nom;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=50)
+     */
+    private $type;
+
 
     /**
      * Get id
@@ -44,7 +51,7 @@ class ProjectCategory
      *
      * @param string $nom
      *
-     * @return ProjectCategory
+     * @return Valeur
      */
     public function setNom($nom)
     {
@@ -62,4 +69,29 @@ class ProjectCategory
     {
         return $this->nom;
     }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Valeur
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
 }
+
