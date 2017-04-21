@@ -24,6 +24,11 @@
         <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
         <p>Adresse : {{ user.address }}</p>
         <p>Nom : {{ user.nom }}</p>
+        <p>
+            <a href="{{ base_url }}/profile/change-password">
+               Changer le mot de passe 
+            </a>
+        </p>
     </div>
     <div class="col-md-1"></div>
 </div>

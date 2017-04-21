@@ -1,5 +1,6 @@
 {% extends "::base.html.twig" %}
 {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/ficheentreprise.css') }}" />
  <link rel="stylesheet" href="{{ asset('css/listentreprise.css') }}" />
  <link rel="stylesheet" href="{{ asset('css/User.css') }}" />
 {% endblock %}
@@ -27,7 +28,7 @@
                 
                 <div class="image utilisateur">
                     <a href="{{ base_url }}/entreprises/{{comp.id}}">
-                        <img class="img-circle bordure" src="{{ base_url }}/img/boy.png" alt="Generic placeholder image" width="140" height="140">
+                        <img class="img-circle img-entreprise" src="{{ base_url }}/img/company.svg" alt="Generic placeholder image" width="140" height="140">
                     </a>
                 </div>
                 <div class="caption">
