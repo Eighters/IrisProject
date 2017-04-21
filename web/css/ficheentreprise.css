@@ -1,0 +1,57 @@
+.align-right{
+	text-align: right;
+}
+
+.align-middle{
+	text-align: center;
+}
+
+.img-entreprise{
+	display: inline-block;
+	margin: auto;
+}
+
+.nopadding{
+	padding: 0;
+}
+
+.whitebckgd{
+	background-color: #fff;
+}
+
+.entrepriseheader{
+	margin-bottom: 20px;
+}
+
+.first-column {
+  width: 49%;
+  min-height: 50px;
+  float: left;
+}
+
+.first-column .col-md-12{
+	padding: 0;
+}
+
+.first-column .col-md-12 .row{
+	margin: 0;
+}
+
+.project-good{
+	
+}
+
+.project-late{
+	
+}
+
+.project-critical{
+	
+}
+
+.second-column {
+  width: 49%;
+  padding: 0 20px;
+  float: right;
+}
+

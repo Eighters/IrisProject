@@ -1,16 +1,20 @@
 {% extends "::base.html.twig" %}
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('css/ficheentreprise.css') }}" />
+{% endblock %}
+
 {% block body %}
     
 <!-- début fiche entreprise-->
 <div class="container">
-	<div class="row">
-		<a href="#"><img src="#"></a>
-		<a href="#"><img src="#"></a>
-		<a href="#"><img src="#"></a>
+	<div class="row align-right">
+		<a href="#"><img src="#" alt="Editer" title="Editer"></a>
+    <a href="#"><img src="#" alt="Archiver" title="Archiver"></a>
+    <a href="#"><img src="#" alt="Retour" title="Retour"></a>
 	</div>
     <div class="row">
-        <div class="col-md-12">
-        	<div class="banner">
+        <div class="col-md-12 nopadding entrepriseheader whitebckgd">
+        	<div class="banner align-middle">
         		<div class="img-entreprise">
         			<img src="#" alt="" title="">
         		</div>
@@ -29,16 +33,58 @@
   			</div>  
         </div>
     </div>
-    <div class="row">
-    	<div class="col-md-6">
+    <div class="row ">
+    	<div class="first-column whitebckgd">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-3">
+              <p>Projet 1</p>
+            </div>
+            <div class="col-md-6">
+              <p>Date de lancement: 01/01/2017</p>
+              <p>Date de fin prévue: 01/01/2017</p>
+            </div>
+            <div class="col-md-3">
+              <a href="#"><img src="#" alt="Voir" title="Voir le projet"></a>
+              <a href="#"><img src="#" alt="Archiver" title="Archiver le projet"></a>
+            </div>
+          </div>
 
+          <div class="row">
+            <div class="col-md-3">
+              <p>Projet 2</p>
+            </div>
+            <div class="col-md-6">
+              <p>Date de lancement: 01/01/2017</p>
+              <p>Date de fin prévue: 01/01/2017</p>
+            </div>
+            <div class="col-md-3">
+              <a href="#"><img src="#" alt="Voir" title="Voir le projet"></a>
+              <a href="#"><img src="#" alt="Archiver" title="Archiver le projet"></a>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <p>Projet 3</p>
+            </div>
+            <div class="col-md-6">
+              <p>Date de lancement: 01/01/2017</p>
+              <p>Date de fin prévue: 01/01/2017</p>
+            </div>
+            <div class="col-md-3">
+              <a href="#"><img src="#" alt="Voir" title="Voir le projet"></a>
+              <a href="#"><img src="#" alt="Archiver" title="Archiver le projet"></a>
+            </div>
+          </div>    
+        </div>
     	</div>
-    	<div class="col-md-6">
+    	<div class="second-column whitebckgd">
     		<h2>Parties Prenantes</h2>
     	</div>
     </div>
 </div>
-<! fin fiche entreprise-->
+<!-- fin fiche entreprise-->
     
 {% endblock %}
         
