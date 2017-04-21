@@ -1,8 +1,53 @@
 {% trans_default_domain 'FOSUserBundle' %}
+{{form_start(form, {'method': 'POST', 'attr':{'class': 'register'}})}}
+  <div class="form-group">
+    
+      {{ form_label(form.username) }}
+      {{ form_widget(form.username) }}
+    
+    {{ form_errors(form.username) }}
+  </div>
+  <div class="form-group">
+    
+      {{ form_label(form.email) }}
+      {{ form_widget(form.email) }}
+    
+    {{ form_errors(form.email) }}
+  </div>
+  
+  <div class="form-group">
+    
+      {{ form_label(form.address) }}
+      {{ form_widget(form.address) }}
+    
+    {{ form_errors(form.address) }}
+  </div>
+  
+  <div class="form-group">
+    
+      {{ form_label(form.plainPassword.first) }}
+      {{ form_widget(form.plainPassword.first) }}
+    
+    {{ form_errors(form.plainPassword.first) }}
+  </div>
+  <div class="form-group">
+    
+      {{ form_label(form.plainPassword.second) }}
+      {{ form_widget(form.plainPassword.second) }}
+    
+    {{ form_errors(form.plainPassword.second) }}
+  </div>
+  <div class="form-group">
+    
+      {{ form_label(form.nom) }}
+      {{ form_widget(form.nom) }}
+    
+    {{ form_errors(form.plainPassword.second) }}
+  </div>
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
-    </div>
+    <button type="submit" class="btn btn-default" name="action">
+      {{ 'registration.submit'|trans }}
+      
+    </button>
+
 {{ form_end(form) }}
