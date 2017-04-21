@@ -1,0 +1,51 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20 avr. 2017, 21:55:31
+    Author     : yaniv
+*/
+
+.utilisateur{
+    background-color: #FFFFFF;
+    margin-top: 20px;
+    padding: 20px;
+
+}
+.utilisateur img{
+    display: block;
+    margin: auto;
+    padding: auto;
+}
+.utilisateur p, .utilisateur h2{
+    text-align: center;
+}
+
+.utilisateur h2{
+    font-weight: bold;
+}
+
+.information{
+    background-color: #FFFFFF;
+    margin-top: 20px;
+    padding-bottom: 90px;
+
+}
+.information h2{
+    color: #FFC414;
+}
+
+.projet{
+    background-color: #FFFFFF;
+    margin-top: 20px;
+
+}
+.icone{
+    float: right;
+}
+
+.bordure{
+    border: 2px solid #000;
+}

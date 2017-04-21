@@ -8,7 +8,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>{% block title %}Welcome!{% endblock %}</title>
+
   <link rel="icon" type="image/x-icon" href="{{ asset('iris.ico') }}" />
+
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -23,7 +25,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect.
   -->
+
   <link rel="stylesheet" href="{{ asset('AdminLTE/dist/css/skins/skin-iris.css') }}">
+
   {% block stylesheets %}{% endblock %}
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -140,6 +144,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <li><a href="{{ base_url }}"><img src="{{ asset('AdminLTE/dist/img/Menu/reunion.svg') }}" width="17px"/> <span>Réunions</span></a></li>
         <li><a href="{{ base_url }}"><img src="{{ asset('AdminLTE/dist/img/Menu/budget.svg') }}" width="17px"/> <span>Budget</span></a></li>
         <li><a href="{{ base_url }}"><img src="{{ asset('AdminLTE/dist/img/Menu/risques.svg') }}" width="17px"/> <span>Risques</span></a></li>
+
       </ul>
       <!-- /.sidebar-menu -->
     </section>

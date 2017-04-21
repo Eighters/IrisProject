@@ -20,9 +20,11 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @var string
+     * 
+     * @ORM\Column(type="string", length=90)
      */
-    protected $addresse;
+    private $address = null;
 
     public function __construct()
     {
@@ -50,29 +52,30 @@ class User extends BaseUser
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\RoleUser", cascade={"persist"})
      */
     private $roleUser;
+    
 
     /**
-     * Set addresse
+     * Set address
      *
-     * @param string $addresse
+     * @param string $address
      *
-     * @return User
+     * @return address
      */
-    public function setAddresse($addresse)
+    public function setAddress($address)
     {
-        $this->addresse = $addresse;
+        $this->address = $address;
 
         return $this;
     }
 
     /**
-     * Get addresse
+     * Get address
      *
      * @return string
      */
-    public function getAddresse()
+    public function getAddress()
     {
-        return $this->addresse;
+        return $this->address;
     }
 
     /**

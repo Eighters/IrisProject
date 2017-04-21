@@ -1,17 +1,44 @@
 {% extends "::base.html.twig" %}
+{% block stylesheets %}
+ <link rel="stylesheet" href="{{ asset('css/listentreprise.css') }}" />
+{% endblock %}
 {% block body %}
     
 <! debut fiche entreprise-->
-<div class="container-fiche">
-    <table>
-        {% for comp in company %}
-        <tr>
-            <td> Nom entreprise : {{ comp.raisonSocial }}</td>
-            <td> Siret de l'entreprise : {{ comp.siret }}</td>
-            <td> Téléphone de l'entreprise : {{ comp.telephone }}</td>     
-        </tr>
-        {% endfor %}
-    </table>
+<div class="container-fiche row">
+{% for comp in company %}
+    	<div class="item  col-xs-4 col-lg-3">
+            <div class="thumbnail">
+            	<div class="title">
+            	<div style=" float: left; padding-left: 15px;">
+            	<a><i class="glyphicon glyphicon-pencil"></i></a>
+
+            	</div>
+            	<div style=" float: right; padding-right: 15px;">
+            	<a><i class="glyphicon glyphicon-save"></i></a>
+
+            	</div>
+            	<div style=" text-align: center; ">
+            	<h4> {{ comp.raisonSocial }} </h4>
+            	</div>
+            	
+            	</div>
+                <img class="group list-group-image" src="../img/background-list-company.jpg" alt="" />
+                <div class="caption">
+                	<i class="glyphicon glyphicon-globe" style=" float: left;" ></i>
+                	<p class="group inner list-group-item-heading">
+                        Secteur : {{ comp.raisonSocial }}</p>
+                    <i class="glyphicon glyphicon-map-marker" style=" float: left;" ></i>
+                    <p class="group inner list-group-item-text">
+                        Siret de l'entreprise : {{ comp.siret }}</p>
+                    <i class="glyphicon glyphicon-phone-alt" style=" float: left;" ></i>
+                    <p class="group inner list-group-item-text">
+                        Téléphone : {{ comp.telephone }}</p>
+                    
+                </div>
+            </div>
+        </div>
+         {% endfor %}
 </div>
 <! fin fiche entreprise-->
 {% endblock %}
