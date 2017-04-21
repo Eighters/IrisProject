@@ -1,7 +1,11 @@
+{% extends "::base.html.twig" %}
 {% trans_default_domain 'FOSUserBundle' %}
+
 {% block stylesheets %}
 <link rel="stylesheet" href="{{ asset('css/User.css') }}" />
 {% endblock %}
+
+{% block body %}
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-3 utilisateur">
@@ -10,7 +14,7 @@
                 <span class="glyphicon glyphicon glyphicon-pencil fa-lg" aria-hidden="true"></span>
             </a>
         </div>
-        <img class="img-circle" src="{{ base_url }}/img/boy.png" alt="Generic placeholder image" width="140" height="140">
+        <img class="img-circle bordure" src="{{ base_url }}/img/boy.png" alt="Generic placeholder image" width="140" height="140">
         <h2>{{ user.username |upper }}</h2>
         
     </div>
@@ -30,4 +34,4 @@
         </div>
         <div class="col-md-1"></div>
     </div>
-        
+{% endblock %}        

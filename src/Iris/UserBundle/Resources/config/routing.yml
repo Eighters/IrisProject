@@ -1,8 +1,10 @@
 iris_user_homepage:
-    path:     /
+    path:     /user
     defaults: { _controller: IrisUserBundle:Default:index }
     
 iris_liste_user:
     path:     /utilisateurs
     defaults: { _controller: IrisUserBundle:User:ShowAll }
+    
+
 
