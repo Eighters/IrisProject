@@ -1,6 +1,7 @@
 {% extends "::base.html.twig" %}
 {% block stylesheets %}
  <link rel="stylesheet" href="{{ asset('css/listentreprise.css') }}" />
+ <link rel="stylesheet" href="{{ asset('css/User.css') }}" />
 {% endblock %}
 {% block body %}
     
@@ -19,11 +20,16 @@
 
             	</div>
             	<div style=" text-align: center; ">
-            	<h4> {{ comp.raisonSocial }} </h4>
+                    <h4> <a href="{{ base_url }}/entreprises/{{comp.id}}">{{ comp.raisonSocial }} </a></h4>
             	</div>
             	
             	</div>
-                <img class="group list-group-image" src="../img/background-list-company.jpg" alt="" />
+                
+                <div class="image utilisateur">
+                    <a href="{{ base_url }}/entreprises/{{comp.id}}">
+                        <img class="img-circle bordure" src="{{ base_url }}/img/boy.png" alt="Generic placeholder image" width="140" height="140">
+                    </a>
+                </div>
                 <div class="caption">
                 	<i class="glyphicon glyphicon-globe" style=" float: left;" ></i>
                 	<p class="group inner list-group-item-heading">

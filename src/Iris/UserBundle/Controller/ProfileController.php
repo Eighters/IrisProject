@@ -32,6 +32,21 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
  */
 class ProfileController extends Controller
 {
+    
+    /**
+     * Show the user.
+     */
+    public function showAction()
+    {
+        $user = $this->getUser();
+        if (!is_object($user) || !$user instanceof UserInterface) {
+            throw new AccessDeniedException('This user does not have access to this section.');
+        }
+
+        return $this->render('@FOSUser/Profile/show.html.twig', array(
+            'user' => $user,
+        ));
+    }
     /**
      * Edit the user.
      *
@@ -41,7 +56,6 @@ class ProfileController extends Controller
      */
     public function editAction(Request $request)
     {
-        
         $user = $this->getUser();
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
