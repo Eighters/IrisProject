@@ -151,7 +151,8 @@ desired effect
           <span>Tableau de bord</span></a>
         </li>
         <li class="{% if app.request.attributes.get('_route') =='iris_company_liste_fiche' %}active{% endif %}"><a href="{{ base_url }}/entreprises"><img src="{{ base_url }}/AdminLTE/dist/img/Menu/entreprise.svg" width="17px"/> <span>Entreprises</span></a></li>
-        <li><a href="{{ base_url }}"><img src="{{ base_url }}/AdminLTE/dist/img/Menu/projet.svg" width="17px"/> <span>Projets</span></a></li>
+        <li class="{% if app.request.attributes.get('_route') =='iris_projet_list' %}active{% endif %}"><a href="{{ base_url }}/projets"><img src="{{ base_url }}/AdminLTE/dist/img/Menu/projet.svg" width="17px"/> <span>Projets</span></a></li>
+        
         <li><a href="{{ base_url }}"><img src="{{ base_url }}/AdminLTE/dist/img/Menu/taches.svg" width="17px"/> <span>Tâches</span></a></li>
         <li><a href="{{ base_url }}"><img src="{{ base_url }}/AdminLTE/dist/img/Menu/collaborateurs.svg" width="17px"/> <span>Collaborateurs</span></a></li>
         <li><a href="{{ base_url }}"><img src="{{ base_url }}/AdminLTE/dist/img/Menu/livrables.svg" width="17px"/> <span>Livrables</span></a></li>

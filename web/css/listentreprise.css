@@ -1,8 +1,9 @@
-.row {
-    margin-right: 16px ;
-    margin-left: -15px;
-    margin-top: 20px;
+.row{    
+    margin-right: 4px;
+    margin-left: 4px;
+    padding-top: 20px;
 }
+
 
 
 .glyphicon { margin-right:5px; }
