@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Company
@@ -38,16 +39,23 @@ class Company
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=60)
+     * @ORM\Column(name="description", type="string", length=600)
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="string", length=60)
+     * @ORM\Column(name="address", type="string", length=200)
      */
     private $address;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mail", type="string", length=120)
+     */
+    private $mail;
 
     /**
      * @var string
@@ -63,6 +71,17 @@ class Company
      */
     private $secteurCompany;
 
+    /**
+     * @var ArrayCollection
+     * One Company has Many Users.
+     * @ORM\OneToMany(targetEntity="User", mappedBy="company")
+     */
+    private $users;
+    
+
+    public function __construct() {
+        $this->users = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -147,6 +166,30 @@ class Company
     }
 
     /**
+     * Set mail
+     *
+     * @param string $mail
+     *
+     * @return Company
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    /**
+     * Get mail
+     *
+     * @return string
+     */
+    public function getMail()
+    {
+        return $this->mail;
+    }
+
+    /**
      * Set telephone
      *
      * @param string $telephone
@@ -193,4 +236,29 @@ class Company
     {
         return $this->secteurCompany;
     }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Company
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    
 }

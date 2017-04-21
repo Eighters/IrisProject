@@ -94,4 +94,3 @@ class CompanySecteur
         return $this->iconpath;
     }
 }
-
