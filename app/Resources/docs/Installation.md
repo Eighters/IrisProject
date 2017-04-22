@@ -31,14 +31,20 @@ Set good rights & Change directory
 ```sh
 $ sudo chown -R user:user /var/www/IrisProject
 $ cd /var/www/IrisProject/
+$ chmod 777 -R /var/www/IrisProject/var/cache/
+$ chmod 777 -R /var/www/IrisProject/var/logs/
+$ chmod 777 -R /var/www/IrisProject/var/sessions/
 ```
-Run composer script
+Run composer script (Download, install vendor, init doctrine migration)
 ```sh
 $ bash composer.sh
 ```
-Set permissions
+
 ```sh
-chmod 777 -R /var/www/IrisProject/var/cache/
-chmod 777 -R /var/www/IrisProject/var/logs/
-chmod 777 -R /var/www/IrisProject/var/sessions/
+$ cd /var/www/IrisProject/web/
+$ nano app.php
+
+Change the line 9
+$kernel = new AppKernel('prod', false);
+Turn "false" in "true"
 ```
