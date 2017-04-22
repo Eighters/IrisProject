@@ -15,6 +15,3 @@ echo "Run Project"
 /bin/bash -l -c "php bin/console doctrine:schema:update --dump-sql"
 
 /bin/bash -l -c "php bin/console doctrine:schema:update --force"
-
-chmod 777 -R /var/www/IrisProject/var/cache/
-chmod 777 -R /var/www/IrisProject/var/logs/
