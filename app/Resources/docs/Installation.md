@@ -38,6 +38,8 @@ $ sudo chmod 777 -R /var/www/IrisProject/var/logs/
 $ sudo chmod 777 -R /var/www/IrisProject/var/sessions/
 $ mdir /var/www/IrisProject/var/cache/prod
 $ sudo chmod 777 -R /var/www/IrisProject/var/cache/prod
+$ mdir /var/www/IrisProject/var/sessions/prod
+$ sudo chmod 777 -R /var/www/IrisProject/var/sessions/prod
 ```
 For production environement change the Twig base_url by your own IP server
 ```sh
