@@ -103,6 +103,8 @@ echo ''
 echo '---------------------------------------'
 echo ''
 
-
+chmod 777 -R /var/www/IrisProject/var/cache/
+chmod 777 -R /var/www/IrisProject/var/logs/
+chmod 777 -R /var/www/IrisProject/var/sessions/
 
 echo "OK MAMENE !"
