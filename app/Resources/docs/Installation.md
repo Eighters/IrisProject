@@ -30,10 +30,14 @@ $ bash /var/www/IrisProject/bin/system/install.sh
 Set good rights & Change directory
 ```sh
 $ sudo chown -R user:user /var/www/IrisProject
+
 $ cd /var/www/IrisProject/
-$ chmod 777 -R /var/www/IrisProject/var/cache/
-$ chmod 777 -R /var/www/IrisProject/var/logs/
-$ chmod 777 -R /var/www/IrisProject/var/sessions/
+
+$ sudo chmod 777 -R /var/www/IrisProject/var/cache/
+$ sudo chmod 777 -R /var/www/IrisProject/var/logs/
+$ sudo chmod 777 -R /var/www/IrisProject/var/sessions/
+$ mdir /var/www/IrisProject/var/cache/prod
+$ chmod 777 -R /var/www/IrisProject/var/cache/prod
 ```
 For production environement change the Twig base_url by your own IP server
 ```sh
