@@ -24,8 +24,7 @@ Quality is fundamental for us. We constantly use tools to check the quality of t
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/a079a4e6-f3fb-43eb-b67d-8455dd5adbe9/mini.png)](https://insight.sensiolabs.com/projects/a079a4e6-f3fb-43eb-b67d-8455dd5adbe9)
 
 ## How to Install
-Go to the installation guide
-[How to install](https://github.com/Eighters/IrisProject/blob/master/app/Resources/docs/Installation.md)
+Go to the [installation guide](https://github.com/Eighters/IrisProject/blob/master/app/Resources/docs/Installation.md)
 
 ## Licence
 
