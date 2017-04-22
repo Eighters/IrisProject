@@ -34,8 +34,8 @@ $ sudo chown -R user:user /var/www/IrisProject
 $ cd /var/www/IrisProject/
 
 $ sudo chmod 777 -R /var/www/IrisProject/var/cache/
-$ sudo chmod 777 -R u+w /var/www/IrisProject/var/logs/
-$ sudo chmod 777 -R u+w /var/www/IrisProject/var/sessions/
+$ sudo chmod 777 -R /var/www/IrisProject/var/logs/
+$ sudo chmod 777 -R /var/www/IrisProject/var/sessions/
 
 $ sudo chmod -R u+w /var/www/IrisProject/var/cache/
 $ sudo chmod -R u+w /var/www/IrisProject/var/logs/
