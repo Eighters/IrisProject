@@ -33,26 +33,29 @@ $ sudo chown -R user:user /var/www/IrisProject
 
 $ cd /var/www/IrisProject/
 
-$ sudo chmod 777 -R u+w /var/www/IrisProject/var/cache/
+$ sudo chmod 777 -R /var/www/IrisProject/var/cache/
 $ sudo chmod 777 -R u+w /var/www/IrisProject/var/logs/
 $ sudo chmod 777 -R u+w /var/www/IrisProject/var/sessions/
+
+$ sudo chmod -R u+w /var/www/IrisProject/var/cache/
+$ sudo chmod -R u+w /var/www/IrisProject/var/logs/
+$ sudo chmod -R u+w /var/www/IrisProject/var/sessions/
 ```
 For production environement change the Twig base_url by your own IP server
 ```sh
 $ nano /var/www/IrisProject/app/config/config.yml
 at line 'base_url : http://127.0.0.1:8000'
 ```
-
-Run composer script (Download, install vendor, init doctrine migration)
+For production :
 ```sh
-$ bash composer.sh
-```
-
-```sh
-$ cd /var/www/IrisProject/web/
-$ nano app.php
+$ nano /var/www/IrisProject/web/app.php
 
 Change the line 9
 $kernel = new AppKernel('prod', false);
 Turn "false" in "true"
+```
+
+Run composer script (Download, install vendor, init doctrine migration)
+```sh
+$ bash composer.sh
 ```
