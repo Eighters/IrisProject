@@ -94,4 +94,3 @@ class Valeur
         return $this->type;
     }
 }
-

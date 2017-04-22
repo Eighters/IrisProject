@@ -125,4 +125,3 @@ class RoleProject
         return $this->description;
     }
 }
-

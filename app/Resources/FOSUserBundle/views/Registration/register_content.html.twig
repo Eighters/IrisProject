@@ -1,5 +1,5 @@
 {% trans_default_domain 'FOSUserBundle' %}
-{{form_start(form, {'method': 'POST', 'attr':{'class': 'register'}})}}
+{{form_start(form, {'method': 'POST', 'attr':{'class': 'register'}} ) }}
   <div class="form-group">
     
       {{ form_label(form.username) }}
@@ -7,6 +7,14 @@
     
     {{ form_errors(form.username) }}
   </div>
+    <div class="form-group">
+    
+      {{ form_label(form.nom) }}
+      {{ form_widget(form.nom) }}
+    
+    {{ form_errors(form.nom) }}
+  </div>
+
   <div class="form-group">
     
       {{ form_label(form.email) }}
@@ -42,7 +50,7 @@
       {{ form_label(form.nom) }}
       {{ form_widget(form.nom) }}
     
-    {{ form_errors(form.plainPassword.second) }}
+    {{ form_errors(form.nom) }}
   </div>
 
     <button type="submit" class="btn btn-default" name="action">

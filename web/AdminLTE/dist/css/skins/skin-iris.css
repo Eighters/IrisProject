@@ -176,3 +176,12 @@
     border-left: 1px solid #d2d6de;
   }
 }
+
+
+img.picto{
+  width: 25px;
+}
+
+img.picto-little{
+  width: 15px;
+}

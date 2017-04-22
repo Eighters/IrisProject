@@ -1,0 +1,15 @@
+{# empty Twig template #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Accès refusé</h1>
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {# ... #}
+    {% endif %}
+
+    <p>
+        Vous n'avez pas les droits d'accès à cette page. Vous pouvez retourner à la
+        <a href="{{ path('homepage') }}">page d'accueil</a>.
+    </p>
+{% endblock %}

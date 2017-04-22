@@ -8,23 +8,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+  <link rel="icon" type="image/x-icon" href="{{ asset('iris.ico') }}" />
+
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="{{ base_url }}/AdminLTE/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ asset('AdminLTE/bootstrap/css/bootstrap.min.css') }}">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{ base_url }}/AdminLTE/dist/css/AdminLTE.css">
+  <link rel="stylesheet" href="{{ asset('AdminLTE/dist/css/AdminLTE.css') }}">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect.
   -->
-  <link rel="stylesheet" href="{{ base_url }}/AdminLTE/dist/css/skins/skin-iris.css">
+
+  <link rel="stylesheet" href="{{ asset('AdminLTE/dist/css/skins/skin-iris.css') }}">
+
+  {% block stylesheets %}{% endblock %}
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,26 +37,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
+
 <body class="hold-transition skin-iris sidebar-mini">
 <div class="wrapper">
 
@@ -62,9 +47,9 @@ desired effect
     <!-- Logo -->
     <a href="{{ base_url }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><img src="{{ base_url }}/AdminLTE/dist/img/logo.png" width="25px"/></span>
+      <span class="logo-mini"><img src="{{ asset('AdminLTE/dist/img/logo.png') }}" width="25px"/></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><img src="{{ base_url }}/img/logo-full.png" width="150px"/></span>
+      <span class="logo-lg"><img src="{{ asset('img/logo-full.png') }}" width="150px"/></span>
     </a>
 
     <!-- Header Navbar -->
@@ -97,7 +82,7 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="{{ base_url }}/AdminLTE/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="{{ asset('AdminLTE/dist/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -108,7 +93,7 @@ desired effect
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="{{ base_url }}AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="{{ asset('AdminLTE/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
 
                 <p>
                   
@@ -145,18 +130,21 @@ desired effect
       <ul class="sidebar-menu">
         
         <!-- Optionally, you can add icons to the links -->
-        <li class="{% if app.request.attributes.get('_route') =='iris_user_homepage' %}active{% endif %}"><a href="{{ base_url }}">
-          <img src="{{ base_url }}/AdminLTE/dist/img/Menu/tableau_de_bord.svg" width="17px"/>
-          <span>Tableau de bord</span></a>
+        <li class="{% if app.request.attributes.get('_route') =='iris_user_homepage' %}active{% endif %}">
+          <a href="{{ base_url }}">
+            <img src="{{ asset('AdminLTE/dist/img/Menu/tableau_de_bord.svg') }}" width="17px"/>
+            <span>Tableau de bord</span>
+          </a>
         </li>
-        <li class="{% if app.request.attributes.get('_route') =='iris_company_liste_fiche' %}active{% endif %}"><a href="{{ base_url }}/entreprises"><img src="{{ base_url }}/AdminLTE/dist/img/Menu/entreprise.svg" width="17px"/> <span>Entreprises</span></a></li>
-        <li><a href="{{ base_url }}"><img src="{{ base_url }}/AdminLTE/dist/img/Menu/projet.svg" width="17px"/> <span>Projets</span></a></li>
-        <li><a href="{{ base_url }}"><img src="{{ base_url }}/AdminLTE/dist/img/Menu/taches.svg" width="17px"/> <span>Tâches</span></a></li>
-        <li><a href="{{ base_url }}"><img src="{{ base_url }}/AdminLTE/dist/img/Menu/collaborateurs.svg" width="17px"/> <span>Collaborateurs</span></a></li>
-        <li><a href="{{ base_url }}"><img src="{{ base_url }}/AdminLTE/dist/img/Menu/livrables.svg" width="17px"/> <span>Livrables</span></a></li>
-        <li><a href="{{ base_url }}"><img src="{{ base_url }}/AdminLTE/dist/img/Menu/reunion.svg" width="17px"/> <span>Réunions</span></a></li>
-        <li><a href="{{ base_url }}"><img src="{{ base_url }}/AdminLTE/dist/img/Menu/budget.svg" width="17px"/> <span>Budget</span></a></li>
-        <li><a href="{{ base_url }}"><img src="{{ base_url }}/AdminLTE/dist/img/Menu/risques.svg" width="17px"/> <span>Risques</span></a></li>
+        <li class="{% if app.request.attributes.get('_route') =='iris_company_liste_fiche' %}active{% endif %}"><a href="{{ base_url }}/entreprises"><img src="{{ asset('AdminLTE/dist/img/Menu/entreprise.svg') }}" width="17px"/> <span>Entreprises</span></a></li>
+        <li><a href="{{ base_url }}"><img src="{{ asset('AdminLTE/dist/img/Menu/projet.svg') }}" width="17px"/> <span>Projets</span></a></li>
+        <li><a href="{{ base_url }}"><img src="{{ asset('AdminLTE/dist/img/Menu/taches.svg') }}" width="17px"/> <span>Tâches</span></a></li>
+        <li><a href="{{ base_url }}"><img src="{{ asset('AdminLTE/dist/img/Menu/collaborateurs.svg') }}" width="17px"/> <span>Collaborateurs</span></a></li>
+        <li><a href="{{ base_url }}"><img src="{{ asset('AdminLTE/dist/img/Menu/livrables.svg') }}" width="17px"/> <span>Livrables</span></a></li>
+        <li><a href="{{ base_url }}"><img src="{{ asset('AdminLTE/dist/img/Menu/reunion.svg') }}" width="17px"/> <span>Réunions</span></a></li>
+        <li><a href="{{ base_url }}"><img src="{{ asset('AdminLTE/dist/img/Menu/budget.svg') }}" width="17px"/> <span>Budget</span></a></li>
+        <li><a href="{{ base_url }}"><img src="{{ asset('AdminLTE/dist/img/Menu/risques.svg') }}" width="17px"/> <span>Risques</span></a></li>
+
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -177,11 +165,11 @@ desired effect
 <!-- REQUIRED JS SCRIPTS -->
 {% block javascripts %}{% endblock %}
 <!-- jQuery 2.2.3 -->
-<script src="{{ base_url }}/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="{{ asset('AdminLTE/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
 <!-- Bootstrap 3.3.6 -->
-<script src="{{ base_url }}/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
+<script src="{{ asset('AdminLTE/bootstrap/js/bootstrap.min.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="{{ base_url }}/AdminLTE/dist/js/app.min.js"></script>
+<script src="{{ asset('AdminLTE/dist/js/app.min.js') }}"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
