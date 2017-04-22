@@ -35,6 +35,12 @@ $ chmod 777 -R /var/www/IrisProject/var/cache/
 $ chmod 777 -R /var/www/IrisProject/var/logs/
 $ chmod 777 -R /var/www/IrisProject/var/sessions/
 ```
+For production environement change the Twig base_url by your own IP server
+```sh
+$ nano /var/www/IrisProject/app/config/config.yml
+at line 'base_url : http://127.0.0.1:8000'
+```
+
 Run composer script (Download, install vendor, init doctrine migration)
 ```sh
 $ bash composer.sh
