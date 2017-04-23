@@ -62,6 +62,25 @@ class CompanyController extends Controller
         
     }
     
+
+    public function editAction(Request $request, Company $company)
+    {
+        $form = $this->createForm(\AppBundle\Form\CompanyFormType::class, $company);
+        // only handles data on POST
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $company = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($company);
+            $em->flush();
+            $this->addFlash('success', 'Company updated!');
+            return $this->redirectToRoute('iris_company_fiche', array('id' => $company->getId()));
+        }
+        return $this->render('IrisCompanyBundle:Default:modificationEntreprise.html.twig',    
+            array('companyForm' => $form->createView(), 
+                ));
+    }
+    
     public function showAction($id){
         $company = $this
         ->getDoctrine()
