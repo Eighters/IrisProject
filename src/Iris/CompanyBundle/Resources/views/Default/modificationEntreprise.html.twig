@@ -1,0 +1,11 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    <h3>Formulaire d'entreprise</h3>
+
+    <div class="well">
+        {{ form_start(companyForm) }}
+        {{ form(companyForm) }}
+       
+       {{ form_end(companyForm) }}
+    </div>
+{% endblock %}
