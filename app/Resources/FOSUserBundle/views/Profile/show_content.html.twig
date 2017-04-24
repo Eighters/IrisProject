@@ -7,11 +7,11 @@
     
 <!-- début fiche entreprise-->
 <div class="container">
-	<div class="row actions-link align-right">
-		<a href="{{ path('fos_user_profile_edit') }}"><img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer"></a>
-    <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver" title="Archiver"></a>
-    <a href="#"><img src="{{ asset('img/close.svg') }}" class="picto" alt="Retour" title="Retour"></a>
-	</div>
+    <div class="row actions-link align-right">
+        <a href="{{ path('fos_user_profile_edit') }}"><img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer"></a>
+        <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver" title="Archiver"></a>
+        <a href="#"><img src="{{ asset('img/close.svg') }}" class="picto" alt="Retour" title="Retour"></a>
+    </div>
     <div class="row">
         <div class="col-md-12 nopadding entrepriseheader whitebckgd">
         	<div class="banner align-middle">
@@ -22,16 +22,16 @@
         	</div>
   			<div class="col-md-7">
   				<h2>Information entreprise</h2>
-  				<p><img src="{{ asset('img/location.svg') }}" class="picto-little" >{{ user.address }}</p>
-  				<p><img src="{{ asset('img/mail.svg') }}" class="picto-little" ></p>
-  				<p><img src="{{ asset('img/telephone.svg') }}" class="picto-little" ></p>
+  				<p><img src="{{ asset('img/location.svg') }}" class="picto-little" >{{ company.address }}</p>
+  				<p><img src="{{ asset('img/mail.svg') }}" class="picto-little" >{{ company.mail }}</p>
+  				<p><img src="{{ asset('img/telephone.svg') }}" class="picto-little" >{{ company.telephone }}</p>
   				<p></p>
   			</div>  
   			<div class="col-md-5 entreprise-info">
   				<h2>Informations</h2> 
   				<p><img src="{{ asset('img/location.svg') }}" class="picto-little" >{{ user.address }}</p>
-  				<p><img src="{{ asset('img/mail.svg') }}" class="picto-little" >Nom : {{ user.nom }}</p>
-  				<p><img src="{{ asset('img/telephone.svg') }}" class="picto-little" ></p>
+  				<p><img src="{{ asset('img/mail.svg') }}" class="picto-little" >{{ user.nom }}</p>
+  				<p><img src="{{ asset('img/telephone.svg') }}" class="picto-little" >{{ user.email }}</p>
   			</div>  
         </div>
     </div>
