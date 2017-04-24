@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block body %}
-<form>
+{{ form_start(form) }}
     <h3>Formulaire d'entreprise</h3>
 
     <div class="well">
@@ -21,17 +21,22 @@
     <div class="well">
       {{ form_row(form.mail) }}
     </div>
-   	<div class="form-group">
-    		<label for="name" class="well">Description</label>
-    		<div class="col-sm-6">
-    			<textarea id="message" name="Description de l'entreprise" class="form-control" placeholder="Description de l'entreprise" rows="3" required></textarea>
-    		</div>
+    <div class="well">
+      {{ form_row(form.address) }}
+    </div>
+
+    <div class="form-group">
+    
+    <div class="col-sm-6">
+        {{ form_row(form.description) }}
+            
+    </div>
     </div>
     <div class="form-group">
-    		<div class="col-sm-offset-2 col-sm-6">
-    			<button type="submit" class="btn btn-primary">Soumettre</button>
-    		</div>
+    <div class="col-sm-offset-2 col-sm-6">
+        {{ form_widget(form.enregistrer) }}
     </div>
-    </form>
+    </div>
+{{ form_end(form) }}
 
 {% endblock %}
