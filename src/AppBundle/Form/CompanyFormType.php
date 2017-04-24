@@ -16,12 +16,11 @@ namespace AppBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class CompanyFormType extends AbstractType{
     
@@ -31,13 +30,17 @@ class CompanyFormType extends AbstractType{
             ->add('raisonSocial')
             ->add('siret')
             ->add('telephone')
-            ->add('address')
+            ->add('address', TextType::class, array(
+                'label' => 'Adresse'
+            ))
             ->add('description', TextareaType::class, array(
                     'label' => 'Description',
-                    'attr' => array('id' => 'message','class' => 'form_control', 'rows' => '3')))
-          
+                    'attr' => array('id' => 'message','class' => 'form_control', 'rows' => '4' , 'cols' => '100')
+            ))
             ->add('mail')
-            ->add('enregistrer', SubmitType::class)
+            ->add('enregistrer', SubmitType::class, array(
+                'attr' => array('class' => 'btn btn-primary')
+            ))
         ;
     }
 
