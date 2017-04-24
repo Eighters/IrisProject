@@ -11,11 +11,11 @@ security:
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: ROLE_ADMIN ROLE_USER }
-        - { path: ^/resetting, role: ROLE_ADMIN ROLE_USER }
+        - { path: ^/register, role: ROLE_USER }
+        - { path: ^/resetting, role: ROLE_USER }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/utilisateurs/, role: ROLE_ADMIN }
-        - { path: ^/, role: ROLE_ADMIN ROLE_USER }
+        - { path: ^/, role: ROLE_USER }
 
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
