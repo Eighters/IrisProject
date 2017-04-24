@@ -11,6 +11,7 @@
 
 namespace Iris\UserBundle\Controller;
 
+use AppBundle\Entity\Company;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\Event\GetResponseUserEvent;
@@ -36,8 +37,23 @@ class ProfileController extends Controller
     /**
      * Show the user.
      */
-    public function showAction()
+    public function showAction($id)
     {
+        $utilisateurs = $this
+                ->getDoctrine()
+                ->getRepository('AppBundle:User')
+                ->find($id)
+                ;
+        
+               $comp = $utilisateurs->getCompany();
+
+        $company = $this
+                ->getDoctrine()
+                ->getRepository('AppBundle:Company')
+                ->find($comp)
+                ;
+               
+
         $user = $this->getUser();
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
@@ -45,6 +61,7 @@ class ProfileController extends Controller
 
         return $this->render('@FOSUser/Profile/show.html.twig', array(
             'user' => $user,
+            'company' => $company,
         ));
     }
     /**

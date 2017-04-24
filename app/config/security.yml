@@ -16,6 +16,7 @@ security:
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/utilisateurs/, role: ROLE_ADMIN }
         - { path: ^/, role: ROLE_USER }
+        - { path: ^/utilisateur/.*, role: IS_AUTHENTICATED_FULLY }
 
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
