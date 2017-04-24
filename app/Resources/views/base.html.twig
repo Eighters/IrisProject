@@ -38,7 +38,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <![endif]-->
 </head>
 
-<body class="hold-transition skin-iris sidebar-mini">
+<body class="hold-transition skin-iris sidebar-mini fixed">
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -136,7 +136,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <span>Tableau de bord</span>
           </a>
         </li>
-        <li class="{% if app.request.attributes.get('_route') =='iris_company_liste_fiche' %}active{% endif %}"><a href="{{ base_url }}/entreprises"><img src="{{ asset('AdminLTE/dist/img/Menu/entreprise.svg') }}" width="17px"/> <span>Entreprises</span></a></li>
+        <li class="treeview {% if app.request.attributes.get('_route') == ('iris_company_liste_fiche' or 'company') %}active{% endif %}">
+          <a href="#">
+            <img src="{{ asset('AdminLTE/dist/img/Menu/entreprise.svg') }}" width="17px"/><span>Entreprises</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ base_url }}/entreprises"><i class="fa fa-circle-o"></i>Voir les entreprises</a></li>
+            <li><a href="{{ base_url }}/entreprises/add"><i class="fa fa-circle-o"></i>Ajouter une entreprise</a></li>
+          </ul>
+        </li>
         <li><a href="{{ base_url }}"><img src="{{ asset('AdminLTE/dist/img/Menu/projet.svg') }}" width="17px"/> <span>Projets</span></a></li>
         <li><a href="{{ base_url }}"><img src="{{ asset('AdminLTE/dist/img/Menu/taches.svg') }}" width="17px"/> <span>Tâches</span></a></li>
         <li><a href="{{ base_url }}"><img src="{{ asset('AdminLTE/dist/img/Menu/collaborateurs.svg') }}" width="17px"/> <span>Collaborateurs</span></a></li>
