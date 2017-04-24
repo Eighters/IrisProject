@@ -1,18 +1,22 @@
 {% extends "::base.html.twig" %}
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('css/ficheentreprise.css') }}" />
+{% endblock %}
+
 {% block body %}
     
 <!-- début fiche entreprise-->
 <div class="container">
-	<div class="row">
-		<a href="#"><img src="#"></a>
-		<a href="#"><img src="#"></a>
-		<a href="#"><img src="#"></a>
-	</div>
+    <div class="row actions-link align-right">
+	<a href="{{ base_url }}/entreprises/edit/{{company.id}}"><img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer"></a>
+        <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver" title="Archiver"></a>
+        <a href="#"><img src="{{ asset('img/close.svg') }}" class="picto" alt="Retour" title="Retour"></a>
+    </div>
     <div class="row">
-        <div class="col-md-12">
-        	<div class="banner">
-        		<div class="img-entreprise">
-        			<img src="#" alt="" title="">
+        <div class="col-md-12 nopadding entrepriseheader whitebckgd">
+        	<div class="banner align-middle">
+        		<div class="img-entreprise img-circle">
+        			<img src="{{ asset('img/company.svg') }}" alt="" title="">
         		</div>
         	</div>
   			<div class="col-md-7">
@@ -20,25 +24,69 @@
   				<h2>Description</h2>
   				<p>{{company.description}}</p>
   			</div>  
-  			<div class="col-md-5">
+  			<div class="col-md-5 entreprise-info">
   				<h2>Informations</h2> 
-  				<p><img src="#">{{company.secteurCompany}}</p>
-  				<p><img src="#">{{company.address}}</p>
-  				<p><img src="#">{{company.mail}}</p>
-  				<p><img src="#">{{company.telephone}}</p>
+  				<p><img src="{{ asset('img/location.svg') }}" class="picto-little" >{{company.address}}</p>
+  				<p><img src="{{ asset('img/mail.svg') }}" class="picto-little" >{{company.mail}}</p>
+  				<p><img src="{{ asset('img/telephone.svg') }}" class="picto-little" >{{company.telephone}}</p>
   			</div>  
         </div>
     </div>
-    <div class="row">
-    	<div class="col-md-6">
+    <div class="row ">
+    	<div class="first-column whitebckgd">
+        <div class="col-md-12">
+          <div class="row project-row">
+            <div class="col-md-3">
+              <p>Projet 1</p>
+            </div>
+            <div class="col-md-6">
+              <p>Date de lancement: 01/01/2017</p>
+              <p>Date de fin prévue: 01/01/2017</p>
+            </div>
+            <div class="col-md-3 project-action">
+              <a href="#"><img src="{{ asset('img/voir.svg') }}" class="picto" alt="Voir le projet" title="Voir le projet"></a>
+              <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver le projet" title="Archiver le projet"></a>
+            </div>
+          </div>
 
+          <div class="row project-row">
+            <div class="col-md-3">
+              <p>Projet 2</p>
+            </div>
+            <div class="col-md-6">
+              <p>Date de lancement: 01/01/2017</p>
+              <p>Date de fin prévue: 01/01/2017</p>
+            </div>
+            <div class="col-md-3 project-action">
+              <a href="#"><img src="{{ asset('img/voir.svg') }}" class="picto" alt="Voir le projet" title="Voir le projet"></a>
+              <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver le projet" title="Archiver le projet"></a>
+            </div>
+          </div>
+
+          <div class="row project-row">
+            <div class="col-md-3">
+              <p>Projet 3</p>
+            </div>
+            <div class="col-md-6">
+              <p>Date de lancement: 01/01/2017</p>
+              <p>Date de fin prévue: 01/01/2017</p>
+            </div>
+            <div class="col-md-3 project-action">
+              <a href="#"><img src="{{ asset('img/voir.svg') }}" class="picto" alt="Voir le projet" title="Voir le projet"></a>
+              <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver le projet" title="Archiver le projet"></a>
+            </div>
+          </div>    
+        </div>
     	</div>
-    	<div class="col-md-6">
-    		<h2>Parties Prenantes</h2>
+    	<div class="second-column whitebckgd">
+    		<h2>Utilisateurs</h2>
+        {% for user in company.users %}
+          <p>{{ user.nom }}</p>
+        {% endfor %}
     	</div>
     </div>
 </div>
-<! fin fiche entreprise-->
+<!-- fin fiche entreprise-->
     
 {% endblock %}
         

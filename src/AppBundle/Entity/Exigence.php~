@@ -249,4 +249,3 @@ class Exigence
         return $this->partiePrenante;
     }
 }
-
