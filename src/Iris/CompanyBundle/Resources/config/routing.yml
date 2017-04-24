@@ -13,3 +13,7 @@ iris_company_fiche:
 iris_company_liste_fiche:
     path:     /entreprises
     defaults: { _controller: IrisCompanyBundle:Company:ShowAll }
+
+iris_company_adduser:
+    path:     /entreprises/adduser/{id}
+    defaults: { _controller: IrisCompanyBundle:Company:RegisterUser }
