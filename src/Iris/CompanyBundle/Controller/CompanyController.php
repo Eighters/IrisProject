@@ -26,6 +26,9 @@ class CompanyController extends Controller
             ->add('raisonSocial',      TextType::class)
             ->add('siret',     TextType::class)
             ->add('telephone',   TextType::class)
+            ->add('address',   TextType::class)
+            ->add('description',   TextType::class)
+            ->add('mail',   TextType::class)
             ->add('Enregistrer',      SubmitType::class)
             ->getForm()
         ;
@@ -33,20 +36,19 @@ class CompanyController extends Controller
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
           // On fait le lien Requête <-> Formulaire
-          // À partir de maintenant, la variable $advert contient les valeurs entrées dans le formulaire par le visiteur
+          // À partir de maintenant, la variable $form contient les valeurs entrées dans le formulaire par le visiteur
           $form->handleRequest($request);
 
           // On vérifie que les valeurs entrées sont correctes
-          // (Nous verrons la validation des objets en détail dans le prochain chapitre)
-          if ($form->isValid()) {
-            // On enregistre notre objet $advert dans la base de données, par exemple
+          if ($form->isSubmitted() && $form->isValid()) {
+            // On enregistre notre objet $form dans la base de données.
             $em = $this->getDoctrine()->getManager();
             $em->persist($company);
             $em->flush();
 
             $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
 
-            // On redirige vers la page de visualisation de l'annonce nouvellement créée
+            // On redirige vers la page de visualisation de l'entreprise nouvellement créée
             return $this->redirectToRoute('iris_company_fiche', array('id' => $company->getId()));
           }
         }

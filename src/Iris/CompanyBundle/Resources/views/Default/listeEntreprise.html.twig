@@ -7,13 +7,20 @@
 {% block body %}
     
 <! debut fiche entreprise-->
+<div class="row">
+    <div class="nouvelleEntreprise">
+        <a href="{{ base_url }}/entreprises/add">
+            <i class="glyphicon glyphicon-plus fa-2x"></i>            
+        </a>
+    </div>
+</div>
 <div class="container-fiche row">
 {% for comp in company %}
     	<div class="item  col-xs-4 col-lg-3">
             <div class="thumbnail">
             	<div class="title">
             	<div style=" float: left; padding-left: 15px;">
-            	<a><i class="glyphicon glyphicon-pencil"></i></a>
+            	<a href="{{ base_url }}/entreprises/edit/{{comp.id}}"><i class="glyphicon glyphicon-pencil"></i></a>
 
             	</div>
             	<div style=" float: right; padding-right: 15px;">

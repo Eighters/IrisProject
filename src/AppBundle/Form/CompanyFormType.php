@@ -30,6 +30,9 @@ class CompanyFormType extends AbstractType{
             ->add('raisonSocial')
             ->add('siret')
             ->add('telephone')
+            ->add('address')
+            ->add('description')
+            ->add('mail')
             ->add('enregistrer', SubmitType::class)
         ;
     }
