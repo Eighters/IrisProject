@@ -65,7 +65,7 @@
   }
 }
 .skin-iris .main-header li.user-header {
-  background-color: #222;
+  /*background-color: #222;*/
 }
 .skin-iris .content-header {
   background: transparent;
@@ -185,3 +185,24 @@ img.picto{
 img.picto-little{
   width: 15px;
 }
+
+.navbar-nav > .user-menu > .dropdown-menu > li.user-header > p{
+  color: #222222;
+}
+
+.checkbox{width:50px}
+.inline {
+display: inline-block;
+}
+label {
+  display:block;
+  min-width: 150px;
+  float: left;
+}
+.form-area
+{
+    background-color: #FAFAFA;
+  padding: 10px 40px 60px;
+  margin: 10px 0px 60px;
+  border: 1px solid GREY;
+  }
