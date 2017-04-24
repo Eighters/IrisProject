@@ -71,7 +71,7 @@ h1 {
 	/*-- w3layouts --*/
 	/*-- agileits --*/
 	float: left;
-	height : 73%;
+	height : 513px;
 	background-size: cover;
 	background-image:url(../img/Background.png);
 }
@@ -80,6 +80,7 @@ h1 {
 	background-color: #FFF;
 	width: 50%;
 	float: left;
+	height : 484px;
 }
 
 h2 {
@@ -95,7 +96,7 @@ input[type="text"], input[type="password"] {
 	border: none;
 	/*-- w3layouts --*/
 	/*-- agileits --*/
-	border-bottom: 2px solid #777;
+	border-bottom: 2px solid #4dd0e1;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 14px;
 	color: #333;
@@ -168,10 +169,10 @@ input[type="submit"] {
 	font-size: 15px;
 	border: none;
 	outline: none;
-	border-radius: 30px;
+	
 	/*-- wthree --*/
 	/*-- agileits --*/
-	background-color: #05c2f9;
+	background-color: #4dd0e1;
 	color: #FFF;
 	cursor: pointer;
 }
