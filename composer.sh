@@ -8,13 +8,10 @@ echo "Run Project"
 
 /bin/bash -l -c cd /var/www/IrisProject && php composer.phar install
 
-/bin/bash -l -c cd /var/www/IrisProject && php bin/console cache:clear --env=prod
+/bin/bash -l -c "php bin/console cache:clear --env=prod"
 
-/bin/bash -l -c cd /var/www/IrisProject && php bin/console doctrine:database:create
+/bin/bash -l -c "php bin/console doctrine:database:create"
 
-/bin/bash -l -c cd /var/www/IrisProject && php bin/console doctrine:schema:update --dump-sql
+/bin/bash -l -c "php bin/console doctrine:schema:update --dump-sql"
 
-/bin/bash -l -c cd /var/www/IrisProject && php bin/console doctrine:schema:update --force
-
-chmod 777 -R /var/www/IrisProject/var/cache/
-chmod 777 -R /var/www/IrisProject/var/logs/
+/bin/bash -l -c "php bin/console doctrine:schema:update --force"
