@@ -32,14 +32,6 @@ Set good rights & Change directory
 $ sudo chown -R user:user /var/www/IrisProject
 
 $ cd /var/www/IrisProject/
-
-$ sudo chmod 777 -R /var/www/IrisProject/var/cache/
-$ sudo chmod 777 -R /var/www/IrisProject/var/logs/
-$ sudo chmod 777 -R /var/www/IrisProject/var/sessions/
-
-$ sudo chmod -R u+w /var/www/IrisProject/var/cache/
-$ sudo chmod -R u+w /var/www/IrisProject/var/logs/
-$ sudo chmod -R u+w /var/www/IrisProject/var/sessions/
 ```
 For production environement change the Twig base_url by your own IP server
 ```sh
@@ -58,4 +50,9 @@ Turn "false" in "true"
 Run composer script (Download, install vendor, init doctrine migration)
 ```sh
 $ bash composer.sh
+
+
+$ sudo chmod 777 -R /var/www/IrisProject/var/cache/
+$ sudo chmod 777 -R /var/www/IrisProject/var/logs/
+$ sudo chmod 777 -R /var/www/IrisProject/var/sessions/
 ```
