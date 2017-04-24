@@ -1,3 +1,8 @@
+section.content{
+	margin-right: 40px;
+	margin-left: 40px
+}
+
 .actions-link{
 	padding: 15px 0;
 }
@@ -101,4 +106,18 @@ h1, h2, h3{
 .nouvelleEntreprise{
     float: right;
     margin-right: 1%;
+}
+
+.userTitle{
+	display: block;
+	padding: 0 25px;
+}
+
+.userTitle h2{
+	float: left;
+}
+
+.userTitle a{
+	float: right;
+	padding-top: 22px;
 }

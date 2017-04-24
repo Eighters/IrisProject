@@ -1,54 +1,66 @@
 {% trans_default_domain 'FOSUserBundle' %}
 {{form_start(form, {'method': 'POST', 'attr':{'class': 'register'}} ) }}
-  <div class="form-group">
-    
-      {{ form_label(form.username) }}
-      {{ form_widget(form.username) }}
-    
-    {{ form_errors(form.username) }}
-  </div>
-    <div class="form-group">
-    
-      {{ form_label(form.nom) }}
-      {{ form_widget(form.nom) }}
-    
-    {{ form_errors(form.nom) }}
-  </div>
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">Inscription</h3>
+    </div>
+    <!-- /.box-header -->
+        
+    <div class="box-body">
+      <div class="form-group">
+        
+          {{ form_label(form.username) }}
+          {{ form_widget(form.username) }}
+        
+        {{ form_errors(form.username) }}
+      </div>
+        <div class="form-group">
+        
+          {{ form_label(form.nom) }}
+          {{ form_widget(form.nom) }}
+        
+        {{ form_errors(form.nom) }}
+      </div>
 
-  <div class="form-group">
-    
-      {{ form_label(form.email) }}
-      {{ form_widget(form.email) }}
-    
-    {{ form_errors(form.email) }}
-  </div>
-  
-  <div class="form-group">
-    
-      {{ form_label(form.address) }}
-      {{ form_widget(form.address) }}
-    
-    {{ form_errors(form.address) }}
-  </div>
-  
-  <div class="form-group">
-    
-      {{ form_label(form.plainPassword.first) }}
-      {{ form_widget(form.plainPassword.first) }}
-    
-    {{ form_errors(form.plainPassword.first) }}
-  </div>
-  <div class="form-group">
-    
-      {{ form_label(form.plainPassword.second) }}
-      {{ form_widget(form.plainPassword.second) }}
-    
-    {{ form_errors(form.plainPassword.second) }}
-  </div>
-
-    <button type="submit" class="btn btn-default" name="action">
-      {{ 'registration.submit'|trans }}
+      <div class="form-group">
+        
+          {{ form_label(form.email) }}
+          {{ form_widget(form.email) }}
+        
+        {{ form_errors(form.email) }}
+      </div>
       
-    </button>
+      <div class="form-group">
+        
+          {{ form_label(form.address) }}
+          {{ form_widget(form.address) }}
+        
+        {{ form_errors(form.address) }}
+      </div>
+      
+      <div class="form-group">
+        
+          {{ form_label(form.plainPassword.first) }}
+          {{ form_widget(form.plainPassword.first) }}
+        
+        {{ form_errors(form.plainPassword.first) }}
+      </div>
+      <div class="form-group">
+        
+          {{ form_label(form.plainPassword.second) }}
+          {{ form_widget(form.plainPassword.second) }}
+        
+        {{ form_errors(form.plainPassword.second) }}
+      </div>
+
+    
+    </div>
+    <!-- /.box-body -->
+
+    <div class="box-footer">
+      <button type="submit" class="btn btn-default" name="action">{{ 'registration.submit'|trans }}</button>
+    </div>
+    
+</div>
 
 {{ form_end(form) }}

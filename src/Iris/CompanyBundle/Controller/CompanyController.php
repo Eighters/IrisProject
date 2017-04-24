@@ -134,7 +134,7 @@ class CompanyController extends Controller
         $user->setCompany($company);
 
         $event = new GetResponseUserEvent($user, $request);
-        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
+        //$dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
 
         if (null !== $event->getResponse()) {
             return $event->getResponse();
@@ -148,16 +148,17 @@ class CompanyController extends Controller
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
                 $event = new FormEvent($form, $request);
-                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
+                //$dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
                 $userManager->updateUser($user);
 
                 if (null === $response = $event->getResponse()) {
-                    $url = $this->generateUrl('fos_user_registration_confirmed');
+                    //$url = $this->generateUrl('fos_user_registration_confirmed');
+                    $url = $this->generateUrl('iris_company_fiche', array('id' => $id));
                     $response = new RedirectResponse($url);
                 }
 
-                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+                //$dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
 
                 return $response;
             }

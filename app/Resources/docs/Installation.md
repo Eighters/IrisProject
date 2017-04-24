@@ -15,7 +15,7 @@ deb-src http://security.debian.org/ jessie/updates main
 ```
 Update sources
 ```sh
-apt-get update`
+apt-get update
 ```
 
 Clone th Git Repository
@@ -55,4 +55,19 @@ $ bash composer.sh
 $ sudo chmod 777 -R /var/www/IrisProject/var/cache/
 $ sudo chmod 777 -R /var/www/IrisProject/var/logs/
 $ sudo chmod 777 -R /var/www/IrisProject/var/sessions/
+```
+
+## SSL Certificats
+Add this line in your sources.list file
+```sh
+deb http://ftp.debian.org/debian jessie-backports main
+```
+```sh
+apt update
+apt-get update
+
+sudo apt-get install certbot -t jessie-backports
+sudo apt install python-certbot-nginx
+
+certbot --nginx
 ```
