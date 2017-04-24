@@ -21,6 +21,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class CompanyFormType extends AbstractType{
     
@@ -31,7 +32,10 @@ class CompanyFormType extends AbstractType{
             ->add('siret')
             ->add('telephone')
             ->add('address')
-            ->add('description')
+            ->add('description', TextareaType::class, array(
+                    'label' => 'Description',
+                    'attr' => array('id' => 'message','class' => 'form_control', 'rows' => '3')))
+          
             ->add('mail')
             ->add('enregistrer', SubmitType::class)
         ;

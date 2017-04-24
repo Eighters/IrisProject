@@ -22,16 +22,7 @@ class CompanyController extends Controller
         
         // On crée le FormBuilder grâce au service form factory
         // On ajoute les champs de l'entité que l'on veut à notre formulaire
-        $form = $this->get('form.factory')->createBuilder(FormType::class, $company)
-            ->add('raisonSocial',      TextType::class)
-            ->add('siret',     TextType::class)
-            ->add('telephone',   TextType::class)
-            ->add('address',   TextType::class)
-            ->add('description',   TextType::class)
-            ->add('mail',   TextType::class)
-            ->add('Enregistrer',      SubmitType::class)
-            ->getForm()
-        ;
+        $form = $this->createForm(\AppBundle\Form\CompanyFormType::class, $company);
         
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
