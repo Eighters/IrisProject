@@ -67,18 +67,18 @@ h1 {
 }
 
 .w3imageaits  {
-	width: 50%;
+	width: 60%;
 	/*-- w3layouts --*/
 	/*-- agileits --*/
 	float: left;
 	height : 513px;
 	background-size: cover;
-	background-image:url(../img/Background.png);
+	background-image:url(../img/background-login.png);
 }
 
 .aitsloginwthree {
 	background-color: #FFF;
-	width: 50%;
+	width: 40%;
 	float: left;
 	height : 484px;
 }
