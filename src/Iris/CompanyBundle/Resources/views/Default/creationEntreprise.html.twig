@@ -1,8 +1,37 @@
 {% extends "::base.html.twig" %}
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('css/creationentreprise.css') }}" />
+
+{% endblock %}
+
 {% block body %}
+<form>
     <h3>Formulaire d'entreprise</h3>
 
     <div class="well">
-      {{ form(form) }}
+      {{ form_row(form.raisonSocial) }}
     </div>
+    <div class="well">
+      {{ form_row(form.siret) }}
+    </div>
+    <div class="well">
+      {{ form_row(form.telephone) }}
+    </div>
+    <div class="well">
+      {{ form_row(form.mail) }}
+    </div>
+   	<div class="form-group">
+    		<label for="name" class="well">Description</label>
+    		<div class="col-sm-6">
+    			<textarea id="message" name="Description de l'entreprise" class="form-control" placeholder="Description de l'entreprise" rows="3" required></textarea>
+    		</div>
+    </div>
+    <div class="form-group">
+    		<div class="col-sm-offset-2 col-sm-6">
+    			<button type="submit" class="btn btn-primary">Soumettre</button>
+    		</div>
+    </div>
+    </form>
+
 {% endblock %}
