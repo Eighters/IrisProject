@@ -38,44 +38,61 @@ class PartiePrenante
     /**
      * @var string
      *
-     * @ORM\Column(name="influence", type="string", length=50)
+     * @ORM\Column(name="influence", type="string", length=50, nullable=true)
      */
     private $influence;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="impact", type="string", length=50)
+     * @ORM\Column(name="impact", type="string", length=50, nullable=true)
      */
     private $impact;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="observation", type="string", length=300)
+     * @ORM\Column(name="observation", type="string", length=300, nullable=true)
      */
     private $observation;
 
     /**
      * @var int
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\User", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", cascade={"persist"}, inversedBy="partiesprenantes")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
 
     /**
      * @var int
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\RoleProject", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\RoleProject", cascade={"persist"}, inversedBy="partiesprenantes")
+     * @ORM\JoinColumn(name="roleproject_id", referencedColumnName="id")
      */
     private $roleProject;
 
     /**
      * @var int
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Project", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Project", cascade={"persist"}, inversedBy="partiesprenantes")
+     * @ORM\JoinColumn(name="project_id", referencedColumnName="id")
      */
     private $project;
+
+    /**
+     * @var ArrayCollection
+     * One PartiePrenante has Many Exigences.
+     * @ORM\OneToMany(targetEntity="Exigence", mappedBy="partiePrenante")
+     */
+    private $exigences;
+
+    /**
+     * @var ArrayCollection
+     * One PartiePrenante has Many Actions.
+     * @ORM\OneToMany(targetEntity="Action", mappedBy="partiePrenante")
+     */
+    private $actions;
 
 
     /**

@@ -47,11 +47,11 @@ class User extends BaseUser
     private $company;
 
     /**
-     * @var int
-     *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\RoleUser", cascade={"persist"})
+     * @var ArrayCollection
+     * One User has Many Partie Prenantes.
+     * @ORM\OneToMany(targetEntity="PartiePrenante", mappedBy="user")
      */
-    private $roleUser;
+    private $partiesprenantes;
     
 
     /**
@@ -126,27 +126,4 @@ class User extends BaseUser
         return $this->company;
     }
 
-    /**
-     * Set roleUser
-     *
-     * @param \AppBundle\Entity\RoleUser $roleUser
-     *
-     * @return User
-     */
-    public function setRoleUser(\AppBundle\Entity\RoleUser $roleUser = null)
-    {
-        $this->roleUser = $roleUser;
-
-        return $this;
-    }
-
-    /**
-     * Get roleUser
-     *
-     * @return \AppBundle\Entity\RoleUser
-     */
-    public function getRoleUser()
-    {
-        return $this->roleUser;
-    }
 }

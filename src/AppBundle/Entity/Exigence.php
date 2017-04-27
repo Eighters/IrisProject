@@ -59,14 +59,16 @@ class Exigence
     /**
      * @var int
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Objectif", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Objectif", cascade={"persist"}, inversedBy="exigences")
+     * @ORM\JoinColumn(name="objectif_id", referencedColumnName="id")
      */
     private $objectif;
 
     /**
      * @var int
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\PartiePrenante", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PartiePrenante", cascade={"persist"}, inversedBy="exigences")
+     * @ORM\JoinColumn(name="partieprenante_id", referencedColumnName="id")
      */
     private $partiePrenante;
 

@@ -28,6 +28,12 @@ class ProjectCategory
      */
     private $nom;
 
+    /**
+     * @var ArrayCollection
+     * One Category has Many Projects.
+     * @ORM\OneToMany(targetEntity="Project", mappedBy="category")
+     */
+    private $projects;
 
     /**
      * Get id

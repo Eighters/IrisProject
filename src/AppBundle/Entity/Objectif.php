@@ -27,13 +27,21 @@ class Objectif
      * @ORM\Column(name="description", type="string", length=300)
      */
     private $description;
-    
-        /**
+
+    /**
      * @var int
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Enjeux", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Enjeux", cascade={"persist"}, inversedBy="objectifs")
+     * @ORM\JoinColumn(name="enjeux_id", referencedColumnName="id")
      */
     private $enjeux;
+
+    /**
+     * @var ArrayCollection
+     * One Objectif has Many Exigences.
+     * @ORM\OneToMany(targetEntity="Exigence", mappedBy="objectif")
+     */
+    private $exigences;
 
 
     /**
