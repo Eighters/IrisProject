@@ -67,7 +67,7 @@ class PartiePrenante
     /**
      * @var int
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\RoleProject", cascade={"persist"}, inversedBy="partiesprenantes")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\RoleProject", cascade={"persist"}, inversedBy="partiesPrenantes")
      * @ORM\JoinColumn(name="roleproject_id", referencedColumnName="id")
      */
     private $roleProject;
