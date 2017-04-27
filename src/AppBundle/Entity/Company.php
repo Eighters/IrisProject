@@ -67,7 +67,7 @@ class Company
     /**
      * @var int
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CompanySecteur", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CompanySecteur", cascade={"persist"}, inversedBy="companies")
      * @ORM\JoinColumn(name="secteurcompany_id", referencedColumnName="id")
      */
     private $secteurCompany;

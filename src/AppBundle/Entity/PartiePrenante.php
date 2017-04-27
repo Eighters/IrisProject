@@ -90,9 +90,16 @@ class PartiePrenante
     /**
      * @var ArrayCollection
      * One PartiePrenante has Many Actions.
-     * @ORM\OneToMany(targetEntity="Action", mappedBy="partiePrenante")
+     * @ORM\OneToMany(targetEntity="Action", mappedBy="responsable")
      */
     private $actions;
+
+    /**
+     * @var ArrayCollection
+     * One PartiePrenante has Many Created Actions.
+     * @ORM\OneToMany(targetEntity="Action", mappedBy="origine")
+     */
+    private $actionsCreated;
 
 
     /**
