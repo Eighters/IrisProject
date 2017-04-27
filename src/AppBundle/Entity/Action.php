@@ -39,7 +39,7 @@ class Action
     /**
      * @var int
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PartiePrenante", cascade={"persist"}, inversedBy="actions")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PartiePrenante", cascade={"persist"}, inversedBy="actionsCreated")
      * @ORM\JoinColumn(name="origine_id", referencedColumnName="id")
      */
     private $origine;
@@ -313,27 +313,4 @@ class Action
         return $this->observation;
     }
 
-    /**
-     * Set partiePrenante
-     *
-     * @param integer $partiePrenante
-     *
-     * @return Action
-     */
-    public function setPartiePrenante($partiePrenante)
-    {
-        $this->partiePrenanteId = $partiePrenante;
-
-        return $this;
-    }
-
-    /**
-     * Get partiePrenante
-     *
-     * @return \AppBundle\Entity\PartiePrenante
-     */
-    public function getPartiePrenante()
-    {
-        return $this->partiePrenante;
-    }
 }
