@@ -39,35 +39,36 @@ class Company
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=600)
+     * @ORM\Column(name="description", type="string", length=600, nullable=true)
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="string", length=200)
+     * @ORM\Column(name="address", type="string", length=200, nullable=true)
      */
     private $address;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="mail", type="string", length=120)
+     * @ORM\Column(name="mail", type="string", length=120, nullable=true)
      */
     private $mail;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="telephone", type="string", length=60)
+     * @ORM\Column(name="telephone", type="string", length=60, nullable=true)
      */
     private $telephone;
 
     /**
      * @var int
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\CompanySecteur", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CompanySecteur", cascade={"persist"})
+     * @ORM\JoinColumn(name="secteurcompany_id", referencedColumnName="id")
      */
     private $secteurCompany;
 

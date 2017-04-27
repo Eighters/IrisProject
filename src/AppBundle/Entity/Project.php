@@ -70,6 +70,34 @@ class Project
      */
     private $benefices;
 
+    /**
+     * @var ArrayCollection
+     * One Project has Many Partie Prenantes.
+     * @ORM\OneToMany(targetEntity="PartiePrenante", mappedBy="project")
+     */
+    private $partiesprenantes;
+
+    /**
+     * @var ArrayCollection
+     * One Project has Many enjeux.
+     * @ORM\OneToMany(targetEntity="Enjeux", mappedBy="project")
+     */
+    private $enjeux;
+
+    /**
+     * @var ArrayCollection
+     * One Project has Many Jalon.
+     * @ORM\OneToMany(targetEntity="Jalon", mappedBy="project")
+     */
+    private $jalons;
+
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ProjectCategory", cascade={"persist"}, inversedBy="projects")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    private $category;
 
     /**
      * Get id
