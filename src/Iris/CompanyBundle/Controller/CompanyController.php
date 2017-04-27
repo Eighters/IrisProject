@@ -131,7 +131,6 @@ class CompanyController extends Controller
         ->find($id)
         ;
 
-
         /** @var $formFactory FactoryInterface */
         $formFactory = $this->get('fos_user.registration.form.factory');
         /** @var $userManager UserManagerInterface */
@@ -144,11 +143,8 @@ class CompanyController extends Controller
         $user->setCompany($company);
 
         $event = new GetResponseUserEvent($user, $request);
-        //$dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
 
-        if (null !== $event->getResponse()) {
-            return $event->getResponse();
-        }
+        if (null !== $event->getResponse()) { return $event->getResponse(); }
 
         $form = $formFactory->createForm();
         $form->setData($user);
@@ -158,17 +154,13 @@ class CompanyController extends Controller
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
                 $event = new FormEvent($form, $request);
-                //$dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
                 $userManager->updateUser($user);
 
                 if (null === $response = $event->getResponse()) {
-                    //$url = $this->generateUrl('fos_user_registration_confirmed');
                     $url = $this->generateUrl('iris_company_fiche', array('id' => $id));
                     $response = new RedirectResponse($url);
                 }
-
-                //$dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
 
                 return $response;
             }
@@ -176,13 +168,9 @@ class CompanyController extends Controller
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::REGISTRATION_FAILURE, $event);
 
-            if (null !== $response = $event->getResponse()) {
-                return $response;
-            }
+            if (null !== $response = $event->getResponse()) { return $response; }
         }
 
-        return $this->render('@FOSUser/Registration/registerbycompany.html.twig', array(
-            'form' => $form->createView(),
-        ));
+        return $this->render('@FOSUser/Registration/registerbycompany.html.twig', array('form' => $form->createView(),));
     }
 }
