@@ -39,22 +39,15 @@ class ProfileController extends Controller
      */
     public function showAction($id)
     {
-        $utilisateurs = $this
+        $user = $this
                 ->getDoctrine()
                 ->getRepository('AppBundle:User')
                 ->find($id)
                 ;
         
-               $comp = $utilisateurs->getCompany();
+        $company = $user->getCompany();
 
-        $company = $this
-                ->getDoctrine()
-                ->getRepository('AppBundle:Company')
-                ->find($comp)
-                ;
-               
-
-        $user = $this->getUser();
+        
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
         }
