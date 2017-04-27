@@ -6,6 +6,7 @@ security:
         FOS\UserBundle\Model\UserInterface: bcrypt
     
     role_hierarchy:
+        ROLE_RESP:        ROLE_RESPONSABLE
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
@@ -14,9 +15,7 @@ security:
         - { path: ^/register, role: ROLE_USER }
         - { path: ^/resetting, role: ROLE_USER }
         - { path: ^/admin/, role: ROLE_ADMIN }
-        - { path: ^/utilisateurs/, role: ROLE_ADMIN }
         - { path: ^/, role: ROLE_USER }
-        - { path: ^/utilisateur/.*, role: IS_AUTHENTICATED_FULLY }
 
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:

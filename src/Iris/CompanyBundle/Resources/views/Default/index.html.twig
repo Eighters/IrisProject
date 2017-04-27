@@ -87,7 +87,7 @@
         </div>
     		
         {% for user in company.users %}
-          <p>{{ user.nom }}</p>
+            <p><a href="{{base_url}}/utilisateur/{{user.id}}">{{ user.nom }}</a></p>
         {% endfor %}
     	</div>
     </div>

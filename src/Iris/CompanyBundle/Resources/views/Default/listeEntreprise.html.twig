@@ -5,7 +5,12 @@
  <link rel="stylesheet" href="{{ asset('css/User.css') }}" />
 {% endblock %}
 {% block body %}
-    
+    {# you can read and display just one flash message type... #}
+    {% for flash_message in app.session.flashBag.get('notice') %}
+    <div class="alert alert-warning text-center">
+        {{ flash_message }}
+    </div>
+    {% endfor %} 
 <!-- debut fiche entreprise-->
 <div class="row">
     <div class="nouvelleEntreprise">
