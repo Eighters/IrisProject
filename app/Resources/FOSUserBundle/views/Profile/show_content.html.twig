@@ -6,7 +6,7 @@
 {% block body %}
     
 <!-- début fiche entreprise-->
-<div class="container">
+<section class="content">
     <div class="row actions-link align-right">
         <a href="{{ path('fos_user_profile_edit') }}"><img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer"></a>
         <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver" title="Archiver"></a>
@@ -129,50 +129,7 @@
         
     	</div>
     </div>
-</div>
+</section>
 <!-- fin fiche entreprise-->
     
-{% endblock %}
-{#      
-{% extends "::base.html.twig" %}
-{% trans_default_domain 'FOSUserBundle' %}
-
-{% block stylesheets %}
-<link rel="stylesheet" href="{{ asset('css/User.css') }}" />
-{% endblock %}
-
-{% block body %}
-<div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-3 utilisateur">
-        <div class="icone">
-            <a href="{{ path('fos_user_profile_edit') }}">
-                <span class="glyphicon glyphicon glyphicon-pencil fa-lg" aria-hidden="true"></span>
-            </a>
-        </div>
-        <img class="img-circle bordure" src="{{ base_url }}/img/boy.png" alt="Generic placeholder image" width="140" height="140">
-        <h2>{{ user.username |upper }}</h2>
-        
-    </div>
-        <div class="col-md-1"></div>    
-    <div class="col-md-6 information">
-        <h2>INFORMATION</h2>
-        <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
-        <p>Adresse : {{ user.address }}</p>
-        <p>Nom : {{ user.nom }}</p>
-        <p>
-            <a href="{{ base_url }}/profile/change-password">
-               Changer le mot de passe 
-            </a>
-        </p>
-    </div>
-    <div class="col-md-1"></div>
-</div>
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10 projet">
-            <h2>PROJETS</h2>    
-        </div>
-        <div class="col-md-1"></div>
-    </div>
-{% endblock %}    #}    
+{% endblock %}   

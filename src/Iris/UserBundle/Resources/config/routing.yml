@@ -9,8 +9,6 @@ iris_liste_user:
 iris_user:
     path:     /utilisateur/{id}
     defaults: { _controller: IrisUserBundle:Profile:Show }
-    requirements:
-        id: \d+
     
 
 

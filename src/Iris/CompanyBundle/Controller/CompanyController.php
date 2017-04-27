@@ -14,12 +14,20 @@ use FOS\UserBundle\Event\FormEvent;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 
+
 class CompanyController extends Controller
 {
-    
+
     public function addAction(Request $request)
     {
-        
+        if (!$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            
+            $this->addFlash(
+            'notice',
+            'Vous n\'avez pas les droits pour ajouter une entreprise!'
+            );
+            return $this->redirectToRoute('iris_company_liste_fiche');
+        }else{
         // Création de l'entité Company
         $company = new Company();
         
@@ -55,6 +63,8 @@ class CompanyController extends Controller
         return $this->render('IrisCompanyBundle:Default:creationEntreprise.html.twig', array(
           'form' => $form->createView(),
         ));
+        }
+
         
     }
     
