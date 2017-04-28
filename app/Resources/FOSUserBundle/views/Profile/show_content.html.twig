@@ -1,37 +1,135 @@
 {% extends "::base.html.twig" %}
-{% trans_default_domain 'FOSUserBundle' %}
-
 {% block stylesheets %}
-<link rel="stylesheet" href="{{ asset('css/User.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/ficheentreprise.css') }}" />
 {% endblock %}
 
 {% block body %}
-<div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-3 utilisateur">
-        <div class="icone">
-            <a href="{{ path('fos_user_profile_edit') }}">
-                <span class="glyphicon glyphicon glyphicon-pencil fa-lg" aria-hidden="true"></span>
-            </a>
-        </div>
-        <img class="img-circle bordure" src="{{ base_url }}/img/boy.png" alt="Generic placeholder image" width="140" height="140">
-        <h2>{{ user.username |upper }}</h2>
-        
+    
+<!-- début fiche entreprise-->
+<section class="content">
+    <div class="row actions-link align-right">
+        <a href="{{ path('fos_user_profile_edit') }}"><img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer"></a>
+        <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver" title="Archiver"></a>
+        <a href="#"><img src="{{ asset('img/close.svg') }}" class="picto" alt="Retour" title="Retour"></a>
     </div>
-        <div class="col-md-1"></div>    
-    <div class="col-md-6 information">
-        <h2>INFORMATION</h2>
-        <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
-        <p>Adresse : {{ user.address }}</p>
-        <p>Nom : {{ user.nom }}</p>
-    </div>
-    <div class="col-md-1"></div>
-</div>
     <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10 projet">
-            <h2>PROJETS</h2>    
+        <div class="col-md-12 nopadding entrepriseheader whitebckgd">
+        	<div class="banner align-middle">
+        		<div class="img-entreprise img-circle">
+        			<img src="{{ asset('img/boy.png') }}" alt="" title="">
+                                
+        		</div>
+        	</div>
+  			<div class="col-md-7">
+  				<h2>Information entreprise</h2>
+  				<p><img src="{{ asset('img/location.svg') }}" class="picto-little" >{{ company.address }}</p>
+  				<p><img src="{{ asset('img/mail.svg') }}" class="picto-little" >{{ company.mail }}</p>
+  				<p><img src="{{ asset('img/telephone.svg') }}" class="picto-little" >{{ company.telephone }}</p>
+  				<p></p>
+  			</div>  
+  			<div class="col-md-5 entreprise-info">
+  				<h2>Informations</h2> 
+  				<p><img src="{{ asset('img/location.svg') }}" class="picto-little" >{{ user.address }}</p>
+  				<p><img src="{{ asset('img/mail.svg') }}" class="picto-little" >{{ user.nom }}</p>
+  				<p><img src="{{ asset('img/telephone.svg') }}" class="picto-little" >{{ user.email }}</p>
+  			</div>  
         </div>
-        <div class="col-md-1"></div>
     </div>
-{% endblock %}        
+    <div class="row ">
+    	<div class="first-column whitebckgd">
+        <div class="col-md-12">
+          <div class="row project-row">
+            <div class="col-md-3">
+              <p>Projet 1</p>
+            </div>
+            <div class="col-md-6">
+              <p>Date de lancement: 01/01/2017</p>
+              <p>Date de fin prévue: 01/01/2017</p>
+            </div>
+            <div class="col-md-3 project-action">
+              <a href="#"><img src="{{ asset('img/voir.svg') }}" class="picto" alt="Voir le projet" title="Voir le projet"></a>
+              <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver le projet" title="Archiver le projet"></a>
+            </div>
+          </div>
+
+          <div class="row project-row">
+            <div class="col-md-3">
+              <p>Projet 2</p>
+            </div>
+            <div class="col-md-6">
+              <p>Date de lancement: 01/01/2017</p>
+              <p>Date de fin prévue: 01/01/2017</p>
+            </div>
+            <div class="col-md-3 project-action">
+              <a href="#"><img src="{{ asset('img/voir.svg') }}" class="picto" alt="Voir le projet" title="Voir le projet"></a>
+              <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver le projet" title="Archiver le projet"></a>
+            </div>
+          </div>
+
+          <div class="row project-row">
+            <div class="col-md-3">
+              <p>Projet 3</p>
+            </div>
+            <div class="col-md-6">
+              <p>Date de lancement: 01/01/2017</p>
+              <p>Date de fin prévue: 01/01/2017</p>
+            </div>
+            <div class="col-md-3 project-action">
+              <a href="#"><img src="{{ asset('img/voir.svg') }}" class="picto" alt="Voir le projet" title="Voir le projet"></a>
+              <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver le projet" title="Archiver le projet"></a>
+            </div>
+          </div>    
+        </div>
+    	</div>
+    	<div class="second-column whitebckgd">
+        <div class="col-md-12">
+          <div class="row project-row">
+            <div class="col-md-3">
+              <p>Projet 1</p>
+            </div>
+            <div class="col-md-6">
+              <p>Date de lancement: 01/01/2017</p>
+              <p>Date de fin prévue: 01/01/2017</p>
+            </div>
+            <div class="col-md-3 project-action">
+              <a href="#"><img src="{{ asset('img/voir.svg') }}" class="picto" alt="Voir le projet" title="Voir le projet"></a>
+              <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver le projet" title="Archiver le projet"></a>
+            </div>
+          </div>
+
+          <div class="row project-row">
+            <div class="col-md-3">
+              <p>Projet 2</p>
+            </div>
+            <div class="col-md-6">
+              <p>Date de lancement: 01/01/2017</p>
+              <p>Date de fin prévue: 01/01/2017</p>
+            </div>
+            <div class="col-md-3 project-action">
+              <a href="#"><img src="{{ asset('img/voir.svg') }}" class="picto" alt="Voir le projet" title="Voir le projet"></a>
+              <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver le projet" title="Archiver le projet"></a>
+            </div>
+          </div>
+
+          <div class="row project-row">
+            <div class="col-md-3">
+              <p>Projet 3</p>
+            </div>
+            <div class="col-md-6">
+              <p>Date de lancement: 01/01/2017</p>
+              <p>Date de fin prévue: 01/01/2017</p>
+            </div>
+            <div class="col-md-3 project-action">
+              <a href="#"><img src="{{ asset('img/voir.svg') }}" class="picto" alt="Voir le projet" title="Voir le projet"></a>
+              <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver le projet" title="Archiver le projet"></a>
+            </div>
+          </div>    
+        </div>
+    	
+        
+    	</div>
+    </div>
+</section>
+<!-- fin fiche entreprise-->
+    
+{% endblock %}   

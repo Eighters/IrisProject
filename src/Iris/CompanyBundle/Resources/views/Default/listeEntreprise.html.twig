@@ -1,22 +1,35 @@
 {% extends "::base.html.twig" %}
 {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/ficheentreprise.css') }}" />
  <link rel="stylesheet" href="{{ asset('css/listentreprise.css') }}" />
  <link rel="stylesheet" href="{{ asset('css/User.css') }}" />
 {% endblock %}
 {% block body %}
-    
-<! debut fiche entreprise-->
+    {# you can read and display just one flash message type... #}
+    {% for flash_message in app.session.flashBag.get('notice') %}
+    <div class="alert alert-warning text-center">
+        {{ flash_message }}
+    </div>
+    {% endfor %} 
+<!-- debut fiche entreprise-->
+<div class="row">
+    <div class="nouvelleEntreprise">
+        <a href="{{ base_url }}/entreprises/add">
+            <i class="glyphicon glyphicon-plus fa-2x"></i>            
+        </a>
+    </div>
+</div>
 <div class="container-fiche row">
 {% for comp in company %}
     	<div class="item  col-xs-4 col-lg-3">
             <div class="thumbnail">
             	<div class="title">
             	<div style=" float: left; padding-left: 15px;">
-            	<a><i class="glyphicon glyphicon-pencil"></i></a>
+            	<a href="{{ base_url }}/entreprises/edit/{{comp.id}}"><img src="{{ asset('img/edit.svg') }}" class="picto-little" alt="Editer" title="Editer" /></a>
 
             	</div>
             	<div style=" float: right; padding-right: 15px;">
-            	<a><i class="glyphicon glyphicon-save"></i></a>
+            	<a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto-little" alt="Archiver" title="Archiver"></a>
 
             	</div>
             	<div style=" text-align: center; ">
@@ -27,24 +40,31 @@
                 
                 <div class="image utilisateur">
                     <a href="{{ base_url }}/entreprises/{{comp.id}}">
-                        <img class="img-circle bordure" src="{{ base_url }}/img/boy.png" alt="Generic placeholder image" width="140" height="140">
+                        <img class="img-circle img-entreprise" src="{{ base_url }}/img/company.svg" alt="Generic placeholder image" width="140" height="140">
                     </a>
                 </div>
                 <div class="caption">
-                	<i class="glyphicon glyphicon-globe" style=" float: left;" ></i>
+                	<img src="{{ asset('img/company.svg') }}" class="picto-little">
                 	<p class="group inner list-group-item-heading">
-                        Secteur : {{ comp.raisonSocial }}</p>
-                    <i class="glyphicon glyphicon-map-marker" style=" float: left;" ></i>
+                        {% if comp.secteurCompany is not null %}
+                            {{ comp.secteurCompany.name }}
+                        {% else %}
+                            Secteur non défini
+                        {% endif %}
+                        </p>
+                    <img src="{{ asset('img/location.svg') }}" class="picto-little">
                     <p class="group inner list-group-item-text">
-                        Siret de l'entreprise : {{ comp.siret }}</p>
-                    <i class="glyphicon glyphicon-phone-alt" style=" float: left;" ></i>
+                        
+                        {{ comp.address }}</p>
+                    <img src="{{ asset('img/telephone.svg') }}" class="picto-little">
                     <p class="group inner list-group-item-text">
-                        Téléphone : {{ comp.telephone }}</p>
+                        
+                           {{ comp.telephone }}</p>
                     
                 </div>
             </div>
         </div>
          {% endfor %}
 </div>
-<! fin fiche entreprise-->
+<!-- fin fiche entreprise-->
 {% endblock %}

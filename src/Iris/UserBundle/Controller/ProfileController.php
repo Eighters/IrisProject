@@ -11,6 +11,7 @@
 
 namespace Iris\UserBundle\Controller;
 
+use AppBundle\Entity\Company;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\Event\GetResponseUserEvent;
@@ -36,15 +37,24 @@ class ProfileController extends Controller
     /**
      * Show the user.
      */
-    public function showAction()
+    public function showAction($id)
     {
-        $user = $this->getUser();
+        $user = $this
+                ->getDoctrine()
+                ->getRepository('AppBundle:User')
+                ->find($id)
+                ;
+        
+        $company = $user->getCompany();
+
+        
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
         }
 
         return $this->render('@FOSUser/Profile/show.html.twig', array(
             'user' => $user,
+            'company' => $company,
         ));
     }
     /**
@@ -57,9 +67,7 @@ class ProfileController extends Controller
     public function editAction(Request $request)
     {
         $user = $this->getUser();
-        if (!is_object($user) || !$user instanceof UserInterface) {
-            throw new AccessDeniedException('This user does not have access to this section.');
-        }
+        if (!is_object($user) || !$user instanceof UserInterface) { throw new AccessDeniedException('This user does not have access to this section.');}
 
         /** @var $dispatcher EventDispatcherInterface */
         $dispatcher = $this->get('event_dispatcher');
@@ -67,9 +75,7 @@ class ProfileController extends Controller
         $event = new GetResponseUserEvent($user, $request);
         $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_INITIALIZE, $event);
 
-        if (null !== $event->getResponse()) {
-            return $event->getResponse();
-        }
+        if (null !== $event->getResponse()) { return $event->getResponse(); }
 
         /** @var $formFactory FactoryInterface */
         $formFactory = $this->get('fos_user.profile.form.factory');
@@ -88,18 +94,11 @@ class ProfileController extends Controller
 
             $userManager->updateUser($user);
 
-            if (null === $response = $event->getResponse()) {
-                $url = $this->generateUrl('fos_user_profile_show');
-                $response = new RedirectResponse($url);
-            }
+            if (null === $response = $event->getResponse()) { $url = $this->generateUrl('fos_user_profile_show'); $response = new RedirectResponse($url); }
 
             $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
 
-            return $response;
-        }
+            return $response; }
 
-        return $this->render('@FOSUser/Profile/edit.html.twig', array(
-            'form' => $form->createView(),
-        ));
-    }
+        return $this->render('@FOSUser/Profile/edit.html.twig', array('form' => $form->createView(),));}
 }

@@ -42,6 +42,13 @@ class RoleProject
      */
     private $description;
 
+    /**
+     * @var ArrayCollection
+     * One RoleProject has Many Parties Prenantes.
+     * @ORM\OneToMany(targetEntity="PartiePrenante", mappedBy="roleProject")
+     */
+    private $partiesPrenantes;
+
 
     /**
      * Get id

@@ -1,3 +1,8 @@
+section.content{
+	margin-right: 40px;
+	margin-left: 40px
+}
+
 .actions-link{
 	padding: 15px 0;
 }
@@ -34,6 +39,11 @@
 .entrepriseheader .banner{
 	min-height: 165px;
 	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
+
+.entrepriseheader .banner h2{
+	margin-top:  0;
+	padding-top: 30px;
 }
 
 .entrepriseheader .img-entreprise{
@@ -96,4 +106,23 @@
 
 h1, h2, h3{
 	color: #5ec3d7;
+}
+
+.nouvelleEntreprise{
+    float: right;
+    margin-right: 1%;
+}
+
+.userTitle{
+	display: block;
+	padding: 0 25px;
+}
+
+.userTitle h2{
+	float: left;
+}
+
+.userTitle a{
+	float: right;
+	padding-top: 22px;
 }

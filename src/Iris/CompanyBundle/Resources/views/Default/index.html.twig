@@ -6,12 +6,12 @@
 {% block body %}
     
 <!-- début fiche entreprise-->
-<div class="container">
-	<div class="row actions-link align-right">
-		<a href="#"><img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer"></a>
-    <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver" title="Archiver"></a>
-    <a href="#"><img src="{{ asset('img/close.svg') }}" class="picto" alt="Retour" title="Retour"></a>
-	</div>
+<section class="content">
+    <div class="row actions-link align-right">
+	<a href="{{ base_url }}/entreprises/edit/{{company.id}}"><img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer"></a>
+        <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver" title="Archiver"></a>
+        <a href="{{ base_url }}/entreprises"><img src="{{ asset('img/close.svg') }}" class="picto" alt="Retour" title="Retour"></a>
+    </div>
     <div class="row">
         <div class="col-md-12 nopadding entrepriseheader whitebckgd">
         	<div class="banner align-middle">
@@ -79,13 +79,19 @@
         </div>
     	</div>
     	<div class="second-column whitebckgd">
-    		<h2>Utilisateurs</h2>
+        <div class="row userTitle">
+          <h2>Utilisateurs</h2>
+          <a href="{{ base_url }}/entreprises/adduser/{{ company.id }}">
+              <i class="glyphicon glyphicon-plus fa-2x"></i>            
+          </a>
+        </div>
+    		
         {% for user in company.users %}
-          <p>{{ user.nom }}</p>
+            <p><a href="{{base_url}}/utilisateur/{{user.id}}">{{ user.nom }}</a></p>
         {% endfor %}
     	</div>
     </div>
-</div>
+</section>
 <!-- fin fiche entreprise-->
     
 {% endblock %}

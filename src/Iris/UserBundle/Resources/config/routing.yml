@@ -5,6 +5,10 @@ iris_user_homepage:
 iris_liste_user:
     path:     /utilisateurs
     defaults: { _controller: IrisUserBundle:User:ShowAll }
+
+iris_user:
+    path:     /utilisateur/{id}
+    defaults: { _controller: IrisUserBundle:Profile:Show }
     
 
 

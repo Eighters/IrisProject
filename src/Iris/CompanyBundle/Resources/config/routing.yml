@@ -5,6 +5,12 @@
 company:
     path:     /entreprises/add
     defaults: { _controller: IrisCompanyBundle:Company:Add }
+    
+iris_company_edit:
+    path:     /entreprises/edit/{id}
+    defaults: { _controller: IrisCompanyBundle:Company:edit }
+    requirements:
+        page: \d+
 
 iris_company_fiche:
     path:     /entreprises/{id}
@@ -13,3 +19,7 @@ iris_company_fiche:
 iris_company_liste_fiche:
     path:     /entreprises
     defaults: { _controller: IrisCompanyBundle:Company:ShowAll }
+
+iris_company_adduser:
+    path:     /entreprises/adduser/{id}
+    defaults: { _controller: IrisCompanyBundle:Company:RegisterUser }

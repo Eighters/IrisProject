@@ -52,9 +52,17 @@ class Enjeux
     /**
      * @var int
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Project", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Project", cascade={"persist"}, inversedBy="enjeux")
+     * @ORM\JoinColumn(name="project_id", referencedColumnName="id")
      */
     private $project;
+
+    /**
+     * @var ArrayCollection
+     * One Enjeux has Many Objectifs.
+     * @ORM\OneToMany(targetEntity="Objectif", mappedBy="enjeux")
+     */
+    private $objectifs;
 
 
     /**

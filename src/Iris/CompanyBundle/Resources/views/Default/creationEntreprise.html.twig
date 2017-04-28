@@ -1,8 +1,62 @@
 {% extends "::base.html.twig" %}
-{% block body %}
-    <h3>Formulaire d'entreprise</h3>
+{% block stylesheets %}
 
-    <div class="well">
-      {{ form(form) }}
+    <link rel="stylesheet" href="{{ asset('css/creationentreprise.css') }}" />
+
+{% endblock %}
+
+{% block body %}
+{{ form_start(form, {'attr': {'class': 'form-group'}} ) }}
+
+    <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Formulaire d'entreprise</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+          <div class="box-body">
+            <div class="form-group">
+                {{ form_label(form.raisonSocial) }}
+                {{ form_errors(form.raisonSocial) }}
+                {{ form_widget(form.raisonSocial) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.siret) }}
+                {{ form_errors(form.siret) }}
+                {{ form_widget(form.siret) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.telephone) }}
+                {{ form_errors(form.telephone) }}
+                {{ form_widget(form.telephone) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.mail) }}
+                {{ form_errors(form.mail) }}
+                {{ form_widget(form.mail) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.address) }}
+                {{ form_errors(form.address) }}
+                {{ form_widget(form.address) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.description) }}
+                {{ form_errors(form.description) }}
+                {{ form_widget(form.description) }}
+            </div>
+            
+            
+            
+          </div>
+          <!-- /.box-body -->
+
+          <div class="box-footer">
+            {{ form_widget(form.enregistrer) }}
+          </div>
+        
     </div>
+    
+{{ form_end(form) }}
+
 {% endblock %}

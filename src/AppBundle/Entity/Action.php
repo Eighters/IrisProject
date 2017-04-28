@@ -29,16 +29,18 @@ class Action
     private $visibilite;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="responsable", type="string", length=50)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PartiePrenante", cascade={"persist"}, inversedBy="actions")
+     * @ORM\JoinColumn(name="responsable_id", referencedColumnName="id")
      */
     private $responsable;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="origine", type="string", length=50)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PartiePrenante", cascade={"persist"}, inversedBy="actionsCreated")
+     * @ORM\JoinColumn(name="origine_id", referencedColumnName="id")
      */
     private $origine;
 
@@ -59,7 +61,7 @@ class Action
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateFinReelle", type="date")
+     * @ORM\Column(name="dateFinReelle", type="date", nullable=true)
      */
     private $dateFinReelle;
 
@@ -80,16 +82,9 @@ class Action
     /**
      * @var string
      *
-     * @ORM\Column(name="observation", type="string", length=300)
+     * @ORM\Column(name="observation", type="string", length=300, nullable=true)
      */
     private $observation;
-
-    /**
-     * @var int
-     *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\PartiePrenante", cascade={"persist"})
-     */
-    private $partiePrenante;
 
 
     /**
@@ -318,27 +313,4 @@ class Action
         return $this->observation;
     }
 
-    /**
-     * Set partiePrenante
-     *
-     * @param integer $partiePrenante
-     *
-     * @return Action
-     */
-    public function setPartiePrenante($partiePrenante)
-    {
-        $this->partiePrenanteId = $partiePrenante;
-
-        return $this;
-    }
-
-    /**
-     * Get partiePrenante
-     *
-     * @return \AppBundle\Entity\PartiePrenante
-     */
-    public function getPartiePrenante()
-    {
-        return $this->partiePrenante;
-    }
 }
