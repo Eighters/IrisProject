@@ -62,7 +62,7 @@ h1 {
 }
 
 .containerw3layouts-agileits {
-	width: 50%;
+	width: 70%;
 	margin: 0 auto;
 }
 
@@ -71,16 +71,16 @@ h1 {
 	/*-- w3layouts --*/
 	/*-- agileits --*/
 	float: left;
-	height : 513px;
+	height : 549px;
 	background-size: cover;
-	background-image:url(../img/background-login.png);
+	background-image:url(../img/pannel-co.jpg);
 }
 
 .aitsloginwthree {
 	background-color: #FFF;
 	width: 40%;
 	float: left;
-	height : 484px;
+	height : 519px;
 }
 
 h2 {
@@ -92,13 +92,13 @@ h2 {
 
 input[type="text"], input[type="password"] {
 	padding: 15px 0 10px 0;
-	width: 90%;
+	width: 65%;
 	border: none;
 	/*-- w3layouts --*/
 	/*-- agileits --*/
-	border-bottom: 2px solid #4dd0e1;
+	border-bottom: 2px solid #0091ab;
 	font-family: 'Montserrat', sans-serif;
-	font-size: 14px;
+	font-size: 16px;
 	color: #333;
 	outline: none;
 	margin-bottom: 20px;
@@ -107,7 +107,7 @@ input[type="text"], input[type="password"] {
 ul.tick {
 	list-style: none;
 	display: inline-block;
-	margin: 20px 0 30px;
+	margin: 20px 0 106px;
 }
 
 ul.tick li {
@@ -164,15 +164,15 @@ ul.tick a {
 }
 
 input[type="submit"] {
-	padding: 10px 30px;
+	padding: 10px 106px;
 	font-family: 'Montserrat', sans-serif;
-	font-size: 15px;
+	font-size: 16px;
 	border: none;
 	outline: none;
 	
 	/*-- wthree --*/
 	/*-- agileits --*/
-	background-color: #4dd0e1;
+	background-color: #0091ab;
 	color: #FFF;
 	cursor: pointer;
 }
@@ -188,22 +188,21 @@ input[type="submit"]:hover {
 /*-- Placeholder-Styling --*/
 
 ::-webkit-input-placeholder {
-	color: #333;
+	color: #ccc;
 }
 
 ::-moz-placeholder {
-	color: #333;
+	color: #ccc;
 	/*-- w3layouts --*/
 	/*-- w3-agile --*/
 }
 
 ::-moz-placeholder {
-	color: #333;
+	color: #ccc;
 }
 
 ::-ms-input-placeholder {
-	color: #333;
-}
+	color: #ccc;
 
 /*-- //Placeholder-Styling --*/
 
