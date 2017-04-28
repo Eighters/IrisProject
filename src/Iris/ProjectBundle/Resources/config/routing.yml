@@ -1,4 +1,4 @@
-#iris_company_homepage:
+#iris_project_homepage:
 #    path:     /
 #    defaults: { _controller: IrisProjectBundle:Default:index }
 
