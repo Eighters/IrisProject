@@ -1,0 +1,21 @@
+#iris_company_homepage:
+#    path:     /
+#    defaults: { _controller: IrisProjectBundle:Default:index }
+
+project:
+    path:     /projets/add
+    defaults: { _controller: IrisProjectBundle:Project:Add }
+    
+iris_project_edit:
+    path:     /projets/edit/{id}
+    defaults: { _controller: IrisProjectBundle:Project:edit }
+    requirements:
+        page: \d+
+
+iris_project_fiche:
+    path:     /projets/{id}
+    defaults: { _controller: IrisProjectBundle:Project:Show }
+
+iris_project_liste_fiche:
+    path:     /projets
+    defaults: { _controller: IrisProjectBundle:Project:ShowAll }

@@ -130,26 +130,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <ul class="sidebar-menu">
         
         <!-- Optionally, you can add icons to the links -->
-        <li class="{% if app.request.attributes.get('_route') =='iris_user_homepage' %}active{% endif %}">
+        <li class="{% if app.request.attributes.get('_route') =='homepage' %}active{% endif %}">
           <a href="{{ base_url }}">
             <img src="{{ asset('AdminLTE/dist/img/Menu/tableau_de_bord.svg') }}" width="17px"/>
             <span>Tableau de bord</span>
           </a>
         </li>
-        <li class="treeview {% if ((app.request.attributes.get('_route') == 'iris_company_liste_fiche') or 
-        (app.request.attributes.get('_route') == 'company')) %}active{% endif %}">
-          <a href="#">
-            <img src="{{ asset('AdminLTE/dist/img/Menu/entreprise.svg') }}" width="17px"/><span>Entreprises</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{ base_url }}/entreprises"><i class="fa fa-circle-o"></i>Voir les entreprises</a></li>
-            <li><a href="{{ base_url }}/entreprises/add"><i class="fa fa-circle-o"></i>Ajouter une entreprise</a></li>
-          </ul>
-        </li>
-        <li><a href="{{ base_url }}"><img src="{{ asset('AdminLTE/dist/img/Menu/projet.svg') }}" width="17px"/> <span>Projets</span></a></li>
+        <li class="{% if ((app.request.attributes.get('_route') == 'iris_company_liste_fiche') or 
+        (app.request.attributes.get('_route') == 'company')) %}active{% endif %}"><a href="{{ base_url }}/entreprises"><img src="{{ asset('AdminLTE/dist/img/Menu/entreprise.svg') }}" width="17px"/> <span>Entreprises</span></a></li>
+        <li><a href="{{ base_url }}/projets"><img src="{{ asset('AdminLTE/dist/img/Menu/projet.svg') }}" width="17px"/> <span>Projets</span></a></li>
         <li><a href="{{ base_url }}"><img src="{{ asset('AdminLTE/dist/img/Menu/taches.svg') }}" width="17px"/> <span>Tâches</span></a></li>
         <li><a href="{{ base_url }}"><img src="{{ asset('AdminLTE/dist/img/Menu/collaborateurs.svg') }}" width="17px"/> <span>Collaborateurs</span></a></li>
         <li><a href="{{ base_url }}"><img src="{{ asset('AdminLTE/dist/img/Menu/livrables.svg') }}" width="17px"/> <span>Livrables</span></a></li>

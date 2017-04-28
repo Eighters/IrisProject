@@ -1,0 +1,46 @@
+{% extends "::base.html.twig" %}
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('css/ficheentreprise.css') }}" />
+{% endblock %}
+{% block body %}
+<section class="content">
+    <div class="row actions-link align-right">
+	<a href="{{ base_url }}/projets/edit/{{project.id}}"><img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer" /></a>
+        <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver" title="Archiver"></a>
+        <a href="{{ base_url }}/projets"><img src="{{ asset('img/close.svg') }}" class="picto" alt="Retour" title="Retour"></a>
+    </div>
+    <div class="row">
+        <div class="col-md-12 nopadding entrepriseheader whitebckgd">
+        	<div class="banner align-middle">
+        		<h2>{{project.nom}}</h2>
+        	</div>
+  			
+  			<div class="col-md-4 entreprise-info">
+  				<h2>Informations</h2> 
+  				<p><img src="{{ asset('img/location.svg') }}" class="picto-little" ></p>
+  				<p><img src="{{ asset('img/mail.svg') }}" class="picto-little" ></p>
+  				<p><img src="{{ asset('img/telephone.svg') }}" class="picto-little" ></p>
+  			</div> 
+  			<div class="col-md-8">
+  				<h1></h1>
+  				<h2>Description</h2>
+  				<p>{{project.description}}</p>
+  			</div>   
+        </div>
+    </div>
+    <div class="row align-middle">
+    	<div class="col-md-4">
+        	<h2>Actions</h2>
+    	</div>
+    	<div class="col-md-4">
+        	<h2>Exigences</h2>
+    	</div>
+    	<div class="col-md-4">
+        	<h2>Enjeux</h2>
+    	</div>
+    	
+    </div>
+</section>
+<!-- fin fiche entreprise-->
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "::base.html.twig" %}
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('css/creationentreprise.css') }}" />
+
+{% endblock %}
+
+{% block body %}
+{{ form_start(projectForm, {'attr': {'class': 'form-group'}} ) }}
+
+    <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Formulaire de projet</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+          <div class="box-body">
+            <div class="form-group">
+                {{ form_label(projectForm.nom) }}
+                {{ form_errors(projectForm.nom) }}
+                {{ form_widget(projectForm.nom) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(projectForm.dateLancement) }}
+                {{ form_errors(projectForm.dateLancement) }}
+                {{ form_widget(projectForm.dateLancement) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(projectForm.type) }}
+                {{ form_errors(projectForm.type) }}
+                {{ form_widget(projectForm.type) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(projectForm.besoin) }}
+                {{ form_errors(projectForm.besoin) }}
+                {{ form_widget(projectForm.besoin) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(projectForm.origine) }}
+                {{ form_errors(projectForm.origine) }}
+                {{ form_widget(projectForm.origine) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(projectForm.description) }}
+                {{ form_errors(projectForm.description) }}
+                {{ form_widget(projectForm.description) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(projectForm.benefices) }}
+                {{ form_errors(projectForm.benefices) }}
+                {{ form_widget(projectForm.benefices) }}
+            </div>
+            
+          </div>
+          <!-- /.box-body -->
+
+          <div class="box-footer">
+            {{ form_widget(projectForm.enregistrer) }}
+          </div>
+        
+    </div>
+    
+{{ form_end(projectForm) }}
+
+{% endblock %}
