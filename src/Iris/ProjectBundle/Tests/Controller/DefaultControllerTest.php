@@ -1,6 +1,6 @@
 <?php
 
-namespace Iris\CompanyBundle\Tests\Controller;
+namespace Iris\ProjectBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -12,6 +12,6 @@ class DefaultControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/');
 
-        return true;
+        $this->assertContains('Hello World', $client->getResponse()->getContent());
     }
 }

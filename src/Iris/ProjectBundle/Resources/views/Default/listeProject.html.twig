@@ -14,18 +14,18 @@
 <!-- debut fiche entreprise-->
 <div class="row">
     <div class="nouvelleEntreprise">
-        <a href="{{ base_url }}/entreprises/add">
+        <a href="{{ base_url }}/projets/add">
             <i class="glyphicon glyphicon-plus fa-2x"></i>            
         </a>
     </div>
 </div>
 <div class="container-fiche row">
-{% for comp in company %}
+{% for proj in project %}
     	<div class="item  col-xs-4 col-lg-3">
             <div class="thumbnail">
             	<div class="title">
             	<div style=" float: left; padding-left: 15px;">
-            	<a href="{{ base_url }}/entreprises/edit/{{comp.id}}"><img src="{{ asset('img/edit.svg') }}" class="picto-little" alt="Editer" title="Editer" /></a>
+            	<a href="{{ base_url }}/projets/edit/{{proj.id}}"><img src="{{ asset('img/edit.svg') }}" class="picto-little" alt="Editer" title="Editer" /></a>
 
             	</div>
             	<div style=" float: right; padding-right: 15px;">
@@ -33,26 +33,20 @@
 
             	</div>
             	<div style=" text-align: center; ">
-                    <h4> <a href="{{ base_url }}/entreprises/{{comp.id}}">{{ comp.raisonSocial }} </a></h4>
+                    <h4> <a href="{{ base_url }}/projets/{{proj.id}}">{{ proj.nom }} </a></h4>
             	</div>
             	
             	</div>
                 
                 <div class="image utilisateur">
-                    <a href="{{ base_url }}/entreprises/{{comp.id}}">
+                    <a href="{{ base_url }}/projets/{{proj.id}}">
                         <img class="img-circle img-entreprise" src="{{ base_url }}/img/company.svg" alt="Generic placeholder image" width="140" height="140">
                     </a>
                 </div>
                 <div class="caption">
-                	<img src="{{ asset('img/company.svg') }}" class="picto-little">
+                	<i class="glyphicon glyphicon-globe" style=" float: left;" ></i>
                 	<p class="group inner list-group-item-heading">
-                        {{ comp.secteurCompany.name }}</p>
-                    <img src="{{ asset('img/location.svg') }}" class="picto-little">
-                    <p class="group inner list-group-item-text">
-                        {{ comp.address }}</p>
-                    <img src="{{ asset('img/telephone.svg') }}" class="picto-little">
-                    <p class="group inner list-group-item-text">
-                           {{ comp.telephone }}</p>
+                        Type : {{ proj.type }}</p>
                     
                 </div>
             </div>

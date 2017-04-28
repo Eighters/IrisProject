@@ -41,6 +41,11 @@ section.content{
 	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 }
 
+.entrepriseheader .banner h2{
+	margin-top:  0;
+	padding-top: 30px;
+}
+
 .entrepriseheader .img-entreprise{
 	width: 230px;
     height: 230px;
