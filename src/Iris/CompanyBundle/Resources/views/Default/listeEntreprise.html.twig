@@ -46,12 +46,19 @@
                 <div class="caption">
                 	<img src="{{ asset('img/company.svg') }}" class="picto-little">
                 	<p class="group inner list-group-item-heading">
-                        {{ comp.secteurCompany.name }}</p>
+                        {% if comp.secteurCompany is not null %}
+                            {{ comp.secteurCompany.name }}
+                        {% else %}
+                            Secteur non défini
+                        {% endif %}
+                        </p>
                     <img src="{{ asset('img/location.svg') }}" class="picto-little">
                     <p class="group inner list-group-item-text">
+                        
                         {{ comp.address }}</p>
                     <img src="{{ asset('img/telephone.svg') }}" class="picto-little">
                     <p class="group inner list-group-item-text">
+                        
                            {{ comp.telephone }}</p>
                     
                 </div>
