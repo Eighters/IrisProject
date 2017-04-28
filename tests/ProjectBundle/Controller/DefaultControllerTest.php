@@ -1,6 +1,6 @@
 <?php
 
-namespace ProjectBundle\Tests\Controller;
+namespace Iris\ProjectBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
