@@ -7,13 +7,12 @@
 {% if error %}
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
-<div class="containerw3layouts-agileits" style=" padding-top : 6%;">
+<div class="containerw3layouts-agileits" style=" padding-top : 4%;">
 
         <div class="w3imageaits">
             <div style=" color : #fff; padding-top : 40%; font-size : 30px;">
-             <br></br>Gérer vos projets <br></br>
-             avec IRIS 
-            </div>
+             
+        </div>
         </div>
 
         <div class="aitsloginwthree w3layouts agileits" style=" padding-top : 30px;">
@@ -25,15 +24,14 @@
     {% endif %}
 
     
-    <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Nom d'utilisateur" required="required" /><br></br>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Identifiant" required="required" /><br></br>
 
     
     <input type="password" id="password" name="_password" placeholder="Mot de passe" required="required" /><br></br>
 
     <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" /><br></br>
 
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label><br></br>
+    <a href="#" style=" color : #000;"> Mot de passe oublié ?</a>
 
     
 </form>
