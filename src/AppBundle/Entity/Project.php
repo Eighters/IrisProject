@@ -38,35 +38,35 @@ class Project
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=50)
+     * @ORM\Column(name="type", type="string", length=50, nullable=true)
      */
     private $type;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="besoin", type="string", length=300)
+     * @ORM\Column(name="besoin", type="string", length=300, nullable=true)
      */
     private $besoin;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="origine", type="string", length=70)
+     * @ORM\Column(name="origine", type="string", length=70, nullable=true)
      */
     private $origine;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="benefices", type="string", length=100)
+     * @ORM\Column(name="benefices", type="string", length=100, nullable=true)
      */
     private $benefices;
 

@@ -67,7 +67,7 @@ class PartiePrenante
     /**
      * @var int
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\RoleProject", cascade={"persist"}, inversedBy="partiesprenantes")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\RoleProject", cascade={"persist"}, inversedBy="partiesPrenantes")
      * @ORM\JoinColumn(name="roleproject_id", referencedColumnName="id")
      */
     private $roleProject;
@@ -90,9 +90,16 @@ class PartiePrenante
     /**
      * @var ArrayCollection
      * One PartiePrenante has Many Actions.
-     * @ORM\OneToMany(targetEntity="Action", mappedBy="partiePrenante")
+     * @ORM\OneToMany(targetEntity="Action", mappedBy="responsable")
      */
     private $actions;
+
+    /**
+     * @var ArrayCollection
+     * One PartiePrenante has Many Created Actions.
+     * @ORM\OneToMany(targetEntity="Action", mappedBy="origine")
+     */
+    private $actionsCreated;
 
 
     /**

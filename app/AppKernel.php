@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new Iris\CompanyBundle\IrisCompanyBundle(),
             new Iris\UserBundle\IrisUserBundle(),
+            new Iris\ProjectBundle\IrisProjectBundle(),
             new FOS\UserBundle\FOSUserBundle(),
         ];
 
