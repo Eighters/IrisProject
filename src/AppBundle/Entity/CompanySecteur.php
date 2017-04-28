@@ -31,9 +31,16 @@ class CompanySecteur
     /**
      * @var string
      *
-     * @ORM\Column(name="iconpath", type="string", length=255)
+     * @ORM\Column(name="iconpath", type="string", length=255, nullable=true)
      */
     private $iconpath;
+
+    /**
+     * @var ArrayCollection
+     * One Secteur has Many Companies.
+     * @ORM\OneToMany(targetEntity="Company", mappedBy="secteurCompany")
+     */
+    private $companies;
 
 
     /**
