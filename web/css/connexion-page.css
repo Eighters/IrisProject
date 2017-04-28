@@ -34,19 +34,6 @@
 
 /*-- Index-Page-Styling --*/
 
-::-webkit-input-placeholder {
-  color: #aaa;
-}
-::-moz-placeholder {
-  color: #aaa;
-}
-:-ms-input-placeholder {
-  color: #aaa;
-}
-::placeholder {
-  color: #aaa;
-}
-
 
 
 body {
@@ -75,7 +62,7 @@ h1 {
 }
 
 .containerw3layouts-agileits {
-	width: 70%;
+	width: 50%;
 	margin: 0 auto;
 }
 
@@ -84,16 +71,16 @@ h1 {
 	/*-- w3layouts --*/
 	/*-- agileits --*/
 	float: left;
-	height : 549px;
+	height : 513px;
 	background-size: cover;
-	background-image:url(../img/pannel-co.jpg);
+	background-image:url(../img/background-login.png);
 }
 
 .aitsloginwthree {
 	background-color: #FFF;
 	width: 40%;
 	float: left;
-	height : 519px;
+	height : 484px;
 }
 
 h2 {
@@ -105,13 +92,13 @@ h2 {
 
 input[type="text"], input[type="password"] {
 	padding: 15px 0 10px 0;
-	width: 65%;
+	width: 90%;
 	border: none;
 	/*-- w3layouts --*/
 	/*-- agileits --*/
-	border-bottom: 2px solid #0091ab;
+	border-bottom: 2px solid #4dd0e1;
 	font-family: 'Montserrat', sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	color: #333;
 	outline: none;
 	margin-bottom: 20px;
@@ -176,17 +163,16 @@ ul.tick a {
 	margin-bottom: 30px;
 }
 
-
 input[type="submit"] {
-	padding: 10px 106px;
+	padding: 10px 30px;
 	font-family: 'Montserrat', sans-serif;
-	font-size: 16px;
+	font-size: 15px;
 	border: none;
 	outline: none;
 	
 	/*-- wthree --*/
 	/*-- agileits --*/
-	background-color: #0091ab;
+	background-color: #4dd0e1;
 	color: #FFF;
 	cursor: pointer;
 }
@@ -202,21 +188,21 @@ input[type="submit"]:hover {
 /*-- Placeholder-Styling --*/
 
 ::-webkit-input-placeholder {
-	color: #ccc;
+	color: #333;
 }
 
 ::-moz-placeholder {
-	color: #ccc;
+	color: #333;
 	/*-- w3layouts --*/
 	/*-- w3-agile --*/
 }
 
 ::-moz-placeholder {
-	color: #ccc;
+	color: #333;
 }
 
 ::-ms-input-placeholder {
-	color: #ccc;
+	color: #333;
 }
 
 /*-- //Placeholder-Styling --*/
