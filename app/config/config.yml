@@ -85,3 +85,11 @@ fos_user:
     profile:
         form:
             type: AppBundle\Form\ProfileType
+
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        company_image:
+            uri_prefix:         /img/companies
+            upload_destination: "%kernel.root_dir%/../web/img/companies"
