@@ -4,7 +4,6 @@ namespace Iris\UserBundle\Controller;
 
 // use utilisé pour la page Company
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
 
 

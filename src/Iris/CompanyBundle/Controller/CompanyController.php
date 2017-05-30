@@ -5,14 +5,12 @@ namespace Iris\CompanyBundle\Controller;
 
 // use utilisé pour la page Company
 use AppBundle\Entity\Company;
-use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\FormEvent;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use FOS\UserBundle\Event\FilterUserResponseEvent;
 
 
 class CompanyController extends Controller
