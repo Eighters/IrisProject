@@ -5,6 +5,9 @@ namespace AppBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\PartiePrenante
+
 
 /**
  * @ORM\Entity
@@ -127,6 +130,40 @@ class User extends BaseUser
     public function getCompany()
     {
         return $this->company;
+    }
+
+    /**
+     * Add partiePrenante
+     *
+     * @param PartiePrenante $partiePrenante
+     *
+     * @return User
+     */
+    public function addPartiePrenante(PartiePrenante $partiePrenante)
+    {
+        $this->partiesPrenantes[] = $partiePrenante;
+
+        return $this;
+    }
+
+    /**
+     * Remove partiePrenante
+     *
+     * @param PartiePrenante $partiePrenante
+     */
+    public function removePartiePrenante(PartiePrenante $partiePrenante)
+    {
+        $this->partiesPrenantes->removeElement($partiePrenante);
+    }
+
+    /**
+     * Get partiesPrenantes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPartiesPrenantes()
+    {
+        return $this->partiesPrenantes;
     }
 
 }

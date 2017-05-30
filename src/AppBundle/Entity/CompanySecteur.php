@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\Company
 
 /**
  * CompanySecteur
@@ -103,5 +105,39 @@ class CompanySecteur
     public function getIconpath()
     {
         return $this->iconpath;
+    }
+
+    /**
+     * Add company
+     *
+     * @param Company $company
+     *
+     * @return CompanySecteur
+     */
+    public function addCompany(Company $company)
+    {
+        $this->companies[] = $company;
+
+        return $this;
+    }
+
+    /**
+     * Remove company
+     *
+     * @param Company $company
+     */
+    public function removeCompany(Company $company)
+    {
+        $this->companies->removeElement($company);
+    }
+
+    /**
+     * Get companies
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCompanies()
+    {
+        return $this->companies;
     }
 }

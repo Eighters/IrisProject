@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\Project
 
 /**
  * ProjectCategory
@@ -39,7 +41,7 @@ class ProjectCategory
     public function __construct() {
         $this->projects = new ArrayCollection();
     }
-    
+
     /**
      * Get id
      *
@@ -72,5 +74,40 @@ class ProjectCategory
     public function getNom()
     {
         return $this->nom;
+    }
+
+
+    /**
+     * Add project
+     *
+     * @param Project $project
+     *
+     * @return ProjectCategory
+     */
+    public function addProject(Project $project)
+    {
+        $this->projects[] = $project;
+
+        return $this;
+    }
+
+    /**
+     * Remove project
+     *
+     * @param Project $project
+     */
+    public function removeProject(Project $project)
+    {
+        $this->projects->removeElement($project);
+    }
+
+    /**
+     * Get projects
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProjects()
+    {
+        return $this->projects;
     }
 }

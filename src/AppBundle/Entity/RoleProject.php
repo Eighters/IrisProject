@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\PartiePrenante
 
 /**
  * RoleProject
@@ -134,5 +136,39 @@ class RoleProject
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Add partiePrenante
+     *
+     * @param PartiePrenante $partiePrenante
+     *
+     * @return RoleProject
+     */
+    public function addPartiePrenante(PartiePrenante $partiePrenante)
+    {
+        $this->partiesPrenantes[] = $partiePrenante;
+
+        return $this;
+    }
+
+    /**
+     * Remove partiePrenante
+     *
+     * @param PartiePrenante $partiePrenante
+     */
+    public function removePartiePrenante(PartiePrenante $partiePrenante)
+    {
+        $this->partiesPrenantes->removeElement($partiePrenante);
+    }
+
+    /**
+     * Get partiesPrenantes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPartiesPrenantes()
+    {
+        return $this->partiesPrenantes;
     }
 }

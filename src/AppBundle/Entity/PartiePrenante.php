@@ -3,6 +3,10 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\Exigence
+use AppBundle\Entity\Action
+
 
 /**
  * PartiePrenante
@@ -308,5 +312,109 @@ class PartiePrenante
     public function getProject()
     {
         return $this->project;
+    }
+
+
+    /**
+     * Add exigence
+     *
+     * @param Exigence $exigence
+     *
+     * @return PartiePrenante
+     */
+    public function addExigence(Exigence $exigence)
+    {
+        $this->exigences[] = $exigence;
+
+        return $this;
+    }
+
+    /**
+     * Remove exigence
+     *
+     * @param Exigence $exigence
+     */
+    public function removeExigence(Exigence $exigence)
+    {
+        $this->exigences->removeElement($exigence);
+    }
+
+    /**
+     * Get exigences
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getExigences()
+    {
+        return $this->exigences;
+    }
+
+
+    /**
+     * Add action
+     *
+     * @param Action $action
+     *
+     * @return PartiePrenante
+     */
+    public function addAction(Action $action)
+    {
+        $this->actions[] = $action;
+
+        return $this;
+    }
+
+    /**
+     * Remove action
+     *
+     * @param Action $action
+     */
+    public function removeAction(Action $action)
+    {
+        $this->actions->removeElement($action);
+    }
+
+    /**
+     * Get actions
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getActions()
+    {
+        return $this->actions;
+    }
+
+    /**
+     * Add actionCreated
+     *
+     * @param Action $actionCreated
+     *
+     * @return PartiePrenante
+     */
+    public function addActionCreated(Action $actionCreated)
+    {
+        $this->actionsCreated[] = $actionCreated;
+
+        return $this;
+    }
+
+    /**
+     * Remove actionCreated
+     *
+     * @param Action $actionCreated
+     */
+    public function removeActionCreated(Action $actionCreated)
+    {
+        $this->actionsCreated->removeElement($actionCreated);
+    }
+
+    /**
+     * Get actionsCreated
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getActionsCreated()
+    {
+        return $this->actionsCreated;
     }
 }
