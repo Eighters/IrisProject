@@ -4,9 +4,9 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-use AppBundle\Entity\PartiePrenante
-use AppBundle\Entity\Enjeux
-use AppBundle\Entity\Jalon
+use AppBundle\Entity\PartiePrenante;
+use AppBundle\Entity\Enjeux;
+use AppBundle\Entity\Jalon;
 
 /**
  * Project

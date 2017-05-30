@@ -4,8 +4,8 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-use AppBundle\Entity\Exigence
-use AppBundle\Entity\Action
+use AppBundle\Entity\Exigence;
+use AppBundle\Entity\Action;
 
 
 /**
