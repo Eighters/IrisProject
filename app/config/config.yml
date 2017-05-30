@@ -81,10 +81,10 @@ fos_user:
         sender_name: YanivKoubbi
     registration:
         form:
-            type: AppBundle\Form\RegistrationType
+            type: AppBundle\Form\Type\RegistrationType
     profile:
         form:
-            type: AppBundle\Form\ProfileType
+            type: AppBundle\Form\Type\ProfileType
 
 vich_uploader:
     db_driver: orm

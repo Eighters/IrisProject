@@ -33,7 +33,7 @@ class CompanyController extends Controller
         
         // On crée le FormBuilder grâce au service form factory
         // On ajoute les champs de l'entité que l'on veut à notre formulaire
-        $form = $this->createForm(\AppBundle\Form\CompanyFormType::class, $company);
+        $form = $this->createForm(\AppBundle\Form\Type\CompanyFormType::class, $company);
         
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
@@ -72,7 +72,7 @@ class CompanyController extends Controller
 
     public function editAction(Request $request, Company $company)
     {
-        $form = $this->createForm(\AppBundle\Form\CompanyFormType::class, $company);
+        $form = $this->createForm(\AppBundle\Form\Type\CompanyFormType::class, $company);
         // only handles data on POST
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

@@ -21,7 +21,7 @@ class ProjectController extends Controller
         
         // On crée le FormBuilder grâce au service form factory
         // On ajoute les champs de l'entité que l'on veut à notre formulaire
-        $form = $this->createForm(\AppBundle\Form\ProjectFormType::class, $project);
+        $form = $this->createForm(\AppBundle\Form\Type\ProjectFormType::class, $project);
         
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
