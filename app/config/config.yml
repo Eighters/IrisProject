@@ -93,9 +93,3 @@ vich_uploader:
         company_image:
             uri_prefix:         /img/companies
             upload_destination: "%kernel.root_dir%/../web/img/companies"
-
-rules:
-  symfony.controller.action_method_too_long:
-    enabled: true
-    max_length: 30
-    threshold: 10
