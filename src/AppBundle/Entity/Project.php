@@ -349,11 +349,11 @@ class Project
     /**
      * Add enjeu
      *
-     * @param Enjeu $enjeu
+     * @param Enjeux $enjeu
      *
      * @return Project
      */
-    public function addEnjeu(Enjeu $enjeu)
+    public function addEnjeu(Enjeux $enjeu)
     {
         $this->enjeux[] = $enjeu;
 
@@ -363,9 +363,9 @@ class Project
     /**
      * Remove enjeu
      *
-     * @param Enjeu $enjeu
+     * @param Enjeux $enjeu
      */
-    public function removeEnjeu(Enjeu $enjeu)
+    public function removeEnjeu(Enjeux $enjeu)
     {
         $this->enjeux->removeElement($enjeu);
     }
