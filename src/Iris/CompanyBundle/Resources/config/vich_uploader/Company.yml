@@ -1,5 +1,0 @@
-# src/Iris/CompanyBundle/Resources/config/vich_uploader/Company.yml
-AppBundle\Entity\Company:
-    image:
-        mapping:           company_image # required
-        filename_property: imageName     # required

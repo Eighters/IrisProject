@@ -21,7 +21,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Vich\UploaderBundle\Form\Type\VichFileType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class CompanyFormType extends AbstractType{
     
@@ -39,7 +39,7 @@ class CompanyFormType extends AbstractType{
                     'attr' => array('id' => 'message','class' => 'form_control', 'rows' => '4' , 'cols' => '100')
             ))
             ->add('mail')
-            ->add('imageFile', VichFileType::class, array(
+            ->add('imageFile', VichImageType::class, array(
                 'label' => 'Image',
                 'required' => false,
                 'allow_delete' => true

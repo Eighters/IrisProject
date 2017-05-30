@@ -37,12 +37,23 @@
             	</div>
             	
             	</div>
-                
-                <div class="image utilisateur">
-                    <a href="{{ base_url }}/entreprises/{{comp.id}}">
-                        <img class="img-circle img-entreprise" src="{{ base_url }}/img/company.svg" alt="Generic placeholder image" width="140" height="140">
+
+                <div class="col-md-12 nopadding entrepriseheader whitebckgd">
+                    <div class="banner align-middle">
+                        <div class="img-entreprise img-circle">
+                            <a href="{{ base_url }}/entreprises/{{comp.id}}">
+
+                        {% if comp.imageName is defined and comp.imageName is not null and comp.imageName is not empty %}
+                            <img src="{{ asset('img/companies/' ~ comp.imageName) }}" alt="Generic placeholder image" width="140" height="140">
+                        {% else %}
+                            <img src="{{ base_url }}/img/company.svg" alt="Generic placeholder image" width="140" height="140">
+                        {% endif %}
                     </a>
+                        </div>
+                    </div>
                 </div>
+                
+                
                 <div class="caption">
                 	<img src="{{ asset('img/company.svg') }}" class="picto-little">
                 	<p class="group inner list-group-item-heading">

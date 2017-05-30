@@ -16,7 +16,7 @@
         <div class="col-md-12 nopadding entrepriseheader whitebckgd">
         	<div class="banner align-middle">
         		<div class="img-entreprise img-circle">
-        			<img src="{{ asset('img/companies/' ~ company.imageName) }}" alt="" title="">
+        			<img src="{{ asset('img/companies/' ~ company.imageName) }}" alt="{{ company.raisonSocial }}" title="{{ company.raisonSocial }}">
         		</div>
         	</div>
   			<div class="col-md-7">
@@ -27,7 +27,7 @@
   			<div class="col-md-5 entreprise-info">
   				<h2>Informations</h2> 
   				<p><img src="{{ asset('img/location.svg') }}" class="picto-little" >{{company.address}}</p>
-  				<p><img src="{{ asset('img/mail.svg') }}" class="picto-little" >{{company.mail}}</p>
+  				<p><img src="{{ asset('img/mail.svg') }}" class="picto-little" ><a href="mailto:{{company.mail}}">{{company.mail}}</a></p>
   				<p><img src="{{ asset('img/telephone.svg') }}" class="picto-little" >{{company.telephone}}</p>
   			</div>  
         </div>
