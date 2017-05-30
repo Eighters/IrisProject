@@ -5,7 +5,7 @@
 project:
     path:     /projets/add
     defaults: { _controller: IrisProjectBundle:Project:Add }
-    
+
 iris_project_edit:
     path:     /projets/edit/{id}
     defaults: { _controller: IrisProjectBundle:Project:edit }

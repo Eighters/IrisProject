@@ -103,7 +103,5 @@ class ProjectController extends Controller
         return $this->render('IrisProjectBundle:Default:listeProject.html.twig', 
                 array('project'  => $project ));
     }
-
-
     
 }
