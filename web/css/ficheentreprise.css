@@ -53,6 +53,7 @@ section.content{
     background: #fff;
     margin-top: -25px;
     box-shadow: 1px 1px 5px #888888;
+    overflow: hidden;
 }
 
 .entrepriseheader .img-entreprise img{

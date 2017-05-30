@@ -44,6 +44,7 @@ class CompanyController extends Controller
           // On vérifie que les valeurs entrées sont correctes
           if ($form->isSubmitted() && $form->isValid()) {
             // On enregistre notre objet $form dans la base de données.
+            
             $em = $this->getDoctrine()->getManager();
             $em->persist($company);
             $em->flush();
