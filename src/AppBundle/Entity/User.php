@@ -28,8 +28,11 @@ class User extends BaseUser
 
     public function __construct()
     {
+        $this->partiesPrenantes = new ArrayCollection();
         parent::__construct();
     }
+
+
     
     /**
      * @var string

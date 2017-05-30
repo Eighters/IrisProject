@@ -35,6 +35,11 @@ class ProjectCategory
      */
     private $projects;
 
+
+    public function __construct() {
+        $this->projects = new ArrayCollection();
+    }
+    
     /**
      * Get id
      *

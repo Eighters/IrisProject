@@ -65,6 +65,10 @@ class Enjeux
     private $objectifs;
 
 
+    public function __construct() {
+        $this->objectifs = new ArrayCollection();
+    }
+
     /**
      * Get id
      *

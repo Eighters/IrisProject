@@ -43,6 +43,10 @@ class CompanySecteur
     private $companies;
 
 
+    public function __construct() {
+        $this->companies = new ArrayCollection();
+    }
+
     /**
      * Get id
      *

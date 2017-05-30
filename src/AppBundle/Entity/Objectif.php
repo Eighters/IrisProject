@@ -44,6 +44,10 @@ class Objectif
     private $exigences;
 
 
+    public function __construct() {
+        $this->exigences = new ArrayCollection();
+    }
+
     /**
      * Get id
      *

@@ -99,6 +99,13 @@ class Project
      */
     private $category;
 
+
+    public function __construct() {
+        $this->partiesprenantes = new ArrayCollection();
+        $this->enjeux = new ArrayCollection();
+        $this->jalons = new ArrayCollection();
+    }
+
     /**
      * Get id
      *
@@ -275,5 +282,29 @@ class Project
     public function getBenefices()
     {
         return $this->benefices;
+    }
+
+    /**
+     * Set category
+     *
+     * @param integer $category
+     *
+     * @return Project
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return int
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

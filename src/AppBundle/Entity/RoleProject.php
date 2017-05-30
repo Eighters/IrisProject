@@ -50,6 +50,10 @@ class RoleProject
     private $partiesPrenantes;
 
 
+    public function __construct() {
+        $this->partiesPrenantes = new ArrayCollection();
+    }
+
     /**
      * Get id
      *

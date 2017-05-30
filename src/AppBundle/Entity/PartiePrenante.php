@@ -102,6 +102,12 @@ class PartiePrenante
     private $actionsCreated;
 
 
+    public function __construct() {
+        $this->exigences = new ArrayCollection();
+        $this->actions = new ArrayCollection();
+        $this->actionsCreated = new ArrayCollection();
+    }
+
     /**
      * Get id
      *
