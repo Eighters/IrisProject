@@ -126,4 +126,38 @@ class User extends BaseUser
         return $this->company;
     }
 
+
+    /**
+     * Add partiesprenante
+     *
+     * @param \AppBundle\Entity\PartiePrenante $partiesprenante
+     *
+     * @return User
+     */
+    public function addPartiesprenante(\AppBundle\Entity\PartiePrenante $partiesprenante)
+    {
+        $this->partiesprenantes[] = $partiesprenante;
+
+        return $this;
+    }
+
+    /**
+     * Remove partiesprenante
+     *
+     * @param \AppBundle\Entity\PartiePrenante $partiesprenante
+     */
+    public function removePartiesprenante(\AppBundle\Entity\PartiePrenante $partiesprenante)
+    {
+        $this->partiesprenantes->removeElement($partiesprenante);
+    }
+
+    /**
+     * Get partiesprenantes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPartiesprenantes()
+    {
+        return $this->partiesprenantes;
+    }
 }
