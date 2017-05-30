@@ -4,18 +4,22 @@
 
 project:
     path:     /projets/add
+    method:  [ post ]
     defaults: { _controller: IrisProjectBundle:Project:Add }
 
 iris_project_edit:
     path:     /projets/edit/{id}
+    method:  [ put ]
     defaults: { _controller: IrisProjectBundle:Project:edit }
     requirements:
         page: \d+
 
 iris_project_fiche:
     path:     /projets/{id}
+    method:  [ get ]
     defaults: { _controller: IrisProjectBundle:Project:Show }
 
 iris_project_liste_fiche:
     path:     /projets
+    method:  [ get ]
     defaults: { _controller: IrisProjectBundle:Project:ShowAll }
