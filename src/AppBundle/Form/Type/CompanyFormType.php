@@ -11,7 +11,7 @@
  *
  * @author yaniv
  */
-namespace AppBundle\Form;
+namespace AppBundle\Form\Type;
 
 
 use Symfony\Component\Form\AbstractType;

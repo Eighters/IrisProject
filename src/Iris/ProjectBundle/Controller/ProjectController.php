@@ -58,7 +58,7 @@ class ProjectController extends Controller
 
     public function editAction(Request $request, Project $project)
     {
-        $form = $this->createForm(\AppBundle\Form\ProjectFormType::class, $project);
+        $form = $this->createForm(\AppBundle\Form\Type\ProjectFormType::class, $project);
         // only handles data on POST
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
