@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Iris\UserBundle\IrisUserBundle(),
             new Iris\ProjectBundle\IrisProjectBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

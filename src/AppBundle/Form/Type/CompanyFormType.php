@@ -11,16 +11,16 @@
  *
  * @author yaniv
  */
-namespace AppBundle\Form;
+namespace AppBundle\Form\Type;
 
 
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class CompanyFormType extends AbstractType{
     
@@ -38,9 +38,15 @@ class CompanyFormType extends AbstractType{
                     'attr' => array('id' => 'message','class' => 'form_control', 'rows' => '4' , 'cols' => '100')
             ))
             ->add('mail')
+            ->add('imageFile', VichImageType::class, array(
+                'label' => 'Image',
+                'required' => false,
+                'allow_delete' => true
+            ))
             ->add('enregistrer', SubmitType::class, array(
                 'attr' => array('class' => 'btn btn-primary')
             ))
+
         ;
     }
 
