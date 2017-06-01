@@ -12,6 +12,7 @@
     </div>
     {% endfor %} 
 <!-- debut fiche entreprise-->
+{% if is_granted("ROLE_ADMIN") %}
 <div class="row">
     <div class="nouvelleEntreprise">
         <a href="{{ base_url }}/entreprises/add">
@@ -19,6 +20,7 @@
         </a>
     </div>
 </div>
+{% endif %}
 <div class="container-fiche row">
 {% for comp in company %}
     	<div class="item  col-xs-4 col-lg-3">
