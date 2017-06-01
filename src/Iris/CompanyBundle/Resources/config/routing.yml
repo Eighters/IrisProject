@@ -25,6 +25,6 @@ iris_company_liste_fiche:
     defaults: { _controller: IrisCompanyBundle:Company:ShowAll }
 
 iris_company_adduser:
-    path:     /entreprises/adduser/{id}
+    path:     /entreprises/{id}/adduser
     methods:  [ get, post ]
     defaults: { _controller: IrisCompanyBundle:Company:RegisterUser }
