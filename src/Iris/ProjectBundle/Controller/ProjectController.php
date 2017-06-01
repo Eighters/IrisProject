@@ -7,7 +7,6 @@ namespace Iris\ProjectBundle\Controller;
 use AppBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 
 class ProjectController extends Controller
@@ -21,7 +20,7 @@ class ProjectController extends Controller
         
         // On crée le FormBuilder grâce au service form factory
         // On ajoute les champs de l'entité que l'on veut à notre formulaire
-        $form = $this->createForm(\AppBundle\Form\ProjectFormType::class, $project);
+        $form = $this->createForm(\AppBundle\Form\Type\ProjectFormType::class, $project);
         
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
@@ -59,7 +58,7 @@ class ProjectController extends Controller
 
     public function editAction(Request $request, Project $project)
     {
-        $form = $this->createForm(\AppBundle\Form\ProjectFormType::class, $project);
+        $form = $this->createForm(\AppBundle\Form\Type\ProjectFormType::class, $project);
         // only handles data on POST
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -104,7 +103,5 @@ class ProjectController extends Controller
         return $this->render('IrisProjectBundle:Default:listeProject.html.twig', 
                 array('project'  => $project ));
     }
-
-
     
 }

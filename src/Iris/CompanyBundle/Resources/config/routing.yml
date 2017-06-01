@@ -4,22 +4,27 @@
 
 company:
     path:     /entreprises/add
+    methods:  [ get, post ]
     defaults: { _controller: IrisCompanyBundle:Company:Add }
-    
+
 iris_company_edit:
     path:     /entreprises/edit/{id}
+    methods:  [ get, post ]
     defaults: { _controller: IrisCompanyBundle:Company:edit }
     requirements:
         page: \d+
 
 iris_company_fiche:
     path:     /entreprises/{id}
+    methods:  [ get ]
     defaults: { _controller: IrisCompanyBundle:Company:Show }
 
 iris_company_liste_fiche:
     path:     /entreprises
+    methods:  [ get ]
     defaults: { _controller: IrisCompanyBundle:Company:ShowAll }
 
 iris_company_adduser:
     path:     /entreprises/adduser/{id}
+    methods:  [ get, post ]
     defaults: { _controller: IrisCompanyBundle:Company:RegisterUser }
