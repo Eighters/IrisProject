@@ -23,3 +23,25 @@ iris_project_liste_fiche:
     path:     /projets
     methods:  [ get ]
     defaults: { _controller: IrisProjectBundle:Project:ShowAll }
+
+iris_project_enjeux_liste:
+    path:     /projets/{id}/enjeux
+    methods:  [ get ]
+    defaults: { _controller: IrisProjectBundle:Enjeux:ShowAll }
+
+iris_project_enjeux_add:
+    path:     /projets/{id}/enjeux/add
+    methods:  [ get, post ]
+    defaults: { _controller: IrisProjectBundle:Enjeux:Add }
+
+iris_project_enjeux_fiche:
+    path:     /projets/{idproject}/enjeux/{id}
+    methods:  [ get ]
+    defaults: { _controller: IrisProjectBundle:Enjeux:Show }
+
+iris_project_enjeux_edit:
+    path:     /projets/{idproject}/enjeux/{id}/edit
+    methods:  [ get, post ]
+    defaults: { _controller: IrisProjectBundle:Enjeux:edit }
+    requirements:
+        page: \d+
