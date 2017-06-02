@@ -32,6 +32,27 @@
     <div class="row align-middle">
     	<div class="col-md-4">
         	<h2>Objectifs</h2>
+
+            {% if enjeu.objectifs is not null and enjeu.objectifs|length > 0 %}
+                
+                {% for objectif in enjeu.objectifs %}
+                <p>
+                    
+                  {{objectif.description}}
+                    <span>
+                        <a href="{{ base_url }}/projets/{{enjeu.project.id}}/enjeux/{{enjeu.id}}/objectifs/{{objectif.id}}/edit">
+                        <img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer" />
+                        </a>
+                    </span>
+                </p>
+                
+              {% endfor %}
+
+            {% else %}
+                <p>Aucun objectif pour le moment</p>
+                
+            {% endif %}
+                <a href="{{ base_url }}/projets/{{enjeu.project.id}}/enjeux/{{enjeu.id}}/objectifs/add">Ajouter un objectif</a>
     	</div>
     	
     	

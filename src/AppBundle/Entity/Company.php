@@ -82,6 +82,7 @@ class Company
      */
     private $users;
 
+
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * 
@@ -346,6 +347,7 @@ class Company
     {
         return $this->users;
     }
+
 
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
