@@ -9,32 +9,29 @@
 
 <div class="containerw3layouts-agileits" style=" padding-top : 4%;">
 
-        <div class="w3imageaits">
-
-            <div style=" color : #fff; padding-top : 40%; font-size : 30px;">
-            </div>
-
+        <div class="w3imageaits" ">
+            <img src="../img/pannel-co.jpg" style="float: left; width:60%;">
+             
         </div>
-
-
-        <div class="aitsloginwthree w3layouts agileits" style=" padding-top : 30px;">
-
-            <img src="img/favicon.ico" alt="" style="width: 150px; height : 150px; padding-bottom : 30px;">
+            <div class="aitsloginwthree w3layouts agileits" style=" padding-top : 30px; float: left;">
+             <img src="img/favicon.ico" alt="" style="width: 150px; height : 150px; padding-bottom : 30px;">
 
             <form action="{{ path("fos_user_security_check") }}" method="post">
-                {% if csrf_token %}
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            {% if csrf_token %}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                 {% endif %}
 
-                <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Identifiant" required="required" /><br></br>
+            <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Identifiant" required="required" /><br></br>
 
-                <input type="password" id="password" name="_password" placeholder="Mot de passe" required="required" /><br></br>
-                <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" /><br></br>
+            
+            <input type="password" id="password" name="_password" placeholder="Mot de passe" required="required" /><br></br><br></br>
 
-                <a href="#" style=" color : #000;"> Mot de passe oublié ?</a>
+            <input type="submit" id="_submit" name="_submit"  value="{{ 'security.login.submit'|trans }}" /><br></br>
 
-            </form>
-
+            
+            
+            <a href="#" style=" color : #000;"> Mot de passe oublié ?</a>
+        </form>
         </div>
-
+</div>
 </div>
