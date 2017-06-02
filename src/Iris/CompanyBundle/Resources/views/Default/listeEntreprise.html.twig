@@ -12,6 +12,7 @@
     </div>
     {% endfor %} 
 <!-- debut fiche entreprise-->
+{% if is_granted("ROLE_ADMIN") %}
 <div class="row">
     <div class="nouvelleEntreprise">
         <a href="{{ base_url }}/entreprises/add">
@@ -19,6 +20,7 @@
         </a>
     </div>
 </div>
+{% endif %}
 <div class="container-fiche row">
 {% for comp in company %}     
     <div class="item  col-xs-4 col-lg-3">
@@ -54,6 +56,48 @@
                 <p class="group inner list-group-item-text">
                        {{ comp.telephone }}</p>
 
+            	</div>
+            	<div style=" text-align: center; ">
+                    <h4> <a href="{{ base_url }}/entreprises/{{comp.id}}">{{ comp.raisonSocial }} </a></h4>
+            	</div>
+            	
+            	</div>
+
+                <div class="col-md-12 nopadding entrepriseheader whitebckgd">
+                    <div class="banner align-middle">
+                        <div class="img-entreprise img-circle">
+                            <a href="{{ base_url }}/entreprises/{{comp.id}}">
+
+                        {% if comp.imageName is defined and comp.imageName is not null and comp.imageName is not empty %}
+                            <img src="{{ asset('img/companies/' ~ comp.imageName) }}" alt="Generic placeholder image" width="140" height="140">
+                        {% else %}
+                            <img src="{{ base_url }}/img/company.svg" alt="Generic placeholder image" width="140" height="140">
+                        {% endif %}
+                    </a>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="caption">
+                	<img src="{{ asset('img/company.svg') }}" class="picto-little">
+                	<p class="group inner list-group-item-heading">
+                        {% if comp.secteurCompany is not null %}
+                            {{ comp.secteurCompany.name }}
+                        {% else %}
+                            Secteur non défini
+                        {% endif %}
+                        </p>
+                    <img src="{{ asset('img/location.svg') }}" class="picto-little">
+                    <p class="group inner list-group-item-text">
+                        
+                        {{ comp.address }}</p>
+                    <img src="{{ asset('img/telephone.svg') }}" class="picto-little">
+                    <p class="group inner list-group-item-text">
+                        
+                           {{ comp.telephone }}</p>
+                    
+                </div>
             </div>
         </div>
     </div>

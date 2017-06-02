@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\Exigence;
 
 /**
  * Objectif
@@ -43,6 +45,10 @@ class Objectif
      */
     private $exigences;
 
+
+    public function __construct() {
+        $this->exigences = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -100,5 +106,40 @@ class Objectif
     public function getEnjeux()
     {
         return $this->enjeux;
+    }
+
+
+    /**
+     * Add exigence
+     *
+     * @param Exigence $exigence
+     *
+     * @return Objectif
+     */
+    public function addExigence(Exigence $exigence)
+    {
+        $this->exigences[] = $exigence;
+
+        return $this;
+    }
+
+    /**
+     * Remove exigence
+     *
+     * @param Exigence $exigence
+     */
+    public function removeExigence(Exigence $exigence)
+    {
+        $this->exigences->removeElement($exigence);
+    }
+
+    /**
+     * Get exigences
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getExigences()
+    {
+        return $this->exigences;
     }
 }

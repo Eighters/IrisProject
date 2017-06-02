@@ -5,14 +5,12 @@ namespace Iris\CompanyBundle\Controller;
 
 // use utilisé pour la page Company
 use AppBundle\Entity\Company;
-use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\FormEvent;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use FOS\UserBundle\Event\FilterUserResponseEvent;
 
 
 class CompanyController extends Controller
@@ -33,7 +31,7 @@ class CompanyController extends Controller
         
         // On crée le FormBuilder grâce au service form factory
         // On ajoute les champs de l'entité que l'on veut à notre formulaire
-        $form = $this->createForm(\AppBundle\Form\CompanyFormType::class, $company);
+        $form = $this->createForm(\AppBundle\Form\Type\CompanyFormType::class, $company);
         
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
@@ -44,6 +42,7 @@ class CompanyController extends Controller
           // On vérifie que les valeurs entrées sont correctes
           if ($form->isSubmitted() && $form->isValid()) {
             // On enregistre notre objet $form dans la base de données.
+            
             $em = $this->getDoctrine()->getManager();
             $em->persist($company);
             $em->flush();
@@ -71,7 +70,7 @@ class CompanyController extends Controller
 
     public function editAction(Request $request, Company $company)
     {
-        $form = $this->createForm(\AppBundle\Form\CompanyFormType::class, $company);
+        $form = $this->createForm(\AppBundle\Form\Type\CompanyFormType::class, $company);
         // only handles data on POST
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

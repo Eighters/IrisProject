@@ -16,6 +16,15 @@
     border-radius: 0px;
 }
 
+.thumbnail .entrepriseheader .img-entreprise {
+    width: 190px;
+    height: 190px;
+    margin: auto;
+    background: #fff;
+    box-shadow: 1px 1px 5px #888888;
+    overflow: hidden;
+}
+
 .item.list-group-item
 {
     float: none;

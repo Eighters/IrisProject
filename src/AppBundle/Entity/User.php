@@ -5,6 +5,9 @@ namespace AppBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\PartiePrenante;
+
 
 /**
  * @ORM\Entity
@@ -28,8 +31,11 @@ class User extends BaseUser
 
     public function __construct()
     {
+        $this->partiesPrenantes = new ArrayCollection();
         parent::__construct();
     }
+
+
     
     /**
      * @var string
@@ -126,7 +132,6 @@ class User extends BaseUser
         return $this->company;
     }
 
-
     /**
      * Add partiesprenante
      *
@@ -137,6 +142,7 @@ class User extends BaseUser
     public function addPartiesprenante(\AppBundle\Entity\PartiePrenante $partiesprenante)
     {
         $this->partiesprenantes[] = $partiesprenante;
+
 
         return $this;
     }

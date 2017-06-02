@@ -1,0 +1,5 @@
+rules:
+  symfony.controller.action_method_too_long:
+    enabled: true
+    max_length: 30
+    threshold: 10

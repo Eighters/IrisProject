@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\Objectif;
 
 /**
  * Enjeux
@@ -64,6 +66,10 @@ class Enjeux
      */
     private $objectifs;
 
+
+    public function __construct() {
+        $this->objectifs = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -193,5 +199,39 @@ class Enjeux
     public function getProject()
     {
         return $this->project;
+    }
+
+    /**
+     * Add objectif
+     *
+     * @param Objectif $objectif
+     *
+     * @return Enjeux
+     */
+    public function addObjectif(Objectif $objectif)
+    {
+        $this->objectifs[] = $objectif;
+
+        return $this;
+    }
+
+    /**
+     * Remove objectif
+     *
+     * @param Objectif $objectif
+     */
+    public function removeObjectif(Objectif $objectif)
+    {
+        $this->objectifs->removeElement($objectif);
+    }
+
+    /**
+     * Get objectifs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getObjectifs()
+    {
+        return $this->objectifs;
     }
 }
