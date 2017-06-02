@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\Company;
 use AppBundle\Entity\PartiePrenante;
 use AppBundle\Entity\Enjeux;
 use AppBundle\Entity\Jalon;
@@ -84,6 +85,13 @@ class Project
 
     /**
      * @var ArrayCollection
+     * Many Project has Many companies
+     * @ORM\ManyToMany(targetEntity="Company", mappedBy="projects")
+     */
+    private $companies;
+
+    /**
+     * @var ArrayCollection
      * One Project has Many Partie Prenantes.
      * @ORM\OneToMany(targetEntity="PartiePrenante", mappedBy="project")
      */
@@ -105,6 +113,7 @@ class Project
 
 
     public function __construct() {
+        $this->companies = new ArrayCollection();
         $this->partiesprenantes = new ArrayCollection();
         $this->enjeux = new ArrayCollection();
         $this->jalons = new ArrayCollection();
@@ -311,6 +320,41 @@ class Project
     {
         return $this->category;
     }
+
+    /**
+     * Add company
+     *
+     * @param Company $company
+     *
+     * @return Project
+     */
+    public function addCompany(Company $company)
+    {
+        $this->companies[] = $company;
+
+        return $this;
+    }
+
+    /**
+     * Remove company
+     *
+     * @param Company $company
+     */
+    public function removeCompany(Company $company)
+    {
+        $this->companies->removeElement($company);
+    }
+
+    /**
+     * Get companies
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCompanies()
+    {
+        return $this->companies;
+    }
+
 
     /**
      * Add partiePrenante

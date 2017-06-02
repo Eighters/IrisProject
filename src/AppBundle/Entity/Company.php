@@ -82,6 +82,14 @@ class Company
      */
     private $users;
 
+        /**
+     * @var ArrayCollection
+     * Many Company has Many Project.
+     * @ORM\ManyToMany(targetEntity="Project", inversedBy="companies")
+     */
+    private $projects;
+
+
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * 
@@ -108,6 +116,7 @@ class Company
 
     public function __construct() {
         $this->users = new ArrayCollection();
+        $this->projects = new ArrayCollection();
     }
 
     /**
@@ -346,6 +355,41 @@ class Company
     {
         return $this->users;
     }
+
+    /**
+     * Add project
+     *
+     * @param \AppBundle\Entity\Project $project
+     *
+     * @return Company
+     */
+    public function addProject(\AppBundle\Entity\Project $project)
+    {
+        $this->projects[] = $project;
+
+        return $this;
+    }
+
+    /**
+     * Remove project
+     *
+     * @param \AppBundle\Entity\Project $project
+     */
+    public function removeProject(\AppBundle\Entity\Project $project)
+    {
+        $this->projects->removeElement($project);
+    }
+
+    /**
+     * Get projects
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProjects()
+    {
+        return $this->projects;
+    }
+
 
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
