@@ -78,7 +78,7 @@ class Company
     /**
      * @var ArrayCollection
      * One Company has Many Users.
-     * @ORM\OneToMany(targetEntity="User", mappedBy="company")
+     * @ORM\OneToMany(targetEntity="User", inversedBy="company")
      */
     private $users;
 
