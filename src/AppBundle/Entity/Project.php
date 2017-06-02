@@ -86,7 +86,7 @@ class Project
     /**
      * @var ArrayCollection
      * Many Project has Many companies
-     * @ORM\ManyToMany(targetEntity="Company", inversedBy="projects")
+     * @ORM\ManyToMany(targetEntity="Company", mappedBy="projects")
      */
     private $companies;
 
