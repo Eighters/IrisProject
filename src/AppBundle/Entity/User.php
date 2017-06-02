@@ -133,37 +133,37 @@ class User extends BaseUser
     }
 
     /**
-     * Add partiesprenante
+     * Add partiePrenante
      *
-     * @param \AppBundle\Entity\PartiePrenante $partiesprenante
+     * @param PartiePrenante $partiePrenante
      *
      * @return User
      */
-    public function addPartiesprenante(\AppBundle\Entity\PartiePrenante $partiesprenante)
+    public function addPartiePrenante(PartiePrenante $partiePrenante)
     {
-        $this->partiesprenantes[] = $partiesprenante;
-
+        $this->partiesPrenantes[] = $partiePrenante;
 
         return $this;
     }
 
     /**
-     * Remove partiesprenante
+     * Remove partiePrenante
      *
-     * @param \AppBundle\Entity\PartiePrenante $partiesprenante
+     * @param PartiePrenante $partiePrenante
      */
-    public function removePartiesprenante(\AppBundle\Entity\PartiePrenante $partiesprenante)
+    public function removePartiePrenante(PartiePrenante $partiePrenante)
     {
-        $this->partiesprenantes->removeElement($partiesprenante);
+        $this->partiesPrenantes->removeElement($partiePrenante);
     }
 
     /**
-     * Get partiesprenantes
+     * Get partiesPrenantes
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getPartiesprenantes()
+    public function getPartiesPrenantes()
     {
-        return $this->partiesprenantes;
+        return $this->partiesPrenantes;
     }
+
 }
