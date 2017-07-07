@@ -1,37 +1,3 @@
-
-
-/*-- Reset Code --*/
-
-	html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
-	article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
-	ol,ul{list-style:none;padding:0;margin:0;}
-	blockquote,q{quotes:none;}
-	blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
-	table{border-collapse:collapse;border-spacing:0;}
-	a{text-decoration:none;}
-	.txt-rt{text-align:right;}
-	.txt-lt{text-align:left;}
-	.txt-center{text-align:center;}
-	/*-- w3layouts --*/
-	/*-- agileits --*/
-	.float-rt{float:right;}
-	.float-lt{float:left;}
-	.clear{clear:both;}
-	.pos-relative{position:relative;}
-	.pos-absolute{position:absolute;}
-	.vertical-base{vertical-align:baseline;}
-	.vertical-top{vertical-align:top;}
-	.underline{	padding-bottom:5px;	border-bottom:1px solid #eee;margin:0 0 20px 0;}
-	nav.vertical ul li{display:block;}
-	nav.horizontal ul li{display: inline-block;}
-	img{max-width:100%;}
-
-/*-- Reset Code --*/
-
-
-
-
-
 /*-- Index-Page-Styling --*/
 
 
@@ -47,11 +13,15 @@ body a, body a:hover, input[type="button"], input[type="submit"], input[type="su
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
 	-moz-transition: 0.5s all;
-	/*-- w3layouts --*/
-	/*-- agileits --*/
 	-o-transition: 0.5s all;
 	-ms-transition: 0.5s all;
 	text-decoration: none;
+}
+.w3imageaits{
+	width: 60%;
+	display: block;
+	float: left;
+
 }
 
 h1 {
@@ -62,28 +32,18 @@ h1 {
 }
 
 .containerw3layouts-agileits {
-	width: 50%;
-	width: 70%;
+	width: 58%;
 	margin: 0 auto;
+	padding-top: 84px;
 }
 
-@@ -71,16 +71,16 @@ h1 {
-	/*-- w3layouts --*/
-	/*-- agileits --*/
-	float: left;
-	height : 513px;
-	height : 549px;
-	background-size: cover;
-	background-image:url(../img/background-login.png);
-	background-image:url(../img/pannel-co.jpg);
-}
+
 
 .aitsloginwthree {
 	background-color: #FFF;
 	width: 37%;
 	float: left;
-	height : 484px;
-	height : 65.8%;
+	height: 71.5%;
 }
 
 h2 {
@@ -94,16 +54,12 @@ h2 {
 }
 input[type="text"]{
 	padding: 15px 0 10px 0;
-	width: 90%;
 	width: 65%;
 	border: none;
-	/*-- w3layouts --*/
-	/*-- agileits --*/
 	border-bottom: 2px solid #1795a6;
 	border-bottom: 2px solid #1795a6;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 14px;
-	font-size: 16px;
 	color: #333;
 	outline: none;
 	list-style: none;
@@ -116,16 +72,12 @@ input[type="text"]{
 
 input[type="password"] {
 	padding: 15px 0 10px 0;
-	width: 90%;
 	width: 65%;
 	border: none;
-	/*-- w3layouts --*/
-	/*-- agileits --*/
 	border-bottom: 2px solid #1795a6;
 	border-bottom: 2px solid #1795a6;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 14px;
-	font-size: 16px;
 	color: #333;
 	outline: none;
 	list-style: none;
@@ -150,8 +102,6 @@ ul.tick li input[type="checkbox"] {
 ul.tick li input[type="checkbox"]+label {
 	position: relative;
 	padding-left: 25px;
-	/*-- w3ls --*/
-	/*-- agileits --*/
 	border: #F0F8FF;
 	display: inline-block;
 	font-size: 15px;
@@ -175,8 +125,6 @@ ul.tick li input[type="checkbox"]:checked+label span:first-child:before {
 	background: url("../images/tick.png") no-repeat;
 	position: absolute;
 	left: 3px;
-	/*-- w3layouts --*/
-	/*-- agileinfo --*/
 	top: 3px;
 	font-size: 10px;
 	width: 10px;
@@ -225,8 +173,6 @@ input::placeholder {
 ::-moz-placeholder {
 	
 	margin-left: 20px !important;
-	/*-- w3layouts --*/
-	/*-- w3-agile --*/
 }
 
 ::-moz-placeholder {
@@ -242,7 +188,7 @@ input::placeholder {
 
 /*-- //Placeholder-Styling --*/
 
-/*-- Index-Page-Styling --*/
+
 
 
 
