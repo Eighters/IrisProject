@@ -31,7 +31,7 @@ class Action
     /**
      * @var int
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PartiePrenante", cascade={"persist"}, inversedBy="actions")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", cascade={"persist"}, inversedBy="actions")
      * @ORM\JoinColumn(name="responsable_id", referencedColumnName="id")
      */
     private $responsable;
@@ -39,7 +39,7 @@ class Action
     /**
      * @var int
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PartiePrenante", cascade={"persist"}, inversedBy="actionsCreated")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", cascade={"persist"}, inversedBy="actionsCreated")
      * @ORM\JoinColumn(name="origine_id", referencedColumnName="id")
      */
     private $origine;
@@ -85,6 +85,14 @@ class Action
      * @ORM\Column(name="observation", type="string", length=300, nullable=true)
      */
     private $observation;
+
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Project", cascade={"persist"}, inversedBy="actions")
+     * @ORM\JoinColumn(name="project_id", referencedColumnName="id")
+     */
+    private $project;
 
 
     /**
@@ -311,6 +319,30 @@ class Action
     public function getObservation()
     {
         return $this->observation;
+    }
+
+    /**
+     * Set project
+     *
+     * @param integer $project
+     *
+     * @return Action
+     */
+    public function setProject($project)
+    {
+        $this->project = $project;
+
+        return $this;
+    }
+
+    /**
+     * Get project
+     *
+     * @return int
+     */
+    public function getProject()
+    {
+        return $this->project;
     }
 
 }
