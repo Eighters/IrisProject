@@ -111,12 +111,19 @@ class Project
      */
     private $jalons;
 
+    /**
+     * @var ArrayCollection
+     * One Project has Many Actions.
+     * @ORM\OneToMany(targetEntity="Action", mappedBy="project")
+     */
+    private $actions;
 
     public function __construct() {
         $this->companies = new ArrayCollection();
         $this->partiesprenantes = new ArrayCollection();
         $this->enjeux = new ArrayCollection();
         $this->jalons = new ArrayCollection();
+        $this->actions = new ArrayCollection();
     }
 
     /**
@@ -456,5 +463,39 @@ class Project
     public function getJalons()
     {
         return $this->jalons;
+    }
+
+    /**
+     * Add action
+     *
+     * @param Action $action
+     *
+     * @return Project
+     */
+    public function addAction(Action $action)
+    {
+        $this->actions[] = $action;
+
+        return $this;
+    }
+
+    /**
+     * Remove action
+     *
+     * @param Action $action
+     */
+    public function removeAction(Jalon $action)
+    {
+        $this->actions->removeElement($action);
+    }
+
+    /**
+     * Get actions
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getActions()
+    {
+        return $this->actions;
     }
 }
