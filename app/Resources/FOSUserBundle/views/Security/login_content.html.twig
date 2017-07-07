@@ -16,6 +16,8 @@
         <div class="aitsloginwthree w3layouts agileits" >
              <img src="img/favicon.ico" alt="" style=" height : 30%; padding-top: 15%; padding-bottom: 7%;" >
 
+       
+
             <form action="{{ path("fos_user_security_check") }}" method="post">
                 {% if csrf_token %}
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
