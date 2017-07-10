@@ -84,7 +84,10 @@ class ProjectController extends Controller
         $listExigences = new ArrayCollection();
         $partiesPrenantes = $project->getPartiesPrenantes();
         foreach ($partiesPrenantes as $partie) {
-            $listExigences[] = $partie->getExigences();
+            $exigencesPartie = $partie->getExigences();
+            foreach ($exigencesPartie as $exigence) {
+                $listExigences[] = $exigence;
+            }
         }
         if (!$project){
             throw $this->createNotFoundException('Aucun projet ne correspond a cette id');

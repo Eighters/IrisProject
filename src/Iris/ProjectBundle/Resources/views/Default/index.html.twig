@@ -36,11 +36,10 @@
         	<h2>Actions</h2>
     	</div>
     	<div class="col-md-4">
-        	<h2>Exigences</h2>
+        	<h2>Exigences ({{exigences|length}})</h2>
           {% for exigence in exigences %}
             <p>
-              {{dump(exigence)}}
-              <a href="{{ base_url }}/projets/{{project.id}}/exigence/"></a>
+              <a href="{{ base_url }}/projets/{{project.id}}/exigences/{{exigence.id}}">{{exigence.definition}}</a>
             </p>
             
           {% endfor %}
