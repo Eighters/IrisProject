@@ -32,30 +32,38 @@
       <a href="{{ base_url }}/projets/{{project.id}}/partiesprenantes">Parties prenantes</a>
     </div>
     <div class="row align-middle">
-    	<div class="col-md-4">
-        	<h2>Actions</h2>
-    	</div>
-    	<div class="col-md-4">
-        	<h2>Exigences ({{exigences|length}})</h2>
-          {% for exigence in exigences %}
-            <p>
-              <a href="{{ base_url }}/projets/{{project.id}}/exigences/{{exigence.id}}">{{exigence.definition}}</a>
-            </p>
+        <div class="col-md-4">
+            <div class="col-md-8 col-md-offset-2 blockaction">
+                <h2>Actions</h2>
+            </div>
             
-          {% endfor %}
-          <a href="{{ base_url }}/projets/{{project.id}}/exigences/add">Ajouter une exigence</a>
-    	</div>
-    	<div class="col-md-4">
-        	<h2>Enjeux ({{project.enjeux|length}})</h2>
+        </div>
+        <div class="col-md-4">
+          <div class="col-md-8 col-md-offset-2 blockexigence">
+            <h2>Exigences ({{exigences|length}})</h2>
+            {% for exigence in exigences %}
+              <p>
+                <a href="{{ base_url }}/projets/{{project.id}}/exigences/{{exigence.id}}">{{exigence.definition}}</a>
+              </p>
+              
+            {% endfor %}
+            <a href="{{ base_url }}/projets/{{project.id}}/exigences/add">Ajouter une exigence</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="col-md-8 col-md-offset-2 blockenjeux">
+            <h2>Enjeux ({{project.enjeux|length}})</h2>
 
-          {% for enjeu in project.enjeux %}
-            <p>
-              <a href="{{ base_url }}/projets/{{project.id}}/enjeux/{{enjeu.id}}">{{enjeu.nom}}</a>
-            </p>
-            
-          {% endfor %}
-          <a href="{{ base_url }}/projets/{{project.id}}/enjeux/add">Ajouter un enjeu</a>
-    	</div>
+            {% for enjeu in project.enjeux %}
+              <p>
+                <a href="{{ base_url }}/projets/{{project.id}}/enjeux/{{enjeu.id}}">{{enjeu.nom}}</a>
+              </p>
+              
+            {% endfor %}
+            <a href="{{ base_url }}/projets/{{project.id}}/enjeux/add">Ajouter un enjeu</a>
+          </div>
+        </div>
+    	
 
     	
     </div>
