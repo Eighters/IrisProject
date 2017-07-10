@@ -69,7 +69,7 @@ class PartiePrenante
     /**
      * @var ArrayCollection
      * Many Parties Prenantes have Many Users.
-     * @ORM\ManyToMany(targetEntity="User")
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="partiesPrenantes")
      * @ORM\JoinTable(name="partiesprenantes_users",
      *      joinColumns={@ORM\JoinColumn(name="partieprenante_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")}

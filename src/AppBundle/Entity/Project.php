@@ -87,7 +87,7 @@ class Project
     /**
      * @var ArrayCollection
      * Many Projects have Many Companies.
-     * @ORM\ManyToMany(targetEntity="Company")
+     * @ORM\ManyToMany(targetEntity="Company", inversedBy="projects")
      * @ORM\JoinTable(name="projects_companies",
      *      joinColumns={@ORM\JoinColumn(name="project_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="company_id", referencedColumnName="id")}
