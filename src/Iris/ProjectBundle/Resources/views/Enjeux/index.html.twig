@@ -5,27 +5,27 @@
 {% block body %}
 <section class="content">
     <div class="row actions-link align-right">
-	<a href="{{ base_url }}/projets/{{enjeu.project.id}}/enjeux/{{enjeu.id}}/edit"><img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer" /></a>
+	<a href="{{ base_url }}/projets/{{project.id}}/exigence/{{exigence.id}}/edit"><img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer" /></a>
         <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver" title="Archiver"></a>
-        <a href="{{ base_url }}/projets/{{enjeu.project.id}}"><img src="{{ asset('img/close.svg') }}" class="picto" alt="Retour" title="Retour"></a>
+        <a href="{{ base_url }}/projets/{{project.id}}"><img src="{{ asset('img/close.svg') }}" class="picto" alt="Retour" title="Retour"></a>
     </div>
     <div class="row">
         <div class="col-md-12 nopadding entrepriseheader whitebckgd">
         	<div class="banner align-middle">
-        		<h2>{{enjeu.nom}}</h2>
+        		<h2>{{exigence.reference}}</h2>
         	</div>
   			
     			<div class="col-md-4 entreprise-info">
-    				<h2>Priorité</h2> 
-    				 <p>{{enjeu.priorite}}</p>
+    				<h2>Description</h2> 
+    				 <p>{{exigence.definition}}</p>
     			</div> 
     			<div class="col-md-4">
     				<h2>Type</h2>
-    				<p>{{enjeu.type}}</p>
+    				<p>{{exigence.type}}</p>
     			</div> 
           <div class="col-md-4">
-            <h2>Valeur cible</h2>
-            <p>{{enjeu.valeurCible}}</p>
+            <h2>Condition d'acceptation</h2>
+            <p>{{exigence.conditionAcceptation}}</p>
           </div>    
         </div>
     </div>
@@ -33,26 +33,8 @@
     	<div class="col-md-4">
         	<h2>Objectifs</h2>
 
-            {% if enjeu.objectifs is not null and enjeu.objectifs|length > 0 %}
+           
                 
-                {% for objectif in enjeu.objectifs %}
-                <p>
-                    
-                  {{objectif.description}}
-                    <span>
-                        <a href="{{ base_url }}/projets/{{enjeu.project.id}}/enjeux/{{enjeu.id}}/objectifs/{{objectif.id}}/edit">
-                        <img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer" />
-                        </a>
-                    </span>
-                </p>
-                
-              {% endfor %}
-
-            {% else %}
-                <p>Aucun objectif pour le moment</p>
-                
-            {% endif %}
-                <a href="{{ base_url }}/projets/{{enjeu.project.id}}/enjeux/{{enjeu.id}}/objectifs/add">Ajouter un objectif</a>
     	</div>
     	
     	

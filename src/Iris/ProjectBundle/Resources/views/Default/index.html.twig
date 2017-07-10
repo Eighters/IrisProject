@@ -28,12 +28,23 @@
   			</div>   
         </div>
     </div>
+    <div class="row">
+      <a href="{{ base_url }}/projets/{{project.id}}/partiesprenantes">Parties prenantes</a>
+    </div>
     <div class="row align-middle">
     	<div class="col-md-4">
         	<h2>Actions</h2>
     	</div>
     	<div class="col-md-4">
         	<h2>Exigences</h2>
+          {% for exigence in exigences %}
+            <p>
+              {{dump(exigence)}}
+              <a href="{{ base_url }}/projets/{{project.id}}/exigence/"></a>
+            </p>
+            
+          {% endfor %}
+          <a href="{{ base_url }}/projets/{{project.id}}/exigences/add">Ajouter une exigence</a>
     	</div>
     	<div class="col-md-4">
         	<h2>Enjeux ({{project.enjeux|length}})</h2>
@@ -48,6 +59,15 @@
     	</div>
 
     	
+    </div>
+    <div class="row">
+      <a href="{{ base_url }}/projets/{{project.id}}/entreprises">Modifier les entreprises</a>
+      {% for company in project.companies %}
+            <p>
+              <a href="{{ base_url }}/entreprises/{{company.id}}">{{company.raisonSocial}}</a>
+            </p>
+            
+      {% endfor %}
     </div>
 </section>
 <!-- fin fiche entreprise-->
