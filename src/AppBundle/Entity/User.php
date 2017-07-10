@@ -47,16 +47,9 @@ class User extends BaseUser
     /**
      * @var ArrayCollection
      * One User has Many Partie Prenantes.
-     * @ORM\OneToMany(targetEntity="PartiePrenante", mappedBy="user")
+     * @ORM\ManyToMany(targetEntity="PartiePrenante", inversedBy="users")
      */
-    private $partiesprenantes;
-
-    /**
-     * @var ArrayCollection
-     * One PartiePrenante has Many Exigences.
-     * @ORM\OneToMany(targetEntity="Exigence", mappedBy="user")
-     */
-    private $exigences;
+    private $partiesPrenantes;
 
     /**
      * @var ArrayCollection
@@ -76,7 +69,6 @@ class User extends BaseUser
     public function __construct()
     {
         $this->partiesPrenantes = new ArrayCollection();
-        $this->exigences = new ArrayCollection();
         $this->actions = new ArrayCollection();
         $this->actionsCreated = new ArrayCollection();
         parent::__construct();
@@ -189,46 +181,11 @@ class User extends BaseUser
     }
 
     /**
-     * Add exigence
-     *
-     * @param Exigence $exigence
-     *
-     * @return PartiePrenante
-     */
-    public function addExigence(Exigence $exigence)
-    {
-        $this->exigences[] = $exigence;
-
-        return $this;
-    }
-
-    /**
-     * Remove exigence
-     *
-     * @param Exigence $exigence
-     */
-    public function removeExigence(Exigence $exigence)
-    {
-        $this->exigences->removeElement($exigence);
-    }
-
-    /**
-     * Get exigences
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getExigences()
-    {
-        return $this->exigences;
-    }
-
-
-    /**
      * Add action
      *
      * @param Action $action
      *
-     * @return PartiePrenante
+     * @return User
      */
     public function addAction(Action $action)
     {
@@ -262,7 +219,7 @@ class User extends BaseUser
      *
      * @param Action $actionCreated
      *
-     * @return PartiePrenante
+     * @return User
      */
     public function addActionCreated(Action $actionCreated)
     {

@@ -63,10 +63,26 @@ class PartiePrenante
     /**
      * @var int
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", cascade={"persist"}, inversedBy="partiesprenantes")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", cascade={"persist"}, inversedBy="partiesPrenantes")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    private $user;
+    /**
+     * @var ArrayCollection
+     * Many Parties Prenantes have Many Users.
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="partiesPrenantes")
+     * @ORM\JoinTable(name="partiesprenantes_users",
+     *      joinColumns={@ORM\JoinColumn(name="partieprenante_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")}
+     *      )
+     */
+    private $users;
+
+    /**
+     * @var ArrayCollection
+     * One PartiePrenante has Many Exigences.
+     * @ORM\OneToMany(targetEntity="Exigence", mappedBy="partiePrenante")
+     */
+    private $exigences;
 
     /**
      * @var int
@@ -79,7 +95,7 @@ class PartiePrenante
     /**
      * @var int
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Project", cascade={"persist"}, inversedBy="partiesprenantes")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Project", cascade={"persist"}, inversedBy="partiesPrenantes")
      * @ORM\JoinColumn(name="project_id", referencedColumnName="id")
      */
     private $project;
@@ -88,7 +104,8 @@ class PartiePrenante
 
 
     public function __construct() {
-        
+        $this->users = new ArrayCollection();        
+        $this->exigences = new ArrayCollection();
     }
 
     /**
@@ -222,28 +239,73 @@ class PartiePrenante
     }
 
     /**
-     * Set user
+     * Add user
      *
-     * @param integer $user
+     * @param User $user
      *
      * @return PartiePrenante
      */
-    public function setUser($user)
+    public function addUser(User $user)
     {
-        $this->user = $user;
+        $this->users[] = $user;
 
         return $this;
     }
 
     /**
-     * Get user
+     * Remove user
      *
-     * @return int
+     * @param User $user
      */
-    public function getUser()
+    public function removeUser(User $user)
     {
-        return $this->user;
+        $this->users->removeElement($user);
     }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+        /**
+     * Add exigence
+     *
+     * @param Exigence $exigence
+     *
+     * @return PartiePrenante
+     */
+    public function addExigence(Exigence $exigence)
+    {
+        $this->exigences[] = $exigence;
+
+        return $this;
+    }
+
+    /**
+     * Remove exigence
+     *
+     * @param Exigence $exigence
+     */
+    public function removeExigence(Exigence $exigence)
+    {
+        $this->exigences->removeElement($exigence);
+    }
+
+    /**
+     * Get exigences
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getExigences()
+    {
+        return $this->exigences;
+    }
+
 
     /**
      * Set roleProject

@@ -83,10 +83,15 @@ class Project
      */
     private $category;
 
+
     /**
      * @var ArrayCollection
-     * Many Project has Many companies
+     * Many Projects have Many Companies.
      * @ORM\ManyToMany(targetEntity="Company", mappedBy="projects")
+     * @ORM\JoinTable(name="projects_companies",
+     *      joinColumns={@ORM\JoinColumn(name="project_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="company_id", referencedColumnName="id")}
+     *      )
      */
     private $companies;
 
@@ -95,7 +100,7 @@ class Project
      * One Project has Many Partie Prenantes.
      * @ORM\OneToMany(targetEntity="PartiePrenante", mappedBy="project")
      */
-    private $partiesprenantes;
+    private $partiesPrenantes;
 
     /**
      * @var ArrayCollection
@@ -120,7 +125,7 @@ class Project
 
     public function __construct() {
         $this->companies = new ArrayCollection();
-        $this->partiesprenantes = new ArrayCollection();
+        $this->partiesPrenantes = new ArrayCollection();
         $this->enjeux = new ArrayCollection();
         $this->jalons = new ArrayCollection();
         $this->actions = new ArrayCollection();

@@ -7,6 +7,7 @@ namespace Iris\ProjectBundle\Controller;
 use AppBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Collections\ArrayCollection;
 
 
 class ProjectController extends Controller
@@ -80,13 +81,21 @@ class ProjectController extends Controller
         ->getRepository('AppBundle:Project')
         ->find($id)
         ;
-        
+        $listExigences = new ArrayCollection();
+        $partiesPrenantes = $project->getPartiesPrenantes();
+        foreach ($partiesPrenantes as $partie) {
+            $exigencesPartie = $partie->getExigences();
+            foreach ($exigencesPartie as $exigence) {
+                $listExigences[] = $exigence;
+            }
+        }
         if (!$project){
             throw $this->createNotFoundException('Aucun projet ne correspond a cette id');
         }
         
         return $this->render('IrisProjectBundle:Default:index.html.twig', 
-                array('project'  => $project ));
+                array('project'  => $project, 
+                    'exigences' => $listExigences, ));
     }
     
     public function showAllAction(){
