@@ -134,13 +134,24 @@ class ExigenceController extends Controller
         ->getRepository('AppBundle:Project')
         ->find($id)
         ;
+
+        $partiesPrenantes = $project->getPartiesPrenantes();
+        $listExigences = new ArrayCollection();
+
+        foreach($partiesPrenantes as $partiePrenante) {
+            $exigences = $partiePrenante->getExigences();
+            foreach ($exigences as $exigence) {
+                $listExigences[] = $exigence;
+            }
+        }
+
         
         if (!$project){
             throw $this->createNotFoundException('Aucun Projet n\'existe');
         }
         
-        return $this->render('IrisProjectBundle:Enjeux:listeExigence.html.twig', 
-                array('project'  => $project ));
+        return $this->render('IrisProjectBundle:Exigence:listeExigences.html.twig', 
+                array('project'  => $project, 'exigences' => $listExigences ));
     }
     
 }

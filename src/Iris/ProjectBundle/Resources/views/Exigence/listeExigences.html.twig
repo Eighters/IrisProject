@@ -2,7 +2,8 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/ficheentreprise.css') }}" />
  <link rel="stylesheet" href="{{ asset('css/listentreprise.css') }}" />
- <link rel="stylesheet" href="{{ asset('css/User.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/listexigence.css') }}" />
+ <link rel="stylesheet" href="{{ asset('css/ficheprojet.css') }}" />
 {% endblock %}
 {% block body %}
     {# you can read and display just one flash message type... #}
@@ -12,47 +13,67 @@
     </div>
     {% endfor %} 
 <!-- debut fiche entreprise-->
-<div class="row">
-   
-</div>
-<div class="container-fiche row">
-<div class="item  col-xs-4 col-lg-3">
-    <div class="thumbnail">
-        <div class="nouvelleEntreprise">
-            <a href="{{ base_url }}/projets/{{project.id}}/partiesprenantes/add">
-                <i class="glyphicon glyphicon-plus fa-2x"></i>     
-                Ajouter une partie prenante       
-            </a>
-        </div>
-
+<section class="content">
+    <div class="row">
+       
     </div>
-</div>
-{% if project.partiesPrenantes %}
-{% for partiePrenante in project.partiesPrenantes %}
-    	<div class="item  col-xs-4 col-lg-3">
-            <div class="thumbnail">
-            	
-                
-                <div class="image utilisateur">
-                    <a href="{{ base_url }}/projets/{{project.id}}/partiesprenantes/{{ partiePrenante.id }}">
-                        <img class="img-circle img-entreprise" src="{{ base_url }}/img/company.svg" alt="Generic placeholder image" width="140" height="140">
-                    </a>
-                </div>
-                <div class="title">
-                    <div style=" float: left; padding-left: 15px;">
-                    <a href="{{ base_url }}/projets/{{project.id}}/partiesprenantes/{{partiePrenante.id}}/edit/"><img src="{{ asset('img/edit.svg') }}" class="picto-little" alt="Editer" title="Editer" /></a>
-                    </div>
-                    <div style=" float: left; text-align: center; ">
-                        <h4> <a href="{{ base_url }}/projets/{{project.id}}/partiesprenantes/{{ partiePrenante.id }}">{{ partiePrenante.nom }} </a></h4>
-                    </div>
-                    <div style=" float: right; padding-right: 15px;">
-                       <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto-little" alt="Archiver" title="Archiver"></a>
-                    </div>
-                </div>
+    <div class="container-fiche row">
+        <div class="col-md-12 nopadding projetheader whitebckgd">
+            <div class="banner align-middle">
+                <h2>Exigences</h2>
             </div>
         </div>
-{% endfor %}
-{% endif %}
-</div>
+        {% if exigences %}
+        {% for exigence in exigences %}
+                <div class="col-md-4 exigence-card">
+                    <div class="exigence-content">
+                        <div class="header-exigence">
+                            <div>
+                                <span>Priorité</span>
+                                <span class="picto-right">
+                                    <a href="{{ base_url }}/projets/{{project.id}}/exigences/{{exigence.id}}/edit"><img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer"></a>
+                                    <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver" title="Archiver"></a>
+                                </span>
+                            </div>
+                            <div class="align-middle ref-exigence">
+                                <h3>{{exigence.reference}}</h3>
+                            </div>
+                        </div>
+                        <div class="exigence-infos">
+                            <div class="row align-middle exigence-partieprenante">
+                                <h3>{{exigence.partiePrenante.nom}}</h3>
+                            </div>
+                            <div class="row exigence-definition">
+                                <div class="col-md-3 exigence-definition-label"><p>Définition</p></div>
+                                <div class="col-md-9 exigence-definition-valeur"><p>{{exigence.definition}}</p></div>
+                            </div>
+                            <div class="row exigence-condition">
+                                <div class="col-md-3"><p>Conditions d'acceptation</p></div>
+                                <div class="col-md-9"><p>{{exigence.conditionAcceptation}}</p></div>
+                            </div>
+                            <div class="row exigence-objectif">
+                                <div class="col-md-3"><p>Objectifs liés</p></div>
+                                <div class="col-md-9"><p>{{exigence.objectif.description}}</p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 exigence-type">
+                                    <h3>Type</h3>
+                                    <p>{{exigence.type}}</p>
+                                </div>
+                                <div class="col-md-6 exigence-statut">
+                                    <h3>Statut</h3>
+                                    <p>{{exigence.statut}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</section>
+
 <!-- fin fiche entreprise-->
 {% endblock %}

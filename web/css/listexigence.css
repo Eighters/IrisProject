@@ -1,0 +1,33 @@
+.picto-right{
+    float: right;
+}
+
+.exigence-card{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.exigence-content{
+    background-color: #fff;
+}
+
+.header-exigence{
+    padding: 5px;
+}
+
+.ref-exigence{
+    text-align: center;
+    color: #fff;
+}
+
+.exigence-infos .row{
+    padding-top: 0;
+}
+
+.exigence-infos .row .col-md-3{
+    padding: 0;
+    color: #5ec3d7;
+}
+
+.exigence-partieprenante h3{
+    margin-top: 10px;
+}

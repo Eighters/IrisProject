@@ -1,129 +1,100 @@
-section.content{
-	margin-right: 40px;
-	margin-left: 40px
-}
-
-.actions-link{
-	padding: 15px 0;
-}
-
-.actions-link img{
-	margin-left: 10px;
-}
-
-.align-right{
-	text-align: right;
-}
-
-.align-middle{
-	text-align: center;
-}
-
-.img-entreprise{
-	display: inline-block;
-	margin: auto;
-}
-
-.nopadding{
-	padding: 0;
-}
-
-.whitebckgd{
-	background-color: #fff;
-}
-
-.entrepriseheader{
+.projetheader{
 	margin-bottom: 20px;
+	box-shadow: 4px 4px 13px #d2d6de;
 }
 
-.entrepriseheader .banner{
-	min-height: 165px;
+.projetheader .banner{
+	min-height: 105px;
 	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+	float: left;
+	width: 100%;
 }
 
-.entrepriseheader .banner h2{
+.projetheader .banner h2{
 	margin-top:  0;
 	padding-top: 30px;
 }
 
-.entrepriseheader .img-entreprise{
-	width: 230px;
-    height: 230px;
-    margin: auto;
-    background: #fff;
-    margin-top: -25px;
-    box-shadow: 1px 1px 5px #888888;
-    overflow: hidden;
+.projet-info{
+	background-color: #EBF3F5;
+	color: #1795a6;
+}
+.projet-info p{
+	margin: 0 0 -5px;
 }
 
-.entrepriseheader .img-entreprise img{
-	width: 65%;
-    margin-top: 45px;
+.row-calendar{
+	border-bottom: 3px solid #fff;
 }
 
-.entreprise-info .picto-little{
-	margin-right: 15px;
+.info-calendar, .info-partieprenante{
+	padding: 8px 0;
+}
+.picto-project-left{
+	padding: 11px 0;
+	background-color: #EBF3F5;
 }
 
-.first-column {
-  width: 49%;
-  min-height: 50px;
-  float: left;
+.picto-project-left.picto-calendar img{
+	width: 35px;
 }
 
-.first-column .col-md-12{
+.picto-project-left.picto-team img{
+	width: 55px;
+}
+
+
+.projet.description{
+	padding-top: 10px;
+}
+
+.modal-info-projet{
+	height: 122px;
+	background-color: #EBF3F5;
+	text-align: center;
+    padding-top: 30px;
+}
+
+.modal-info-projet img{
+	width: 55px;
+}
+
+.blockaction, .blockenjeux, .blockexigence{
+	width: 257px;
 	padding: 0;
+	background-repeat: no-repeat;
 }
 
-.first-column .col-md-12 .row{
-	margin: 0;
+.blockaction{
+	background-image: url('../img/Photo_Action.png');
 }
 
-.project-row{
-	padding: 20px 0;
+.blockenjeux{
+	background-image: url('../img/Photo_Enjeux.png');
 }
 
-.project-row .project-action{
+.blockexigence{
+	background-image: url('../img/Photo_Exigence.png');
+}
+
+.white, .white h2{
+	color: #fff;
+}
+.blockimg{
+	height: 125px;
+    margin-bottom: 25px;
+}
+    
+.voirplus{
+	padding: 12px 0;
+	background-color: #1795a6;
 	text-align: center;
 }
 
-.project-good{
-	
+.voirplus a{
+	color: #fff;
 }
 
-.project-late{
-	
-}
-
-.project-critical{
-	
-}
-
-.second-column {
-  width: 49%;
-  padding: 0 20px;
-  float: right;
-}
-
-h1, h2, h3{
-	color: #5ec3d7;
-}
-
-.nouvelleEntreprise{
-    float: right;
-    margin-right: 1%;
-}
-
-.userTitle{
-	display: block;
-	padding: 0 25px;
-}
-
-.userTitle h2{
-	float: left;
-}
-
-.userTitle a{
-	float: right;
-	padding-top: 22px;
+.blue-bg{
+	background-color: #1795a6;
 }
