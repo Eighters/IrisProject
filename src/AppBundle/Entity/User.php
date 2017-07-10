@@ -47,7 +47,7 @@ class User extends BaseUser
     /**
      * @var ArrayCollection
      * One User has Many Partie Prenantes.
-     * @ORM\ManyToMany(targetEntity="PartiePrenante", inversedBy="users")
+     * @ORM\ManyToMany(targetEntity="PartiePrenante")
      */
     private $partiesPrenantes;
 
