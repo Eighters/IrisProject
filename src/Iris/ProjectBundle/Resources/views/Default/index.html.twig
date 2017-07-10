@@ -36,8 +36,17 @@
         	<h2>Exigences</h2>
     	</div>
     	<div class="col-md-4">
-        	<h2>Enjeux</h2>
+        	<h2>Enjeux ({{project.enjeux|length}})</h2>
+
+          {% for enjeu in project.enjeux %}
+            <p>
+              <a href="{{ base_url }}/projets/{{project.id}}/enjeux/{{enjeu.id}}">{{enjeu.nom}}</a>
+            </p>
+            
+          {% endfor %}
+          <a href="{{ base_url }}/projets/{{project.id}}/enjeux/add">Ajouter un enjeu</a>
     	</div>
+
     	
     </div>
 </section>

@@ -3,6 +3,11 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\Company;
+use AppBundle\Entity\PartiePrenante;
+use AppBundle\Entity\Enjeux;
+use AppBundle\Entity\Jalon;
 
 /**
  * Project
@@ -71,6 +76,21 @@ class Project
     private $benefices;
 
     /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ProjectCategory", cascade={"persist"}, inversedBy="projects")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    private $category;
+
+    /**
+     * @var ArrayCollection
+     * Many Project has Many companies
+     * @ORM\ManyToMany(targetEntity="Company", mappedBy="projects")
+     */
+    private $companies;
+
+    /**
      * @var ArrayCollection
      * One Project has Many Partie Prenantes.
      * @ORM\OneToMany(targetEntity="PartiePrenante", mappedBy="project")
@@ -92,12 +112,19 @@ class Project
     private $jalons;
 
     /**
-     * @var int
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ProjectCategory", cascade={"persist"}, inversedBy="projects")
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * @var ArrayCollection
+     * One Project has Many Actions.
+     * @ORM\OneToMany(targetEntity="Action", mappedBy="project")
      */
-    private $category;
+    private $actions;
+
+    public function __construct() {
+        $this->companies = new ArrayCollection();
+        $this->partiesprenantes = new ArrayCollection();
+        $this->enjeux = new ArrayCollection();
+        $this->jalons = new ArrayCollection();
+        $this->actions = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -275,5 +302,200 @@ class Project
     public function getBenefices()
     {
         return $this->benefices;
+    }
+
+    /**
+     * Set category
+     *
+     * @param integer $category
+     *
+     * @return Project
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return int
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Add company
+     *
+     * @param Company $company
+     *
+     * @return Project
+     */
+    public function addCompany(Company $company)
+    {
+        $this->companies[] = $company;
+
+        return $this;
+    }
+
+    /**
+     * Remove company
+     *
+     * @param Company $company
+     */
+    public function removeCompany(Company $company)
+    {
+        $this->companies->removeElement($company);
+    }
+
+    /**
+     * Get companies
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCompanies()
+    {
+        return $this->companies;
+    }
+
+
+    /**
+     * Add partiePrenante
+     *
+     * @param PartiePrenante $partiePrenante
+     *
+     * @return Project
+     */
+    public function addPartiePrenante(PartiePrenante $partiePrenante)
+    {
+        $this->partiesPrenantes[] = $partiePrenante;
+
+        return $this;
+    }
+
+    /**
+     * Remove partiePrenante
+     *
+     * @param PartiePrenante $partiePrenante
+     */
+    public function removePartiePrenante(PartiePrenante $partiePrenante)
+    {
+        $this->partiesPrenantes->removeElement($partiePrenante);
+    }
+
+    /**
+     * Get partiesPrenantes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPartiesPrenantes()
+    {
+        return $this->partiesPrenantes;
+    }
+
+    /**
+     * Add enjeu
+     *
+     * @param Enjeux $enjeu
+     *
+     * @return Project
+     */
+    public function addEnjeu(Enjeux $enjeu)
+    {
+        $this->enjeux[] = $enjeu;
+
+        return $this;
+    }
+
+    /**
+     * Remove enjeu
+     *
+     * @param Enjeux $enjeu
+     */
+    public function removeEnjeu(Enjeux $enjeu)
+    {
+        $this->enjeux->removeElement($enjeu);
+    }
+
+    /**
+     * Get enjeux
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEnjeux()
+    {
+        return $this->enjeux;
+    }
+
+    /**
+     * Add jalon
+     *
+     * @param Jalon $jalon
+     *
+     * @return Project
+     */
+    public function addJalon(Jalon $jalon)
+    {
+        $this->jalons[] = $jalon;
+
+        return $this;
+    }
+
+    /**
+     * Remove jalon
+     *
+     * @param Jalon $jalon
+     */
+    public function removeJalon(Jalon $jalon)
+    {
+        $this->jalons->removeElement($jalon);
+    }
+
+    /**
+     * Get jalons
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getJalons()
+    {
+        return $this->jalons;
+    }
+
+    /**
+     * Add action
+     *
+     * @param Action $action
+     *
+     * @return Project
+     */
+    public function addAction(Action $action)
+    {
+        $this->actions[] = $action;
+
+        return $this;
+    }
+
+    /**
+     * Remove action
+     *
+     * @param Action $action
+     */
+    public function removeAction(Jalon $action)
+    {
+        $this->actions->removeElement($action);
+    }
+
+    /**
+     * Get actions
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getActions()
+    {
+        return $this->actions;
     }
 }

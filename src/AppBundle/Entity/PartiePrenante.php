@@ -3,6 +3,10 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\Exigence;
+use AppBundle\Entity\Action;
+
 
 /**
  * PartiePrenante
@@ -80,27 +84,12 @@ class PartiePrenante
      */
     private $project;
 
-    /**
-     * @var ArrayCollection
-     * One PartiePrenante has Many Exigences.
-     * @ORM\OneToMany(targetEntity="Exigence", mappedBy="partiePrenante")
-     */
-    private $exigences;
+    
 
-    /**
-     * @var ArrayCollection
-     * One PartiePrenante has Many Actions.
-     * @ORM\OneToMany(targetEntity="Action", mappedBy="responsable")
-     */
-    private $actions;
 
-    /**
-     * @var ArrayCollection
-     * One PartiePrenante has Many Created Actions.
-     * @ORM\OneToMany(targetEntity="Action", mappedBy="origine")
-     */
-    private $actionsCreated;
-
+    public function __construct() {
+        
+    }
 
     /**
      * Get id
@@ -303,4 +292,7 @@ class PartiePrenante
     {
         return $this->project;
     }
+
+
+    
 }

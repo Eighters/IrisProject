@@ -28,6 +28,7 @@ framework:
         # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
         handler_id:  session.handler.native_file
         save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+        name: IRISSESS
     fragments:       ~
     http_method_override: true
     assets: ~
@@ -71,7 +72,7 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-    
+
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
@@ -81,7 +82,15 @@ fos_user:
         sender_name: YanivKoubbi
     registration:
         form:
-            type: AppBundle\Form\RegistrationType
+            type: AppBundle\Form\Type\RegistrationType
     profile:
         form:
-            type: AppBundle\Form\ProfileType
+            type: AppBundle\Form\Type\ProfileType
+
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        company_image:
+            uri_prefix:         /img/companies
+            upload_destination: "%kernel.root_dir%/../web/img/companies"

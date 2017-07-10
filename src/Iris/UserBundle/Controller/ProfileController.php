@@ -11,7 +11,6 @@
 
 namespace Iris\UserBundle\Controller;
 
-use AppBundle\Entity\Company;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\Event\GetResponseUserEvent;

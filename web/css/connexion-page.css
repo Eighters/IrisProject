@@ -63,24 +63,25 @@ h1 {
 
 .containerw3layouts-agileits {
 	width: 50%;
+	width: 70%;
 	margin: 0 auto;
 }
 
-.w3imageaits  {
-	width: 60%;
+@@ -71,16 +71,16 @@ h1 {
 	/*-- w3layouts --*/
 	/*-- agileits --*/
 	float: left;
 	height : 513px;
+	height : 549px;
 	background-size: cover;
 	background-image:url(../img/background-login.png);
+	background-image:url(../img/pannel-co.jpg);
 }
 
 .aitsloginwthree {
 	background-color: #FFF;
-	width: 40%;
-	float: left;
-	height : 484px;
+	width: 37%;
+	height: 84%;
 }
 
 h2 {
@@ -89,26 +90,51 @@ h2 {
 	font-weight: 100;
 	margin: 40px 0;
 }
-
-input[type="text"], input[type="password"] {
+input[type="text"]{
 	padding: 15px 0 10px 0;
 	width: 90%;
+	width: 65%;
 	border: none;
 	/*-- w3layouts --*/
 	/*-- agileits --*/
-	border-bottom: 2px solid #4dd0e1;
+	border-bottom: 2px solid #1795a6;
+	border-bottom: 2px solid #1795a6;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 14px;
+	font-size: 16px;
 	color: #333;
 	outline: none;
-	margin-bottom: 20px;
-}
-
-ul.tick {
 	list-style: none;
 	display: inline-block;
-	margin: 20px 0 30px;
+	background: url('../img/user-icon.svg');
+    background-size: 20px 45px;
+    background-repeat: no-repeat;
+    text-indent: 28px;
 }
+
+input[type="password"] {
+	padding: 15px 0 10px 0;
+	width: 90%;
+	width: 65%;
+	border: none;
+	/*-- w3layouts --*/
+	/*-- agileits --*/
+	border-bottom: 2px solid #1795a6;
+	border-bottom: 2px solid #1795a6;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+	font-size: 16px;
+	color: #333;
+	outline: none;
+	list-style: none;
+	display: inline-block;
+	background: url('../img/mdp-icon.svg');
+    background-size: 20px 45px;
+    background-repeat: no-repeat;
+    text-indent: 28px;
+	
+}
+
 
 ul.tick li {
 	display: inline-block;
@@ -164,50 +190,55 @@ ul.tick a {
 }
 
 input[type="submit"] {
-	padding: 10px 30px;
-	font-family: 'Montserrat', sans-serif;
-	font-size: 15px;
-	border: none;
-	outline: none;
-	
-	/*-- wthree --*/
-	/*-- agileits --*/
-	background-color: #4dd0e1;
-	color: #FFF;
-	cursor: pointer;
+-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+      border-radius: 0px;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-size: 20px;
+    background: #1795a6;
+    padding: 10px 20px 10px 20px;
+    border: none;
+    width: 71%;
+    text-decoration: none;
 }
 
 input[type="submit"]:hover {
-	background-color: #009688;
+	background: #3cb0fd;
+  text-decoration: none;
 }
 
-
-
-
-
 /*-- Placeholder-Styling --*/
+input::placeholder {
+  color: #c4c9ca;
+  margin-left: 20px;
+
+}
 
 ::-webkit-input-placeholder {
-	color: #333;
+	
+	margin-left: 20px !important;
 }
 
 ::-moz-placeholder {
-	color: #333;
+	
+	margin-left: 20px !important;
 	/*-- w3layouts --*/
 	/*-- w3-agile --*/
 }
 
 ::-moz-placeholder {
-	color: #333;
+	
+	margin-left: 20px !important;
 }
 
 ::-ms-input-placeholder {
-	color: #333;
+	
+	margin-left: 20px !important;
 }
 
+
 /*-- //Placeholder-Styling --*/
-
-
 
 /*-- Index-Page-Styling --*/
 

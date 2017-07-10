@@ -3,12 +3,7 @@
 namespace Iris\UserBundle\Controller;
 
 // use utilisé pour la page Company
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use AppBundle\Entity\User;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use Symfony\Component\Security\Core\SecurityContext;
 
 /**
  * Description of UserController

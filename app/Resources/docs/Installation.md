@@ -52,9 +52,7 @@ Run composer script (Download, install vendor, init doctrine migration)
 $ bash composer.sh
 
 
-$ sudo chmod 777 -R /var/www/IrisProject/var/cache/
-$ sudo chmod 777 -R /var/www/IrisProject/var/logs/
-$ sudo chmod 777 -R /var/www/IrisProject/var/sessions/
+$ sudo chmod 777 /var/www/IrisProject/var/cache/ /var/www/IrisProject/var/logs/ /var/www/IrisProject/var/sessions/ -R
 ```
 
 ## SSL Certificats

@@ -1,0 +1,35 @@
+{% extends "::base.html.twig" %}
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('css/creationentreprise.css') }}" />
+
+{% endblock %}
+
+{% block body %}
+{{ form_start(form, {'attr': {'class': 'form-group'}} ) }}
+
+    <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Formulaire d'objectif</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+          <div class="box-body">
+            <div class="form-group">
+                {{ form_label(form.description) }}
+                {{ form_errors(form.description) }}
+                {{ form_widget(form.description) }}
+            </div>
+            
+          </div>
+          <!-- /.box-body -->
+
+          <div class="box-footer">
+            {{ form_widget(form.enregistrer) }}
+          </div>
+        
+    </div>
+    
+{{ form_end(form) }}
+
+{% endblock %}
