@@ -5,56 +5,39 @@
 {% block body %}
 <section class="content">
     <div class="row actions-link align-right">
-	<a href="{{ base_url }}/projets/{{partiePrenante.project.id}}/partiesprenantes/{{partiePrenante.id}}/edit"><img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer" /></a>
+    <a href="{{ base_url }}/projets/{{project.id}}/exigence/{{exigence.id}}/edit"><img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer" /></a>
         <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver" title="Archiver"></a>
-        <a href="{{ base_url }}/projets/{{partiePrenante.project.id}}"><img src="{{ asset('img/close.svg') }}" class="picto" alt="Retour" title="Retour"></a>
+        <a href="{{ base_url }}/projets/{{project.id}}"><img src="{{ asset('img/close.svg') }}" class="picto" alt="Retour" title="Retour"></a>
     </div>
     <div class="row">
         <div class="col-md-12 nopadding entrepriseheader whitebckgd">
-        	<div class="banner align-middle">
-        		<h2>{{partiePrenante.nom}}</h2>
-        	</div>
-    			<div class="col-md-3">
-    				<h2>Type</h2>
-    				<p>{{partiePrenante.type}}</p>
-    			</div> 
-                <div class="col-md-3 entreprise-info">
-                    <h2>Influence</h2> 
-                     <p>{{partiePrenante.influence}}</p>
+            <div class="banner align-middle">
+                <h2>{{exigence.reference}}</h2>
+            </div>
+            
+                <div class="col-md-4 entreprise-info">
+                    <h2>Description</h2> 
+                     <p>{{exigence.definition}}</p>
                 </div> 
-                <div class="col-md-3">
-                    <h2>Impact</h2>
-                    <p>{{partiePrenante.impact}}</p>
-                </div>
-                <div class="col-md-3">
-                    <h2>Observations</h2>
-                    <p>{{partiePrenante.observation}}</p>
-                </div>    
+                <div class="col-md-4">
+                    <h2>Type</h2>
+                    <p>{{exigence.type}}</p>
+                </div> 
+          <div class="col-md-4">
+            <h2>Condition d'acceptation</h2>
+            <p>{{exigence.conditionAcceptation}}</p>
+          </div>    
         </div>
     </div>
     <div class="row align-middle">
-    	<div class="col-md-4">
-        	<h2>Utilisateurs</h2>
+        <div class="col-md-4">
+            <h2>Objectifs</h2>
 
-            {% if partiePrenante.users is not null and partiePrenante.users|length > 0 %}
+           
                 
-                {% for user in partiePrenante.users %}
-                <p>
-                    <a href="{{base_url}}/utilisateur/{{user.id}}">
-                    {{user.nom}}
-                    </a>
-                </p>
-                
-              {% endfor %}
-
-            {% else %}
-                <p>Aucun utilisateur pour le moment</p>
-                
-            {% endif %}
-                <a href="{{ base_url }}/projets/{{partiePrenante.project.id}}/partiesprenantes/{{partiePrenante.id}}/edit">Modifiers la liste des utilisateurs</a>
-    	</div>
-    	
-    	
+        </div>
+        
+        
     </div>
 </section>
 <!-- fin fiche entreprise-->
