@@ -1,0 +1,47 @@
+{% extends "::base.html.twig" %}
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('css/ficheentreprise.css') }}" />
+{% endblock %}
+{% block body %}
+<section class="content">
+    <div class="row actions-link align-right">
+    <a href="{{ base_url }}/projets/{{project.id}}/exigence/{{exigence.id}}/edit"><img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer" /></a>
+        <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver" title="Archiver"></a>
+        <a href="{{ base_url }}/projets/{{project.id}}"><img src="{{ asset('img/close.svg') }}" class="picto" alt="Retour" title="Retour"></a>
+    </div>
+    <div class="row">
+        <div class="col-md-12 nopadding entrepriseheader whitebckgd">
+            <div class="banner align-middle">
+                <h2>{{exigence.reference}}</h2>
+            </div>
+            
+                <div class="col-md-4 entreprise-info">
+                    <h2>Description</h2> 
+                     <p>{{exigence.definition}}</p>
+                </div> 
+                <div class="col-md-4">
+                    <h2>Type</h2>
+                    <p>{{exigence.type}}</p>
+                </div> 
+          <div class="col-md-4">
+            <h2>Condition d'acceptation</h2>
+            <p>{{exigence.conditionAcceptation}}</p>
+          </div>    
+        </div>
+    </div>
+    <div class="row align-middle">
+        <div class="col-md-4">
+            <h2>Objectifs</h2>
+            <p>{{exigence.objectif.description}}</p>
+        </div>
+        <div class="col-md-4">
+            <h2>Partie prenante</h2>
+            <p>{{exigence.partiePrenante.nom}}</p>
+        </div>
+        
+        
+    </div>
+</section>
+<!-- fin fiche entreprise-->
+
+{% endblock %}

@@ -31,14 +31,21 @@ class Exigence
     /**
      * @var string
      *
-     * @ORM\Column(name="definition", type="string", length=70)
+     * @ORM\Column(name="type", type="string", length=70)
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="definition", type="string", length=256)
      */
     private $definition;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="condition_acceptation", type="string", length=80)
+     * @ORM\Column(name="condition_acceptation", type="string", length=256)
      */
     private $conditionAcceptation;
 
@@ -67,10 +74,10 @@ class Exigence
     /**
      * @var int
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", cascade={"persist"}, inversedBy="exigences")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PartiePrenante", cascade={"persist"}, inversedBy="exigences")
+     * @ORM\JoinColumn(name="partieprenante_id", referencedColumnName="id")
      */
-    private $user;
+    private $partiePrenante;
 
 
     /**
@@ -105,6 +112,30 @@ class Exigence
     public function getReference()
     {
         return $this->reference;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Exigence
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**
@@ -228,26 +259,26 @@ class Exigence
     }
 
     /**
-     * Set user
+     * Set partie prenante
      *
-     * @param integer $user
+     * @param integer $partiePrenante
      *
      * @return Exigence
      */
-    public function setUser($user)
+    public function setPartiePrenante($partiePrenante)
     {
-        $this->user = $user;
+        $this->partiePrenante = $partiePrenante;
 
         return $this;
     }
 
     /**
-     * Get user
+     * Get partie prenante
      *
      * @return int
      */
-    public function getUser()
+    public function getPartiePrenante()
     {
-        return $this->user;
+        return $this->partiePrenante;
     }
 }
