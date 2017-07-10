@@ -61,15 +61,9 @@ class PartiePrenante
     private $observation;
 
     /**
-     * @var int
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", cascade={"persist"}, inversedBy="partiesPrenantes")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    /**
      * @var ArrayCollection
      * Many Parties Prenantes have Many Users.
-     * @ORM\ManyToMany(targetEntity="User", mappedBy="partiesPrenantes")
+     * @ORM\ManyToMany(targetEntity="User")
      * @ORM\JoinTable(name="partiesprenantes_users",
      *      joinColumns={@ORM\JoinColumn(name="partieprenante_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")}
