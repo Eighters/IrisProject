@@ -67,10 +67,10 @@ class Exigence
     /**
      * @var int
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PartiePrenante", cascade={"persist"}, inversedBy="exigences")
-     * @ORM\JoinColumn(name="partieprenante_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", cascade={"persist"}, inversedBy="exigences")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    private $partiePrenante;
+    private $user;
 
 
     /**
@@ -228,26 +228,26 @@ class Exigence
     }
 
     /**
-     * Set partiePrenante
+     * Set user
      *
-     * @param integer $partiePrenante
+     * @param integer $user
      *
      * @return Exigence
      */
-    public function setPartiePrenante($partiePrenante)
+    public function setUser($user)
     {
-        $this->partiePrenante = $partiePrenante;
+        $this->user = $user;
 
         return $this;
     }
 
     /**
-     * Get partiePrenante
+     * Get user
      *
      * @return int
      */
-    public function getPartiePrenante()
+    public function getUser()
     {
-        return $this->partiePrenante;
+        return $this->user;
     }
 }

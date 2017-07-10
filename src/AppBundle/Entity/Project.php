@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\Company;
 use AppBundle\Entity\PartiePrenante;
 use AppBundle\Entity\Enjeux;
 use AppBundle\Entity\Jalon;
@@ -84,6 +85,13 @@ class Project
 
     /**
      * @var ArrayCollection
+     * Many Project has Many companies
+     * @ORM\ManyToMany(targetEntity="Company", mappedBy="projects")
+     */
+    private $companies;
+
+    /**
+     * @var ArrayCollection
      * One Project has Many Partie Prenantes.
      * @ORM\OneToMany(targetEntity="PartiePrenante", mappedBy="project")
      */
@@ -103,11 +111,19 @@ class Project
      */
     private $jalons;
 
+    /**
+     * @var ArrayCollection
+     * One Project has Many Actions.
+     * @ORM\OneToMany(targetEntity="Action", mappedBy="project")
+     */
+    private $actions;
 
     public function __construct() {
+        $this->companies = new ArrayCollection();
         $this->partiesprenantes = new ArrayCollection();
         $this->enjeux = new ArrayCollection();
         $this->jalons = new ArrayCollection();
+        $this->actions = new ArrayCollection();
     }
 
     /**
@@ -313,6 +329,41 @@ class Project
     }
 
     /**
+     * Add company
+     *
+     * @param Company $company
+     *
+     * @return Project
+     */
+    public function addCompany(Company $company)
+    {
+        $this->companies[] = $company;
+
+        return $this;
+    }
+
+    /**
+     * Remove company
+     *
+     * @param Company $company
+     */
+    public function removeCompany(Company $company)
+    {
+        $this->companies->removeElement($company);
+    }
+
+    /**
+     * Get companies
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCompanies()
+    {
+        return $this->companies;
+    }
+
+
+    /**
      * Add partiePrenante
      *
      * @param PartiePrenante $partiePrenante
@@ -412,5 +463,39 @@ class Project
     public function getJalons()
     {
         return $this->jalons;
+    }
+
+    /**
+     * Add action
+     *
+     * @param Action $action
+     *
+     * @return Project
+     */
+    public function addAction(Action $action)
+    {
+        $this->actions[] = $action;
+
+        return $this;
+    }
+
+    /**
+     * Remove action
+     *
+     * @param Action $action
+     */
+    public function removeAction(Jalon $action)
+    {
+        $this->actions->removeElement($action);
+    }
+
+    /**
+     * Get actions
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getActions()
+    {
+        return $this->actions;
     }
 }

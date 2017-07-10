@@ -84,32 +84,11 @@ class PartiePrenante
      */
     private $project;
 
-    /**
-     * @var ArrayCollection
-     * One PartiePrenante has Many Exigences.
-     * @ORM\OneToMany(targetEntity="Exigence", mappedBy="partiePrenante")
-     */
-    private $exigences;
-
-    /**
-     * @var ArrayCollection
-     * One PartiePrenante has Many Actions.
-     * @ORM\OneToMany(targetEntity="Action", mappedBy="responsable")
-     */
-    private $actions;
-
-    /**
-     * @var ArrayCollection
-     * One PartiePrenante has Many Created Actions.
-     * @ORM\OneToMany(targetEntity="Action", mappedBy="origine")
-     */
-    private $actionsCreated;
+    
 
 
     public function __construct() {
-        $this->exigences = new ArrayCollection();
-        $this->actions = new ArrayCollection();
-        $this->actionsCreated = new ArrayCollection();
+        
     }
 
     /**
@@ -315,106 +294,5 @@ class PartiePrenante
     }
 
 
-    /**
-     * Add exigence
-     *
-     * @param Exigence $exigence
-     *
-     * @return PartiePrenante
-     */
-    public function addExigence(Exigence $exigence)
-    {
-        $this->exigences[] = $exigence;
-
-        return $this;
-    }
-
-    /**
-     * Remove exigence
-     *
-     * @param Exigence $exigence
-     */
-    public function removeExigence(Exigence $exigence)
-    {
-        $this->exigences->removeElement($exigence);
-    }
-
-    /**
-     * Get exigences
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getExigences()
-    {
-        return $this->exigences;
-    }
-
-
-    /**
-     * Add action
-     *
-     * @param Action $action
-     *
-     * @return PartiePrenante
-     */
-    public function addAction(Action $action)
-    {
-        $this->actions[] = $action;
-
-        return $this;
-    }
-
-    /**
-     * Remove action
-     *
-     * @param Action $action
-     */
-    public function removeAction(Action $action)
-    {
-        $this->actions->removeElement($action);
-    }
-
-    /**
-     * Get actions
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getActions()
-    {
-        return $this->actions;
-    }
-
-    /**
-     * Add actionCreated
-     *
-     * @param Action $actionCreated
-     *
-     * @return PartiePrenante
-     */
-    public function addActionCreated(Action $actionCreated)
-    {
-        $this->actionsCreated[] = $actionCreated;
-
-        return $this;
-    }
-
-    /**
-     * Remove actionCreated
-     *
-     * @param Action $actionCreated
-     */
-    public function removeActionCreated(Action $actionCreated)
-    {
-        $this->actionsCreated->removeElement($actionCreated);
-    }
-
-    /**
-     * Get actionsCreated
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getActionsCreated()
-    {
-        return $this->actionsCreated;
-    }
+    
 }
