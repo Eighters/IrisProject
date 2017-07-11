@@ -93,6 +93,13 @@ class Action
      * @ORM\JoinColumn(name="project_id", referencedColumnName="id")
      */
     private $project;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=100)
+     */
+    private $nom;
 
 
     /**
@@ -345,4 +352,28 @@ class Action
         return $this->project;
     }
 
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Action
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
 }

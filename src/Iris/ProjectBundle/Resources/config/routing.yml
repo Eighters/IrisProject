@@ -95,3 +95,23 @@ iris_project_exigence_edit:
     path:     /projets/{idproject}/exigences/{id}/edit
     methods:  [ get, post ]
     defaults: { _controller: IrisProjectBundle:Exigence:Edit }
+    
+iris_project_action_add:
+    path:     /projets/{id}/actions/add
+    methods:  [ get, post ]
+    defaults: { _controller: IrisProjectBundle:Action:Add }
+    
+iris_project_action_fiche:
+    path:     /projets/{idproject}/actions/{id}
+    methods:  [ get]
+    defaults: { _controller: IrisProjectBundle:Action:Show }
+
+iris_project_action_edit:
+    path:     /projets/{idproject}/actions/{id}/edit
+    methods:  [ get, post ]
+    defaults: { _controller: IrisProjectBundle:Action:Edit }
+    
+iris_project_action_liste:
+    path:     /projets/{id}/actions
+    methods:  [ get ]
+    defaults: { _controller: IrisProjectBundle:Action:ShowAll }

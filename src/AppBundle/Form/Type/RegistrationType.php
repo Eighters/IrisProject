@@ -5,13 +5,30 @@ namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class RegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom');
-        $builder->add('address');
+        parent::buildForm($builder, $options);
+        
+        $builder->add('nom')
+        ->add('address')
+        ->add('roles', ChoiceType::class, array(
+                'attr'  =>  array('class' => 'form-control',
+                    'style' => 'margin:5px 0;'),
+                'choices' =>
+                    array
+                    (
+                            'ROLE_ADMIN' => 'ROLE_ADMIN',
+                            'ROLE_USER' => 'ROLE_USER',
+                            'ROLE_RESP' => 'ROLE_RESP'
+                    ) ,
+                'multiple' => true,
+                'required' => true,
+            )
+        );
 
     }
 

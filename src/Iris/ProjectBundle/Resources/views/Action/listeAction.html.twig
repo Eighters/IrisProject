@@ -1,0 +1,54 @@
+{% extends "::base.html.twig" %}
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('css/ficheentreprise.css') }}" />
+{% endblock %}
+{% block body %}
+<section class="content">
+    <div class="row actions-link align-right">
+    <a href="#"><img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer" /></a>
+        <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver" title="Archiver"></a>
+        <a href="#"><img src="{{ asset('img/close.svg') }}" class="picto" alt="Retour" title="Retour"></a>
+    </div>
+    <div class="row">
+        <div class="col-md-12 nopadding entrepriseheader">
+            <div class="banner align-middle">
+                <h2>Action</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for action in action %}
+        <div class="col-md-5 whitebckgd" >
+            <div class="col-md-2">
+                <p>{{action.datedebut|date('Y-m-d')}}</p>
+            
+                <p>{{action.echeancePrevue|date('Y-m-d')}}</p>
+            
+                <p>{{action.dateFinReelle|date('Y-m-d')}}</p>
+            </div> 
+            <div class="col-md-4"> 
+                <p>{{action.nom}}</p>
+            
+                <p>{{action.observation}}</p>
+            </div> 
+
+            <div class="col-md-4">
+                <p>{{action.responsable}}</p>
+            </div> 
+            <div class="col-md-4">
+                <p>{{action.urgence}}</p>
+            </div> 
+            <div class="col-md-4">
+                <p>{{action.etat}}</p>
+            </div> 
+        </div>
+        {% endfor %}
+    </div>
+
+</section>
+<!-- fin fiche entreprise-->
+
+{% endblock %}
+
+
