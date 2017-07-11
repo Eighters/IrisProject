@@ -47,7 +47,7 @@ class ObjectifController extends Controller
             $request->getSession()->getFlashBag()->add('notice', 'Objectif bien enregistré.');
 
             // On redirige vers la page de visualisation de l'entreprise nouvellement créée
-            return $this->redirectToRoute('iris_project_enjeux_fiche', array('idproject' => $enjeu->getProject()->getId(), 'id' => $id));
+            return $this->redirectToRoute('iris_project_enjeux_liste', array('id' => $enjeu->getProject()->getId()));
           }
         }
 
@@ -75,8 +75,8 @@ class ObjectifController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($objectif);
             $em->flush();
-            $this->addFlash('success', 'Objectif updated!');
-            return $this->redirectToRoute('iris_project_enjeux_fiche', array('idproject' => $objectif->getEnjeux()->getProject()->getId(), 'id' => $objectif->getEnjeux()->getId()));
+            $this->addFlash('success', 'Objectif mis à jour !');
+            return $this->redirectToRoute('iris_project_enjeux_liste', array('id' => $objectif->getEnjeux()->getProject()->getId()));
         }
         return $this->render('IrisProjectBundle:Objectif:formObjectif.html.twig',    
             array('form' => $form->createView(), 

@@ -1,0 +1,111 @@
+.projetheader{
+	margin-bottom: 20px;
+	box-shadow: 4px 4px 13px #d2d6de;
+}
+
+.projetheader .banner{
+	min-height: 105px;
+	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+	float: left;
+	width: 100%;
+}
+
+.projetheader .banner h2{
+	margin-top:  0;
+	padding-top: 30px;
+}
+
+.projet-info{
+	background-color: #EBF3F5;
+	color: #1795a6;
+}
+.projet-info p{
+	margin: 0 0 -5px;
+}
+
+.row-calendar{
+	border-bottom: 3px solid #fff;
+}
+
+.info-calendar, .info-partieprenante{
+	padding: 8px 0;
+}
+.picto-project-left{
+	padding: 11px 0;
+	background-color: #EBF3F5;
+}
+
+.picto-project-left.picto-calendar img{
+	width: 35px;
+}
+
+.picto-project-left.picto-team img{
+	width: 55px;
+}
+
+
+.projet.description{
+	padding-top: 10px;
+}
+
+.modal-info-projet{
+	height: 122px;
+	background-color: #EBF3F5;
+	text-align: center;
+    padding-top: 30px;
+}
+
+.modal-info-projet img{
+	width: 55px;
+}
+
+.blockaction, .blockenjeux, .blockexigence{
+	width: 257px;
+	padding: 0;
+	background-repeat: no-repeat;
+}
+
+.blockaction{
+	background-image: url('../img/Photo_Action.png');
+}
+
+.blockenjeux{
+	background-image: url('../img/Photo_Enjeux.png');
+}
+
+.blockexigence{
+	background-image: url('../img/Photo_Exigence.png');
+}
+
+.white, .white h2{
+	color: #fff;
+}
+.blockimg{
+	height: 125px;
+    margin-bottom: 25px;
+}
+    
+.voirplus{
+	padding: 12px 0;
+	background-color: #1795a6;
+	text-align: center;
+}
+
+.voirplus a{
+	color: #fff;
+}
+
+.blue-bg{
+	background-color: #1795a6;
+}
+
+
+.modal-info-projet button.more-info-project{
+	background-color: transparent;
+    width: 100%;
+    border: none;
+}
+
+.modal-info-projet .modal-body{
+	text-align: left;
+}

@@ -36,6 +36,13 @@ class Project
     private $dateLancement;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateFin", type="date")
+     */
+    private $dateFin;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=50)
@@ -127,6 +134,30 @@ class Project
     public function getDateLancement()
     {
         return $this->dateLancement;
+    }
+
+    /**
+     * Set dateFin
+     *
+     * @param \DateTime $dateFin
+     *
+     * @return Project
+     */
+    public function setDateFin($dateFin)
+    {
+        $this->dateFin = $dateFin;
+
+        return $this;
+    }
+
+    /**
+     * Get dateFin
+     *
+     * @return \DateTime
+     */
+    public function getDateFin()
+    {
+        return $this->dateFin;
     }
 
     /**
