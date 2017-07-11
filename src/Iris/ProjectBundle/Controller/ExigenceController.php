@@ -59,7 +59,7 @@ class ExigenceController extends Controller
             $request->getSession()->getFlashBag()->add('notice', 'Exigence bien enregistrée.');
 
             // On redirige vers la page de visualisation de l'entreprise nouvellement créée
-            return $this->redirectToRoute('iris_project_exigence_fiche', array('idproject' => $id, 'id' => $exigence->getId()));
+            return $this->redirectToRoute('iris_project_exigence_liste', array('id' => $id));
           }
         }
 
@@ -79,7 +79,7 @@ class ExigenceController extends Controller
 
     public function editAction(Request $request, Exigence $exigence)
     {
-        $project = $exigence->getProject();
+        $project = $exigence->getPartiePrenante()->getProject();
 
         $listPartiePrenante = $project->getPartiesPrenantes();
         $listObjectifs = new ArrayCollection();
@@ -104,7 +104,7 @@ class ExigenceController extends Controller
             $em->persist($exigence);
             $em->flush();
             $this->addFlash('success', 'Exigence mise à jour');
-            return $this->redirectToRoute('iris_project_exigence_fiche', array('idproject' => $project->getId(), 'id' => $exigence->getId()));
+            return $this->redirectToRoute('iris_project_exigence_liste', array('id' => $project->getId()));
         }
         return $this->render('IrisProjectBundle:Exigence:creationExigence.html.twig',    
             array('form' => $form->createView(), 

@@ -98,3 +98,14 @@
 .blue-bg{
 	background-color: #1795a6;
 }
+
+
+.modal-info-projet button.more-info-project{
+	background-color: transparent;
+    width: 100%;
+    border: none;
+}
+
+.modal-info-projet .modal-body{
+	text-align: left;
+}

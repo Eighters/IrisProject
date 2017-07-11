@@ -46,11 +46,43 @@
   				<p>{{project.description}}</p>
   			</div>
         <div class="col-md-1 modal-info-projet">
-          <img src="{{ asset('img/plus.svg') }}">
+          
+          <button type="button" class="btn btn-primary btn-lg more-info-project" data-toggle="modal" data-target="#myModal">
+            <img src="{{ asset('img/plus.svg') }}">
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Informations complémentaires</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h3>Entreprises</h3>
+                      {% for company in project.companies %}
+                            <p>
+                              <a href="{{ base_url }}/entreprises/{{company.id}}">{{company.raisonSocial}}</a>
+                            </p>
+                      {% endfor %}
+                      <p><a href="{{ base_url }}/projets/{{project.id}}/entreprises">Modifier les entreprises</a></p>
+                    </div>
+                    
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
         </div>   
       </div>
     </div>
     <div class="row align-middle white">
+      <!-- Button trigger modal -->
+
         <div class="col-md-4">
           <div class="col-md-8 col-md-offset-2 blockenjeux">
             <a href="">
@@ -89,15 +121,7 @@
 
     	
     </div>
-    <div class="row">
-      <a href="{{ base_url }}/projets/{{project.id}}/entreprises">Modifier les entreprises</a>
-      {% for company in project.companies %}
-            <p>
-              <a href="{{ base_url }}/entreprises/{{company.id}}">{{company.raisonSocial}}</a>
-            </p>
-            
-      {% endfor %}
-    </div>
+    
 </section>
 <!-- fin fiche entreprise-->
 

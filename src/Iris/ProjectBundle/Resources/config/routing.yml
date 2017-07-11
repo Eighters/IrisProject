@@ -64,8 +64,13 @@ iris_project_enjeux_fiche:
     methods:  [ get ]
     defaults: { _controller: IrisProjectBundle:Enjeux:Show }
 
+iris_project_enjeux_edit:
+    path:     /projets/{idproject}/enjeux/{id}/edit
+    methods:  [ get, post ]
+    defaults: { _controller: IrisProjectBundle:Enjeux:Edit }
+
 iris_project_objectif_edit:
-    path:     /projets/{idproject}/enjeux/{id}/objectifs/{idobjectif}/edit
+    path:     /projets/{idproject}/enjeux/{idenjeu}/objectifs/{id}/edit
     methods:  [ get, post ]
     defaults: { _controller: IrisProjectBundle:Objectif:edit }
     requirements:
