@@ -28,21 +28,31 @@ class ActionController extends Controller
     public function addAction($id, Request $request)
     {
         
-        $user = $this
+        $project = $this
         ->getDoctrine()
-        ->getRepository('AppBundle:User')
+        ->getRepository('AppBundle:Project')
         ->find($id)
         ;
-
- 
-
-
-        // Création de l'entité Exigence
+        
+        $user = $this->getUser();
+        
+        // Création de l'entité Action
         $action = new Action();
+        $action->setProject($project);
+        $action->setOrigine($user);
+        
+        $usersList = new ArrayCollection();
+        $companies = $project->getCompanies();
+        foreach($companies as $company) {
+            $users = $company->getUsers();
+            foreach ($users as $user) {
+                $usersList[] = $user;
+            }
+        }
         
         // On crée le FormBuilder grâce au service form factory
         // On ajoute les champs de l'entité que l'on veut à notre formulaire
-        $form = $this->createForm(\AppBundle\Form\Type\ActionFormType::class, $action);
+        $form = $this->createForm(\AppBundle\Form\Type\ActionFormType::class, $action, array('usersList' => $usersList ));
         
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
@@ -79,36 +89,38 @@ class ActionController extends Controller
     }
     
 
-    public function editAction(Request $request, Exigence $exigence)
+    public function editAction(Request $request, Action $action)
     {
-        $project = $exigence->getProject();
-
-        $listPartiePrenante = $project->getPartiesPrenantes();
-        $listObjectifs = new ArrayCollection();
-        $enjeux = new ArrayCollection();
-        $enjeux = $project->getEnjeux();
-
-        foreach($enjeux as $enjeu) {
-            $objectifs = $enjeu->getObjectifs();
-            foreach ($objectifs as $obj) {
-                $listObjectifs[] = $obj;
+        $project = $action->getProject();
+    
+        $user = $this->getUser();
+        
+        $action->setProject($project);
+        $action->setOrigine($user);
+        
+        $usersList = new ArrayCollection();
+        $companies = $project->getCompanies();
+        foreach($companies as $company) {
+            $users = $company->getUsers();
+            foreach ($users as $user) {
+                $usersList[] = $user;
             }
         }
+        
 
-        $form = $this->createForm(\AppBundle\Form\Type\ExigenceType::class, $exigence, array('project' => $project,
-        'listPartiePrenante' => $listPartiePrenante, 'listObjectifs' => $listObjectifs ));
+        $form = $this->createForm(\AppBundle\Form\Type\ActionFormType::class, $action, array('usersList' => $usersList ));
 
         // only handles data on POST
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $exigence = $form->getData();
+            $action = $form->getData();
             $em = $this->getDoctrine()->getManager();
-            $em->persist($exigence);
+            $em->persist($action);
             $em->flush();
             $this->addFlash('success', 'Exigence mise à jour');
-            return $this->redirectToRoute('iris_project_exigence_fiche', array('idproject' => $project->getId(), 'id' => $exigence->getId()));
+            return $this->redirectToRoute('iris_project_action_fiche', array('idproject' => $project->getId(), 'id' => $action->getId()));
         }
-        return $this->render('IrisProjectBundle:Exigence:creationExigence.html.twig',    
+        return $this->render('IrisProjectBundle:Action:creationAction.html.twig',    
             array('form' => $form->createView(), 
                 ));
     }
@@ -129,19 +141,19 @@ class ActionController extends Controller
                 array('action'  => $action ));
     }
     
-    public function showAllAction($id){
-        $project = $this
+    public function showAllAction(){
+        $action = $this
         ->getDoctrine()
-        ->getRepository('AppBundle:Project')
-        ->find($id)
+        ->getRepository('AppBundle:Action')
+        ->findAll()
         ;
         
-        if (!$project){
-            throw $this->createNotFoundException('Aucun Projet n\'existe');
+        if (!$action){
+            throw $this->createNotFoundException('Aucun Action n\'existe');
         }
         
-        return $this->render('IrisProjectBundle:Enjeux:listeExigence.html.twig', 
-                array('project'  => $project ));
+        return $this->render('IrisProjectBundle:Action:listeAction.html.twig', 
+                array('action'  => $action ));
     }
     
 }

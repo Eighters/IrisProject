@@ -8,7 +8,6 @@
 
 {% block body %}
 {{ form_start(form, {'attr': {'class': 'form-group'}} ) }}
-
     <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">Formulaire d'enjeu</h3>
@@ -30,11 +29,6 @@
                 {{ form_label(form.visibilite) }}
                 {{ form_errors(form.visibilite) }}
                 {{ form_widget(form.visibilite) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.origine) }}
-                {{ form_errors(form.origine) }}
-                {{ form_widget(form.origine) }}
             </div>
             <div class="form-group">
                 {{ form_label(form.datedebut) }}

@@ -26,7 +26,7 @@ class ActionFormType extends AbstractType{
     
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
+        $usersList = $options['usersList'];
         $builder->add('visibilite', ChoiceType::class, array(
                     'choices'  => array(
                         'Interne' => 'Interne',
@@ -34,8 +34,20 @@ class ActionFormType extends AbstractType{
                     ),
                 ))
                 ->add('nom')
-                ->add('responsable')
-                ->add('origine')
+                
+                ->add('responsable', EntityType::class, array(
+                // query choices from this entity
+                'class' => 'AppBundle:User',
+                'label' => 'Responsable',
+
+                // use the User.username property as the visible option string
+                'choice_label' => 'nom',
+                'choices' => $usersList,
+
+                'group_by' => function ($user) {
+                    return $user->getCompany()->getRaisonSocial();
+                },
+                ))
                 ->add('datedebut', DateType::class)
                 ->add('echeancePrevue', DateType::class)
                 ->add('dateFinReelle', DateType::class)
@@ -71,6 +83,10 @@ class ActionFormType extends AbstractType{
     {
         $resolver->setDefaults([
             'data_class' => 'AppBundle\Entity\Action'
-        ]);
+        ])
+                
+            ->setRequired(array(
+            'usersList'
+        ));
     }
 }
