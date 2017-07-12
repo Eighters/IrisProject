@@ -39,7 +39,7 @@ class ExigenceController extends Controller
         
         // On crée le FormBuilder grâce au service form factory
         // On ajoute les champs de l'entité que l'on veut à notre formulaire
-        $form = $this->createForm(\AppBundle\Form\Type\ExigenceType::class, $exigence, array('project' => $project,
+        $form = $this->createForm(\AppBundle\Form\Type\ExigenceType::class, $exigence, array(
         'listPartiePrenante' => $listPartiePrenante, 'listObjectifs' => $listObjectifs ));
         
         // Si la requête est en POST
@@ -93,7 +93,7 @@ class ExigenceController extends Controller
             }
         }
 
-        $form = $this->createForm(\AppBundle\Form\Type\ExigenceType::class, $exigence, array('project' => $project,
+        $form = $this->createForm(\AppBundle\Form\Type\ExigenceType::class, $exigence, array(
         'listPartiePrenante' => $listPartiePrenante, 'listObjectifs' => $listObjectifs ));
 
         // only handles data on POST

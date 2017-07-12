@@ -38,8 +38,7 @@ class PartiePrenanteController extends Controller
         
         // On crée le FormBuilder grâce au service form factory
         // On ajoute les champs de l'entité que l'on veut à notre formulaire
-        $form = $this->createForm(\AppBundle\Form\Type\PartiePrenanteType::class, $partiePrenante, array('project' => $project,
-        'usersList' => $usersList ));
+        $form = $this->createForm(\AppBundle\Form\Type\PartiePrenanteType::class, $partiePrenante, array('usersList' => $usersList ));
         
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
@@ -89,8 +88,7 @@ class PartiePrenanteController extends Controller
             }
         }
 
-        $form = $this->createForm(\AppBundle\Form\Type\PartiePrenanteType::class, $partiePrenante, array('project' => $project,
-        'usersList' => $usersList ));
+        $form = $this->createForm(\AppBundle\Form\Type\PartiePrenanteType::class, $partiePrenante, array('usersList' => $usersList ));
         // only handles data on POST
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

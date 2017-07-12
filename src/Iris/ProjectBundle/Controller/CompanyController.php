@@ -21,8 +21,6 @@ class CompanyController extends Controller
         ->find($id)
         ;
 
-        // Création de l'entité Objectif
-        $company = new Company();
         
         // On crée le FormBuilder grâce au service form factory
         // On ajoute les champs de l'entité que l'on veut à notre formulaire

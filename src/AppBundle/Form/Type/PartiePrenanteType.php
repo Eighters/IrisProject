@@ -13,7 +13,7 @@
  */
 namespace AppBundle\Form\Type;
 
-
+use AppBundle\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -26,7 +26,6 @@ class PartiePrenanteType extends AbstractType{
     
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $project = $options['project'];
         $usersList = $options['usersList'];
         $builder->add('nom')
                 ->add('type', ChoiceType::class, array(
@@ -70,7 +69,7 @@ class PartiePrenanteType extends AbstractType{
                 // used to render a select box, check boxes or radios
                 'multiple' => true,
                 'expanded' => true,
-                'group_by' => function ($user) {
+                'group_by' => function (User $user) {
                     return $user->getCompany()->getRaisonSocial();
                 },
                 ))
@@ -86,8 +85,7 @@ class PartiePrenanteType extends AbstractType{
             'data_class' => 'AppBundle\Entity\PartiePrenante'
         ])
         ->setRequired(array(
-            'project',
-            'usersList'
+            'usersList',
         ));
     }
 }
