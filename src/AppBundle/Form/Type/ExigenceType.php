@@ -27,7 +27,6 @@ class ExigenceType extends AbstractType{
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        $project = $options['project'];
         $listPartiePrenante = $options['listPartiePrenante'];
         $listObjectifs = $options['listObjectifs'];
 
@@ -97,7 +96,6 @@ class ExigenceType extends AbstractType{
             'data_class' => 'AppBundle\Entity\Exigence'
         ])
         ->setRequired(array(
-            'project',
             'listPartiePrenante',
             'listObjectifs',
         ));

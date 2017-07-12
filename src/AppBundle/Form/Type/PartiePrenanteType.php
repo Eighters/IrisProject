@@ -26,7 +26,6 @@ class PartiePrenanteType extends AbstractType{
     
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $project = $options['project'];
         $usersList = $options['usersList'];
         $builder->add('nom')
                 ->add('type', ChoiceType::class, array(
@@ -86,8 +85,7 @@ class PartiePrenanteType extends AbstractType{
             'data_class' => 'AppBundle\Entity\PartiePrenante'
         ])
         ->setRequired(array(
-            'project',
-            'usersList'
+            'usersList',
         ));
     }
 }
