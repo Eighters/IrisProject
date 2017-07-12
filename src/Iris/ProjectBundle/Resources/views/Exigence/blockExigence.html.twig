@@ -1,0 +1,55 @@
+{% if exigence.priorite == "Non négociable - Must" %}
+    <div class="header-exigence red-exigence">
+
+{% elseif exigence.priorite == "Requis non bloquant - Should" %}
+    <div class="header-exigence orange-exigence">
+
+{% elseif exigence.priorite == "Optionnel un plus - Wont" %}
+    <div class="header-exigence green-exigence">
+
+{% else %}
+    <div class="header-exigence">
+
+{% endif %}
+
+    <div>
+        <span>Priorité</span>
+        <span class="picto-right">
+            <a href="{{ base_url }}/projets/{{project.id}}/exigences/{{exigence.id}}/edit"><img src="{{ asset('img/edit.svg') }}" class="picto" alt="Editer" title="Editer"></a>
+            <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto" alt="Archiver" title="Archiver"></a>
+        </span>
+    </div>
+    <div class="align-middle ref-exigence">
+        <h3>{{exigence.reference}}</h3>
+    </div>
+</div>
+<div class="exigence-infos">
+    <div class="exigence-infos-up">
+        <div class="row align-middle exigence-partieprenante">
+            <h3>{{exigence.partiePrenante.nom}}</h3>
+        </div>
+        <div class="row exigence-definition">
+            <div class="col-md-3 exigence-definition-label"><p>Définition</p></div>
+            <div class="col-md-9 exigence-definition-valeur"><p>{{exigence.definition}}</p></div>
+        </div>
+        <div class="row exigence-condition">
+            <div class="col-md-3"><p>Conditions d'acceptation</p></div>
+            <div class="col-md-9"><p>{{exigence.conditionAcceptation}}</p></div>
+        </div>
+        <div class="row exigence-objectif">
+            <div class="col-md-3"><p>Objectifs liés</p></div>
+            <div class="col-md-9"><p>{{exigence.objectif.description}}</p></div>
+        </div>
+    </div>
+    
+    <div class="row exigence-attributes">
+        <div class="col-md-6 exigence-type">
+            <h3>Type</h3>
+            <p>{{exigence.type}}</p>
+        </div>
+        <div class="col-md-6 exigence-statut">
+            <h3>Statut</h3>
+            <p>{{exigence.statut}}</p>
+        </div>
+    </div>
+</div>
