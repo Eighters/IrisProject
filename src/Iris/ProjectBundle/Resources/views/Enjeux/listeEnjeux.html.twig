@@ -59,53 +59,7 @@
                 </div>
                 <div class="exigence-infos">
                     <div class="row">
-                        <div class="col-md-3">
-                            <p>Objectif</p>
-                        </div>
-                        <div class="col-md-7">
-                            {% set firstObjectif = enjeu.objectifs.first() %}
-                            {% if firstObjectif is defined and firstObjectif %}
-                                {{ firstObjectif.description }}
-                            {% endif %}
-                        </div>
-                        <div class="col-md-2">
-                          <button type="button" class="more-objectif" data-toggle="modal" data-target="#myModal{{enjeu.id}}">
-                            <img src="{{ asset('img/plus.svg') }}" >
-                          </button>
-
-                          <!-- Modal -->
-                          <div class="modal fade" id="myModal{{enjeu.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel{{enjeu.id}}">
-                            <div class="modal-dialog" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                  <h4 class="modal-title" id="myModalLabel{{enjeu.id}}">Objectifs</h4>
-                                </div>
-                                <div class="modal-body">
-                                  <div class="row">
-                                    <div class="col-md-12">
-                                      
-                                      {% for objectif in enjeu.objectifs %}
-                                            <p>
-                                                {{objectif.description}}
-                                                <span>
-                                                    <a href="{{ base_url }}/projets/{{project.id}}/enjeux/{{enjeu.id}}/objectifs/{{objectif.id}}/edit"><img src="{{ asset('img/edit.svg') }}" class="picto-little" alt="Editer" title="Editer" /></a>
-                                                    <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto-little" alt="Archiver" title="Archiver"></a>
-                                                    
-                                                </span>
-                                              
-                                            </p>
-                                      {% endfor %}
-                                      <p><a href="{{ base_url }}/projets/{{project.id}}/enjeux/{{enjeu.id}}/objectifs/add">Ajouter un objectif</a></p>
-                                    </div>
-                                    
-                                  </div>
-                                </div>
-                                
-                              </div>
-                            </div>
-                        </div>
-                    </div>
+                        {% include "IrisProjectBundle:Enjeux:rowObjectifs.html.twig" %}
                     </div>
                     <div class="row">
                         <div class="col-md-3">
