@@ -12,7 +12,7 @@
  */
 namespace AppBundle\Form\Type;
 
-
+use AppBundle\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -44,7 +44,7 @@ class ActionFormType extends AbstractType{
                 'choice_label' => 'nom',
                 'choices' => $usersList,
 
-                'group_by' => function ($user) {
+                'group_by' => function (User $user) {
                     return $user->getCompany()->getRaisonSocial();
                 },
                 ))
