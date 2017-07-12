@@ -43,9 +43,9 @@
                 
                 <div class="action-infos row">
                         <div class="col-md-3">
-                            <div class="action-date"><p><img src="{{ asset('img/vert-8.png') }}">{{action.datedebut|date('d/m/Y')}}</p></div>
-                            <div class="action-date"><p><img src="{{ asset('img/jaune-8.png') }}">{{action.echeancePrevue|date('d/m/Y')}}</p></div>
-                            <div class="action-date"><p><img src="{{ asset('img/rouge-8.png') }}">{{action.dateFinReelle|date('d/m/Y')}}</p></div>                
+                            <div class="action-date"><p>{{action.datedebut|date('d/m/Y')}}</p></div>
+                            <div class="action-date"><p>{{action.echeancePrevue|date('d/m/Y')}}</p></div>
+                            <div class="action-date"><p>{{action.dateFinReelle|date('d/m/Y')}}</p></div>                
                         </div> 
                         <div class="col-md-6 align-middle"> 
                             <div class="title">
@@ -57,7 +57,7 @@
                             <p>Etat : {{action.etat}}</p>
                         </div> 
                         <div class="col-md-3">
-                            <p><a href="{{ base_url }}/utilisateur/{{action.responsable.id}}">{{action.responsable.nom}}</a></p>
+                            <p>{{dump(action.responsable)}}</p>
                             <p>{{action.urgence}}</p>
                         </div>                     
                 </div>

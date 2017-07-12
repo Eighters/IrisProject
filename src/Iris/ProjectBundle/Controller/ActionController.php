@@ -71,7 +71,7 @@ class ActionController extends Controller
             $request->getSession()->getFlashBag()->add('notice', 'Action bien enregistrée.');
 
             // On redirige vers la page de visualisation de l'entreprise nouvellement créée
-            return $this->redirectToRoute('iris_project_action_fiche', array('idproject' => $id, 'id' => $action->getId()));
+            return $this->redirectToRoute('iris_project_action_liste', array('id' => $id));
           }
         }
 
@@ -117,8 +117,8 @@ class ActionController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($action);
             $em->flush();
-            $this->addFlash('success', 'Exigence mise à jour');
-            return $this->redirectToRoute('iris_project_action_fiche', array('idproject' => $project->getId(), 'id' => $action->getId()));
+            $this->addFlash('success', 'Action mise à jour');
+            return $this->redirectToRoute('iris_project_action_liste', array('id' => $project->getId()));
         }
         return $this->render('IrisProjectBundle:Action:creationAction.html.twig',    
             array('form' => $form->createView(), 
@@ -141,19 +141,18 @@ class ActionController extends Controller
                 array('action'  => $action ));
     }
     
-    public function showAllAction(){
-        $action = $this
+    public function showAllAction($id){
+
+        $project = $this
         ->getDoctrine()
-        ->getRepository('AppBundle:Action')
-        ->findAll()
+        ->getRepository('AppBundle:Project')
+        ->find($id)
         ;
-        
-        if (!$action){
-            throw $this->createNotFoundException('Aucun Action n\'existe');
-        }
+
+        $actions = $project->getActions();
         
         return $this->render('IrisProjectBundle:Action:listeAction.html.twig', 
-                array('action'  => $action ));
+                array('actions'  => $actions, 'project'=> $project ));
     }
     
 }
