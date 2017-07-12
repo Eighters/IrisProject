@@ -13,7 +13,7 @@
  */
 namespace AppBundle\Form\Type;
 
-
+use AppBundle\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -70,7 +70,7 @@ class PartiePrenanteType extends AbstractType{
                 // used to render a select box, check boxes or radios
                 'multiple' => true,
                 'expanded' => true,
-                'group_by' => function ($user) {
+                'group_by' => function (User $user) {
                     return $user->getCompany()->getRaisonSocial();
                 },
                 ))

@@ -13,7 +13,7 @@
  */
 namespace AppBundle\Form\Type;
 
-
+use AppBundle\Entity\Objectif;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -72,7 +72,7 @@ class ExigenceType extends AbstractType{
                 'choice_label' => 'description',
                 'choices' => $listObjectifs,
 
-                'group_by' => function ($objectif) {
+                'group_by' => function (Objectif $objectif) {
                     return $objectif->getEnjeux()->getNom();
                 },
                 ))
