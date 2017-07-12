@@ -4,31 +4,27 @@
 namespace Iris\ProjectBundle\Controller;
 
 // use utilisé pour la page Objectif
-use AppBundle\Entity\Objectif;
+use AppBundle\Entity\Company;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 
-class ObjectifController extends Controller
+class CompanyController extends Controller
 {
 
     public function addAction($id, Request $request)
     {
         
-        $enjeu = $this
+        $project = $this
         ->getDoctrine()
-        ->getRepository('AppBundle:Enjeux')
+        ->getRepository('AppBundle:Project')
         ->find($id)
         ;
 
-        // Création de l'entité Objectif
-        $objectif = new Objectif();
-
-        $objectif->setEnjeux($enjeu);
         
         // On crée le FormBuilder grâce au service form factory
         // On ajoute les champs de l'entité que l'on veut à notre formulaire
-        $form = $this->createForm(\AppBundle\Form\Type\ObjectifFormType::class, $objectif);
+        $form = $this->createForm(\AppBundle\Form\Type\ListCompanyType::class, $project);
         
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
@@ -38,16 +34,15 @@ class ObjectifController extends Controller
 
           // On vérifie que les valeurs entrées sont correctes
           if ($form->isSubmitted() && $form->isValid()) {
-
             // On enregistre notre objet $form dans la base de données.
             $em = $this->getDoctrine()->getManager();
-            $em->persist($objectif);
+            $em->persist($project);
             $em->flush();
 
-            $request->getSession()->getFlashBag()->add('notice', 'Objectif bien enregistré.');
+            $request->getSession()->getFlashBag()->add('notice', 'Entreprise bien ajoutée.');
 
             // On redirige vers la page de visualisation de l'entreprise nouvellement créée
-            return $this->redirectToRoute('iris_project_enjeux_liste', array('id' => $enjeu->getProject()->getId()));
+            return $this->redirectToRoute('iris_project_fiche', array('id' => $id));
           }
         }
 
@@ -56,31 +51,14 @@ class ObjectifController extends Controller
         
         // On passe la méthode createView() du formulaire à la vue
         // afin qu'elle puisse afficher le formulaire toute seule
-        return $this->render('IrisProjectBundle:Objectif:formObjectif.html.twig', array(
+        return $this->render('IrisProjectBundle:Company:formListCompany.html.twig', array(
           'form' => $form->createView(),
+          'project' => $project,
         ));
         
 
         
     }
     
-
-    public function editAction(Request $request, Objectif $objectif)
-    {
-        $form = $this->createForm(\AppBundle\Form\Type\ObjectifFormType::class, $objectif);
-        // only handles data on POST
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $objectif = $form->getData();
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($objectif);
-            $em->flush();
-            $this->addFlash('success', 'Objectif mis à jour !');
-            return $this->redirectToRoute('iris_project_enjeux_liste', array('id' => $objectif->getEnjeux()->getProject()->getId()));
-        }
-        return $this->render('IrisProjectBundle:Objectif:formObjectif.html.twig',    
-            array('form' => $form->createView(), 
-                ));
-    }
     
 }

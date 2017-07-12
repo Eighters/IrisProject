@@ -24,6 +24,31 @@ iris_project_liste_fiche:
     methods:  [ get ]
     defaults: { _controller: IrisProjectBundle:Project:ShowAll }
 
+iris_project_entreprise_add:
+    path:     /projets/{id}/entreprises
+    methods:  [ get, post ]
+    defaults: { _controller: IrisProjectBundle:Company:Add }
+
+iris_project_partieprenante_liste:
+    path:     /projets/{id}/partiesprenantes
+    methods:  [ get ]
+    defaults: { _controller: IrisProjectBundle:PartiePrenante:ShowAll }
+
+iris_project_partieprenante_add:
+    path:     /projets/{id}/partiesprenantes/add
+    methods:  [ get, post ]
+    defaults: { _controller: IrisProjectBundle:PartiePrenante:Add }
+
+iris_project_partieprenante_fiche:
+    path:     /projets/{idproject}/partiesprenantes/{id}
+    methods:  [ get ]
+    defaults: { _controller: IrisProjectBundle:PartiePrenante:Show }
+
+iris_project_partieprenante_edit:
+    path:     /projets/{idproject}/partiesprenantes/{id}/edit
+    methods:  [ get, post ]
+    defaults: { _controller: IrisProjectBundle:PartiePrenante:Edit }
+
 iris_project_enjeux_liste:
     path:     /projets/{id}/enjeux
     methods:  [ get ]
@@ -39,8 +64,13 @@ iris_project_enjeux_fiche:
     methods:  [ get ]
     defaults: { _controller: IrisProjectBundle:Enjeux:Show }
 
+iris_project_enjeux_edit:
+    path:     /projets/{idproject}/enjeux/{id}/edit
+    methods:  [ get, post ]
+    defaults: { _controller: IrisProjectBundle:Enjeux:Edit }
+
 iris_project_objectif_edit:
-    path:     /projets/{idproject}/enjeux/{id}/objectifs/{idobjectif}/edit
+    path:     /projets/{idproject}/enjeux/{idenjeu}/objectifs/{id}/edit
     methods:  [ get, post ]
     defaults: { _controller: IrisProjectBundle:Objectif:edit }
     requirements:
@@ -50,3 +80,43 @@ iris_project_objectif_add:
     path:     /projets/{idproject}/enjeux/{id}/objectifs/add
     methods:  [ get, post ]
     defaults: { _controller: IrisProjectBundle:Objectif:Add }
+
+iris_project_exigence_liste:
+    path:     /projets/{id}/exigences
+    methods:  [ get ]
+    defaults: { _controller: IrisProjectBundle:Exigence:ShowAll }
+
+iris_project_exigence_add:
+    path:     /projets/{id}/exigences/add
+    methods:  [ get, post ]
+    defaults: { _controller: IrisProjectBundle:Exigence:Add }
+
+iris_project_exigence_fiche:
+    path:     /projets/{idproject}/exigences/{id}
+    methods:  [ get ]
+    defaults: { _controller: IrisProjectBundle:Exigence:Show }
+
+iris_project_exigence_edit:
+    path:     /projets/{idproject}/exigences/{id}/edit
+    methods:  [ get, post ]
+    defaults: { _controller: IrisProjectBundle:Exigence:Edit }
+
+iris_project_action_add:
+    path:     /projets/{id}/actions/add
+    methods:  [ get, post ]
+    defaults: { _controller: IrisProjectBundle:Action:Add }
+
+iris_project_action_fiche:
+    path:     /projets/{idproject}/actions/{id}
+    methods:  [ get]
+    defaults: { _controller: IrisProjectBundle:Action:Show }
+
+iris_project_action_edit:
+    path:     /projets/{idproject}/actions/{id}/edit
+    methods:  [ get, post ]
+    defaults: { _controller: IrisProjectBundle:Action:Edit }
+
+iris_project_action_liste:
+    path:     /projets/{id}/actions
+    methods:  [ get ]
+    defaults: { _controller: IrisProjectBundle:Action:ShowAll }

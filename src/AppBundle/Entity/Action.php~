@@ -29,16 +29,18 @@ class Action
     private $visibilite;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="responsable", type="string", length=50)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", cascade={"persist"}, inversedBy="actions")
+     * @ORM\JoinColumn(name="responsable_id", referencedColumnName="id")
      */
     private $responsable;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="origine", type="string", length=50)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", cascade={"persist"}, inversedBy="actionsCreated")
+     * @ORM\JoinColumn(name="origine_id", referencedColumnName="id")
      */
     private $origine;
 
@@ -59,7 +61,7 @@ class Action
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateFinReelle", type="date")
+     * @ORM\Column(name="dateFinReelle", type="date", nullable=true)
      */
     private $dateFinReelle;
 
@@ -80,16 +82,24 @@ class Action
     /**
      * @var string
      *
-     * @ORM\Column(name="observation", type="string", length=300)
+     * @ORM\Column(name="observation", type="string", length=300, nullable=true)
      */
     private $observation;
 
     /**
      * @var int
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\PartiePrenante", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Project", cascade={"persist"}, inversedBy="actions")
+     * @ORM\JoinColumn(name="project_id", referencedColumnName="id")
      */
-    private $partiePrenante;
+    private $project;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=100)
+     */
+    private $nom;
 
 
     /**
@@ -319,26 +329,27 @@ class Action
     }
 
     /**
-     * Set partiePrenante
+     * Set project
      *
-     * @param integer $partiePrenante
+     * @param integer $project
      *
      * @return Action
      */
-    public function setPartiePrenante($partiePrenante)
+    public function setProject($project)
     {
-        $this->partiePrenanteId = $partiePrenante;
+        $this->project = $project;
 
         return $this;
     }
 
     /**
-     * Get partiePrenante
+     * Get project
      *
-     * @return \AppBundle\Entity\PartiePrenante
+     * @return int
      */
-    public function getPartiePrenante()
+    public function getProject()
     {
-        return $this->partiePrenante;
+        return $this->project;
     }
+
 }

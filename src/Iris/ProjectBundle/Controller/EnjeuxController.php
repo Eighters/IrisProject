@@ -47,7 +47,7 @@ class EnjeuxController extends Controller
             $request->getSession()->getFlashBag()->add('notice', 'Enjeu bien enregistrée.');
 
             // On redirige vers la page de visualisation de l'entreprise nouvellement créée
-            return $this->redirectToRoute('iris_project_enjeux_fiche', array('idproject' => $id, 'id' => $enjeu->getId()));
+            return $this->redirectToRoute('iris_project_enjeux_liste', array('id' => $id));
           }
         }
 
@@ -75,10 +75,10 @@ class EnjeuxController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($enjeu);
             $em->flush();
-            $this->addFlash('success', 'Enjeux updated!');
-            return $this->redirectToRoute('iris_project_enjeux_fiche', array('idproject' => $enjeu->getProject()->getId(), 'id' => $enjeu->getId()));
+            $this->addFlash('success', 'Enjeux mis à jour!');
+            return $this->redirectToRoute('iris_project_enjeux_liste', array('id' => $enjeu->getProject()->getId()));
         }
-        return $this->render('IrisProjectBundle:Enjeux:modificationEnjeux.html.twig',    
+        return $this->render('IrisProjectBundle:Enjeux:creationEnjeux.html.twig',    
             array('form' => $form->createView(), 
                 ));
     }
@@ -105,12 +105,14 @@ class EnjeuxController extends Controller
         ->find($id)
         ;
         
+        $enjeux = $project->getEnjeux();
+
         if (!$project){
             throw $this->createNotFoundException('Aucun Projet n\'existe');
         }
         
         return $this->render('IrisProjectBundle:Enjeux:listeEnjeux.html.twig', 
-                array('project'  => $project ));
+                array('project'  => $project, 'enjeux' => $enjeux ));
     }
     
 }

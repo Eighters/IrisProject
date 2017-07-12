@@ -1,0 +1,75 @@
+{% extends "::base.html.twig" %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/ficheentreprise.css') }}" />
+ <link rel="stylesheet" href="{{ asset('css/listentreprise.css') }}" />
+   <link rel="stylesheet" href="{{ asset('css/listactions.css') }}" />
+ <link rel="stylesheet" href="{{ asset('css/User.css') }}" />
+{% endblock %}
+{% block body %}
+    {# you can read and display just one flash message type... #}
+    {% for flash_message in app.session.flashBag.get('notice') %}
+    <div class="alert alert-warning text-center">
+        {{ flash_message }}
+    </div>
+    {% endfor %} 
+<!-- debut fiche entreprise-->
+<section class="content">
+    <div class="">
+    <div class="nouvelleEntreprise">
+         <a class="close-exigence" href="{{ base_url }}/projets/{{project.id}}"><img src="{{ asset('img/close.svg') }}" class="picto" alt="Retour" title="Retour"></a>
+        <a href="{{ base_url }}/projets/{{project.id}}/actions/add">
+            <i class="glyphicon glyphicon-plus fa-2x"></i>            
+        </a>
+    </div>
+</div>
+    <div class="container-fiche row">
+<div class="col-md-12 nopadding projetheader">
+    <div class="banner-actions align-middle">
+        <h1>Actions</h1>
+    </div>
+</div>
+{% for action in actions %}
+        <div class="col-md-6">
+            <div class="row">
+                <span class="picto-right">
+                
+                
+                <a href="{{ base_url }}/projets/{{project.id}}/actions/{{action.id}}/edit"><img src="{{ asset('img/edit.svg') }}" class="picto-little" alt="Editer" title="Editer" /></a>
+                <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto-little" alt="Archiver" title="Archiver"></a>
+                </span>
+            </div>
+            
+            <div class="action-card row">
+                
+                <div class="action-infos row">
+                        <div class="col-md-3">
+                            <div class="action-date"><p><img src="{{ asset('img/vert-8.png') }}">{{action.datedebut|date('d/m/Y')}}</p></div>
+                            <div class="action-date"><p><img src="{{ asset('img/jaune-8.png') }}">{{action.echeancePrevue|date('d/m/Y')}}</p></div>
+                            <div class="action-date"><p><img src="{{ asset('img/rouge-8.png') }}">{{action.dateFinReelle|date('d/m/Y')}}</p></div>                
+                        </div> 
+                        <div class="col-md-6 align-middle"> 
+                            <div class="title">
+                                <div class="titre-actions">
+                                    <h3><a href="{{ base_url }}/projets/{{project.id}}/actions/{{action.id}}">{{ action.nom }} </a></h3>
+                                </div>
+                            </div>
+                            <p>{{action.observation}}</p>
+                            <p>Etat : {{action.etat}}</p>
+                        </div> 
+                        <div class="col-md-3">
+                            <p><a href="{{ base_url }}/utilisateur/{{action.responsable.id}}">{{action.responsable.nom}}</a></p>
+                            <p>{{action.urgence}}</p>
+                        </div>                     
+                </div>
+                
+                    
+                    
+                
+            </div>
+        </div>
+         {% endfor %}
+</div>
+</section>
+
+<!-- fin fiche entreprise-->
+{% endblock %}

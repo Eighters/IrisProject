@@ -2,6 +2,7 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/ficheentreprise.css') }}" />
  <link rel="stylesheet" href="{{ asset('css/listentreprise.css') }}" />
+   <link rel="stylesheet" href="{{ asset('css/listenjeux.css') }}" />
  <link rel="stylesheet" href="{{ asset('css/User.css') }}" />
 {% endblock %}
 {% block body %}
@@ -12,46 +13,81 @@
     </div>
     {% endfor %} 
 <!-- debut fiche entreprise-->
-<div class="row">
+<section class="content">
+
     <div class="nouvelleEntreprise">
-        <a href="{{ base_url }}/projets//objectifs/add">
+         <a class="close-exigence" href="{{ base_url }}/projets/{{project.id}}"><img src="{{ asset('img/close.svg') }}" class="picto" alt="Retour" title="Retour"></a>
+        <a href="{{ base_url }}/projets/{{project.id}}/enjeux/add">
             <i class="glyphicon glyphicon-plus fa-2x"></i>            
         </a>
     </div>
+
+    <div class="container-fiche row">
+<div class="col-md-12 nopadding projetheader">
+    <div class="banner-enjeux align-middle">
+        <h1>Enjeux</h1>
+    </div>
 </div>
-<div class="container-fiche row">
 {% for enjeu in enjeux %}
-    	<div class="item  col-xs-4 col-lg-3">
-            <div class="thumbnail">
-            	<div class="title">
-            	<div style=" float: left; padding-left: 15px;">
-            	<a href="{{ base_url }}/projets/edit/{{proj.id}}"><img src="{{ asset('img/edit.svg') }}" class="picto-little" alt="Editer" title="Editer" /></a>
+        <div class="item  col-md-6">
+            <div class="enjeu-card">
+                {% if enjeu.priorite == "Must" %}
+                            <div class="title red-exigence row">
 
-            	</div>
-            	<div style=" float: right; padding-right: 15px;">
-            	<a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto-little" alt="Archiver" title="Archiver"></a>
+                        {% elseif enjeu.priorite == "Should" %}
+                            <div class="title orange-exigence row">
 
-            	</div>
-            	<div style=" text-align: center; ">
-                    <h4> <a href="{{ base_url }}/projets/{{proj.id}}">{{ proj.nom }} </a></h4>
-            	</div>
-            	
-            	</div>
+                        {% elseif enjeu.priorite == "Wont" %}
+                            <div class="title green-exigence row">
+
+                        {% else %}
+                            <div class="title white-exigence row">
+
+                        {% endif %}
                 
-                <div class="image utilisateur">
-                    <a href="{{ base_url }}/projets/{{proj.id}}">
-                        <img class="img-circle img-entreprise" src="{{ base_url }}/img/company.svg" alt="Generic placeholder image" width="140" height="140">
-                    </a>
+                    <div class="picto-card-enjeu picto-card-enjeu-archive">
+                    <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto-little" alt="Archiver" title="Archiver"></a>
+
+                    </div>
+                    <div class="picto-card-enjeu picto-card-enjeu-edit">
+                    <a href="{{ base_url }}/projets/{{project.id}}/enjeux/{{enjeu.id}}/edit"><img src="{{ asset('img/edit.svg') }}" class="picto-little" alt="Editer" title="Editer" /></a>
+                    </div>
+                    <div class="titre-enjeux">
+                        <h3> <a href="{{ base_url }}/projets/{{project.id}}/enjeux/{{enjeu.id}}">{{ enjeu.nom }} </a></h3>
+                    </div>
+                
                 </div>
-                <div class="caption">
-                	<i class="glyphicon glyphicon-globe" style=" float: left;" ></i>
-                	<p class="group inner list-group-item-heading">
-                        Type : {{ proj.type }}</p>
+                <div class="exigence-infos">
+                    <div class="row">
+                        {% include "IrisProjectBundle:Enjeux:rowObjectifs.html.twig" %}
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <p>Valeur Cible</p>
+                        </div>
+                        <div class="col-md-9">
+                            {{ enjeu.valeurCible }}
+                        </div>
+                    </div>
+                    <div class="row enjeux-attributes">
+                        <div class="col-md-6 enjeux-type">
+                            <p><span class="blue-label">Type : </span>{{enjeu.type}}</p>
+                        </div>
+                        <div class="col-md-6 enjeux-statut">
+                            <p><span class="blue-label">Priorité : </span>{{enjeu.priorite}}</p>
+                        </div>
+                    </div>
                     
                 </div>
+                
+                    
+                    
+                
             </div>
         </div>
          {% endfor %}
 </div>
+</section>
+
 <!-- fin fiche entreprise-->
 {% endblock %}

@@ -24,7 +24,7 @@ section.content{
 	margin: auto;
 }
 
-.nopadding{
+.nopadding, .row.nopadding{
 	padding: 0;
 }
 

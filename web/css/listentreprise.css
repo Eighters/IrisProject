@@ -81,3 +81,27 @@
     float: left;
     margin-right: 15px;
 }
+
+.thumbnail-pp{
+    height: 220px;
+    background-color: #fff;
+}
+
+.utilisateur.pp{
+    margin-top: 0;
+    width: 100%;
+    text-align: center;
+    min-height: 150px;
+    margin-right: 0;
+}
+
+.utilisateur.pp .glyphicon{
+    margin-top: 50px;
+    
+}
+
+.thumbnail-pp .title{
+    float: left;
+    width: 100%;
+    text-align: center;
+}

@@ -1,0 +1,45 @@
+{% extends "::base.html.twig" %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/ficheentreprise.css') }}" />
+ <link rel="stylesheet" href="{{ asset('css/listentreprise.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/listexigence.css') }}" />
+ <link rel="stylesheet" href="{{ asset('css/ficheprojet.css') }}" />
+{% endblock %}
+{% block body %}
+    {# you can read and display just one flash message type... #}
+    {% for flash_message in app.session.flashBag.get('notice') %}
+    <div class="alert alert-warning text-center">
+        {{ flash_message }}
+    </div>
+    {% endfor %} 
+<!-- debut fiche entreprise-->
+<section class="content">
+    <div class="row align-right nopadding">
+        <a class="close-exigence" href="{{ base_url }}/projets/{{project.id}}"><img src="{{ asset('img/close.svg') }}" class="picto" alt="Retour" title="Retour"></a>
+        <a class="add-exigence" href="{{ base_url }}/projets/{{project.id}}/exigences/add">
+            <i class="glyphicon glyphicon-plus picto fa-2x"></i>            
+        </a>
+        
+    </div>
+    <div class="container-fiche row">
+        <div class="col-md-12 nopadding projetheader whitebckgd">
+            <div class="banner-exigence align-middle">
+                <h1>Exigences</h1>
+            </div>
+        </div>
+        {% if exigences %}
+        {% for exigence in exigences %}
+                <div class="col-md-4 exigence-card">
+                    <div class="exigence-content">
+                        {% include "IrisProjectBundle:Exigence:blockExigence.html.twig" %}
+                    </div>
+                    
+                    
+                </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</section>
+
+<!-- fin fiche entreprise-->
+{% endblock %}

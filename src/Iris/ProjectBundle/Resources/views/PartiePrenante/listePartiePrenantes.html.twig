@@ -1,0 +1,66 @@
+{% extends "::base.html.twig" %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/ficheentreprise.css') }}" />
+ <link rel="stylesheet" href="{{ asset('css/listentreprise.css') }}" />
+ <link rel="stylesheet" href="{{ asset('css/User.css') }}" />
+{% endblock %}
+{% block body %}
+    {# you can read and display just one flash message type... #}
+    {% for flash_message in app.session.flashBag.get('notice') %}
+    <div class="alert alert-warning text-center">
+        {{ flash_message }}
+    </div>
+    {% endfor %} 
+<!-- debut fiche entreprise-->
+<div class="row">
+   
+</div>
+<div class="container-fiche row">
+<div class="item  col-xs-4 col-lg-3">
+    <div class="thumbnail thumbnail-pp">
+        <div class="utilisateur pp nouvelleEntreprise">
+                    <a href="{{ base_url }}/projets/{{project.id}}/partiesprenantes/add">
+                        <i class="glyphicon glyphicon-plus fa-2x"></i>  
+                    </a>
+                </div>
+                <div class="title">
+                    
+                        <h4> <a href="{{ base_url }}/projets/{{project.id}}/partiesprenantes/add">
+                   
+                Ajouter une partie prenante       
+            </a></h4>
+                    
+                </div>
+        
+
+    </div>
+</div>
+{% if project.partiesPrenantes %}
+{% for partiePrenante in project.partiesPrenantes %}
+    	<div class="item  col-xs-4 col-lg-3">
+            <div class="thumbnail thumbnail-pp">
+            	
+                
+                <div class="image utilisateur pp">
+                    <a href="{{ base_url }}/projets/{{project.id}}/partiesprenantes/{{ partiePrenante.id }}">
+                        <img class="img-circle img-entreprise" src="{{ base_url }}/img/company.svg" alt="Generic placeholder image" width="140" height="140">
+                    </a>
+                </div>
+                <div class="title">
+                    <div style=" float: left; padding-left: 15px;">
+                    <a href="{{ base_url }}/projets/{{project.id}}/partiesprenantes/{{partiePrenante.id}}/edit"><img src="{{ asset('img/edit.svg') }}" class="picto-little" alt="Editer" title="Editer" /></a>
+                    </div>
+                    <div style=" float: left; text-align: center; ">
+                        <h4> <a href="{{ base_url }}/projets/{{project.id}}/partiesprenantes/{{ partiePrenante.id }}">{{ partiePrenante.nom }} </a></h4>
+                    </div>
+                    <div style=" float: right; padding-right: 15px;">
+                       <a href="#"><img src="{{ asset('img/archive.svg') }}" class="picto-little" alt="Archiver" title="Archiver"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endfor %}
+{% endif %}
+</div>
+<!-- fin fiche entreprise-->
+{% endblock %}

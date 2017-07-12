@@ -1,0 +1,71 @@
+{% extends "::base.html.twig" %}
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('css/creationentreprise.css') }}" />
+
+{% endblock %}
+
+{% block body %}
+{{ form_start(form, {'attr': {'class': 'form-group'}} ) }}
+    <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Formulaire d'exigence</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+          <div class="box-body">
+            <div class="form-group">
+                {{ form_label(form.reference) }}
+                {{ form_errors(form.reference) }}
+                {{ form_widget(form.reference) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.type) }}
+                {{ form_errors(form.type) }}
+                {{ form_widget(form.type) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.definition) }}
+                {{ form_errors(form.definition) }}
+                {{ form_widget(form.definition) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.conditionAcceptation) }}
+                {{ form_errors(form.conditionAcceptation) }}
+                {{ form_widget(form.conditionAcceptation) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.priorite) }}
+                {{ form_errors(form.priorite) }}
+                {{ form_widget(form.priorite) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.statut) }}
+                {{ form_errors(form.statut) }}
+                {{ form_widget(form.statut) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.objectif) }}
+                {{ form_errors(form.objectif) }}
+                {{ form_widget(form.objectif) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.partiePrenante) }}
+                {{ form_errors(form.partiePrenante) }}
+                {{ form_widget(form.partiePrenante) }}
+            </div>
+            
+
+            
+          </div>
+          <!-- /.box-body -->
+
+          <div class="box-footer">
+            {{ form_widget(form.enregistrer) }}
+          </div>
+        
+    </div>
+    
+{{ form_end(form) }}
+
+{% endblock %}

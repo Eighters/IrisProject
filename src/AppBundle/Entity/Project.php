@@ -41,6 +41,13 @@ class Project
     private $dateLancement;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateFin", type="date", nullable=true)
+     */
+    private $dateFin;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=50, nullable=true)
@@ -83,10 +90,15 @@ class Project
      */
     private $category;
 
+
     /**
      * @var ArrayCollection
-     * Many Project has Many companies
-     * @ORM\ManyToMany(targetEntity="Company", mappedBy="projects")
+     * Many Projects have Many Companies.
+     * @ORM\ManyToMany(targetEntity="Company")
+     * @ORM\JoinTable(name="projects_companies",
+     *      joinColumns={@ORM\JoinColumn(name="project_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="company_id", referencedColumnName="id")}
+     *      )
      */
     private $companies;
 
@@ -95,7 +107,7 @@ class Project
      * One Project has Many Partie Prenantes.
      * @ORM\OneToMany(targetEntity="PartiePrenante", mappedBy="project")
      */
-    private $partiesprenantes;
+    private $partiesPrenantes;
 
     /**
      * @var ArrayCollection
@@ -120,7 +132,7 @@ class Project
 
     public function __construct() {
         $this->companies = new ArrayCollection();
-        $this->partiesprenantes = new ArrayCollection();
+        $this->partiesPrenantes = new ArrayCollection();
         $this->enjeux = new ArrayCollection();
         $this->jalons = new ArrayCollection();
         $this->actions = new ArrayCollection();
@@ -182,6 +194,30 @@ class Project
     public function getDateLancement()
     {
         return $this->dateLancement;
+    }
+
+    /**
+     * Set dateFin
+     *
+     * @param \DateTime $dateFin
+     *
+     * @return Project
+     */
+    public function setDateFin($dateFin)
+    {
+        $this->dateFin = $dateFin;
+
+        return $this;
+    }
+
+    /**
+     * Get dateFin
+     *
+     * @return \DateTime
+     */
+    public function getDateFin()
+    {
+        return $this->dateFin;
     }
 
     /**
