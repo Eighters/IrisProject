@@ -17,23 +17,31 @@
 </div>
 <div class="container-fiche row">
 <div class="item  col-xs-4 col-lg-3">
-    <div class="thumbnail">
-        <div class="nouvelleEntreprise">
-            <a href="{{ base_url }}/projets/{{project.id}}/partiesprenantes/add">
-                <i class="glyphicon glyphicon-plus fa-2x"></i>     
+    <div class="thumbnail thumbnail-pp">
+        <div class="utilisateur pp nouvelleEntreprise">
+                    <a href="{{ base_url }}/projets/{{project.id}}/partiesprenantes/add">
+                        <i class="glyphicon glyphicon-plus fa-2x"></i>  
+                    </a>
+                </div>
+                <div class="title">
+                    
+                        <h4> <a href="{{ base_url }}/projets/{{project.id}}/partiesprenantes/add">
+                   
                 Ajouter une partie prenante       
-            </a>
-        </div>
+            </a></h4>
+                    
+                </div>
+        
 
     </div>
 </div>
 {% if project.partiesPrenantes %}
 {% for partiePrenante in project.partiesPrenantes %}
     	<div class="item  col-xs-4 col-lg-3">
-            <div class="thumbnail">
+            <div class="thumbnail thumbnail-pp">
             	
                 
-                <div class="image utilisateur">
+                <div class="image utilisateur pp">
                     <a href="{{ base_url }}/projets/{{project.id}}/partiesprenantes/{{ partiePrenante.id }}">
                         <img class="img-circle img-entreprise" src="{{ base_url }}/img/company.svg" alt="Generic placeholder image" width="140" height="140">
                     </a>
